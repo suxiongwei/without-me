@@ -12,7 +12,7 @@ public class RedisTest {
     public void jedisSet(){
         Jedis jedis = new Jedis("127.0.0.1", 6378);
         jedis.set("deer", "deer");
-        jedis.close();
+//        jedis.close();
     }
 
     public void jedisGet(){
@@ -23,6 +23,7 @@ public class RedisTest {
 
 
     public static void main(String[] args) {
-
+        RedisTest redisTest = new RedisTest();
+        redisTest.jedisSet();
     }
 }

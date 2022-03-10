@@ -17,13 +17,12 @@ public class RespVM {
     public static void main(String[] args) {
         ServerSocket serverSocket = new ServerSocket(6378);
         Socket socket = serverSocket.accept();
-        byte[] request = new byte[1024];
-        InputStream inputStream = socket.getInputStream();
-        inputStream.read(request);
+        byte[] chars = new byte[64];
+        socket.getInputStream().read(chars);
 
-        System.out.println(new String(request));
+        System.out.println(new String(chars));
 
-        socket.close();
-        serverSocket.close();
+//        socket.close();
+//        serverSocket.close();
     }
 }

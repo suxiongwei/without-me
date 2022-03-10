@@ -1,6 +1,6 @@
 package com.sxw.learn.reflect;
 
-import com.sxw.learn.leetcode.Person;
+import com.sxw.learn.bean.Person;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
  */
 public class Test {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
-        Class aClass = Class.forName("com.sxw.learn.leetcode.Person");
+        Class aClass = Class.forName("com.sxw.learn.bean.Person");
         Person person = (Person) aClass.newInstance();
 
         Method method = person.getClass().getDeclaredMethod("playGame");

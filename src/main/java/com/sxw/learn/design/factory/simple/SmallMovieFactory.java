@@ -1,6 +1,6 @@
 package com.sxw.learn.design.factory.simple;
 
-import com.sxw.learn.design.factory.product.SmallMovie;
+import com.sxw.learn.design.factory.simple.product.SmallMovie;
 
 /**
  * 简单工厂
@@ -9,4 +9,12 @@ import com.sxw.learn.design.factory.product.SmallMovie;
  */
 public interface SmallMovieFactory {
     SmallMovie createMovie(String actorName);
+
+    /**
+     * 反射的方式创建对象
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    <T> T createMovieNew(Class<? extends T> clazz);
 }

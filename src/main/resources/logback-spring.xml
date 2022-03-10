@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
+	<property resource="application.yml"/>
+	<springProperty scope="context" name="LOG_HOME" source="loghome"/>
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<root level="DEBUG">
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+<!--	<root level="INFO">-->
+<!--		<appender-ref ref="CONSOLE" />-->
+<!--	</root>-->
+</configuration>

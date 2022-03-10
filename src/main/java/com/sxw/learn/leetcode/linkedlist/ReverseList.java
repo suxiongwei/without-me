@@ -18,4 +18,33 @@ public class ReverseList {
         }
         return prev;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public ListNode reverseListWithoutMe(ListNode head) {
+        return null;
+    }
 }
