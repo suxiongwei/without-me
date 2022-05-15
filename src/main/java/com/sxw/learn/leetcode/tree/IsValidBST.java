@@ -1,9 +1,11 @@
-package com.sxw.learn.leetcode;
+package com.sxw.learn.leetcode.tree;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-23 10:08 上午
+ * 二叉搜索数（二叉查找数、二叉排序树）
+ * 定义：或者是一棵空树，或者是具有如此性质的树：
+ *      若它的左子树不为空，则左子树的所有节点的值均小于它的根节点的值
+ *      若它的右子树不为空，则右子树的所有节点的值均大于它的根节点的值
+ *      它的左、右子树也分别为二叉搜索树
  */
 public class IsValidBST {
     /**
@@ -20,12 +22,12 @@ public class IsValidBST {
         if (node == null) {
             return true;
         }
-        if (node.val <= lower || node.val >= upper) {
-            System.out.println("return false -> node:" + node.val + " lower:" + lower + " upper:" + upper);
+        if (node.value <= lower || node.value >= upper) {
+            System.out.println("return false -> node:" + node.value + " lower:" + lower + " upper:" + upper);
             return false;
         }
-        System.out.println("node:" + node.val + " lower:" + lower + " upper:" + upper);
-        return isValidBST(node.left, lower, node.val) && isValidBST(node.right, node.val, upper);
+        System.out.println("node:" + node.value + " lower:" + lower + " upper:" + upper);
+        return isValidBST(node.left, lower, node.value) && isValidBST(node.right, node.value, upper);
     }
 
     public static void main(String[] args) {

@@ -1,9 +1,7 @@
-package com.sxw.learn.leetcode;
+package com.sxw.learn.leetcode.array;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-16 5:49 下午
+ * 买卖股票的最佳时机
  */
 public class MaxProfit {
 //    public int maxProfit(int[] prices) {

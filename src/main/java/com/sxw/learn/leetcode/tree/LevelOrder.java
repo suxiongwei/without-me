@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode;
+package com.sxw.learn.leetcode.tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-20 11:08 上午
+ * 二叉树的层次遍历
+ * 给定一个二叉树，返回其按层次遍历的节点值。（即逐层地，从左到右访问所有节点）。
  */
 public class LevelOrder {
     public List<List<Integer>> levelOrder(TreeNode root) {
@@ -21,7 +20,7 @@ public class LevelOrder {
             Integer currentLevelSize = queue.size();// 定义一个变量，因为在执行过程中size的值是变化的
             for (Integer i = 0; i < currentLevelSize; i++) {
                 TreeNode curNode = queue.poll();
-                level.add(curNode.val);
+                level.add(curNode.value);
                 if (curNode.left != null) queue.offer(curNode.left);// 从队尾插入，当此轮循环结束，上一层的节点都已经弹出，队列按照从左到右存储的已经是下一层的节点
                 if (curNode.right != null) queue.offer(curNode.right);
             }

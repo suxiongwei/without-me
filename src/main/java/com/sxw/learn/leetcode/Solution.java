@@ -243,36 +243,6 @@ public class Solution {
         return res;
     }
 
-    /**
-     * DFS求最大深度
-     *
-     * @param root
-     * @return
-     */
-    public Integer maxDepth(TreeNode root){
-        Stack<TreeNode> stack = new Stack<>();
-        Stack<Integer> level = new Stack<>();
-        level.push(1);
-        Integer maxDepth = 0;
-
-        stack.add(root);
-        while (!stack.empty()) {
-            TreeNode node = stack.peek();
-            stack.pop();
-            Integer temp = level.pop();
-            maxDepth = Math.max(temp, maxDepth);
-            if (node.right != null) {
-                stack.push(node.right);
-                level.push(temp + 1);
-            }
-            if (node.left != null) {
-                stack.push(node.left);
-                level.push(temp + 1);
-            }
-        }
-        return maxDepth;
-    }
-
     public static int lengthOfLongestSubstring(String s) {
         int n = s.length(), result = 0;
         Map<Character, Integer> map = new HashMap<>();

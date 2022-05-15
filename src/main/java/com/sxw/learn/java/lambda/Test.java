@@ -3,14 +3,17 @@ package com.sxw.learn.java.lambda;
 import com.google.common.collect.Lists;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Test {
+    /**
+     * https://mp.weixin.qq.com/s/qVpbnmrzhCwp9oYuOq3VgQ
+     * @param args
+     */
     public static void main(String[] args) {
         // 判断真假
         Predicate<Integer> predicate = x -> x > 185;
@@ -65,6 +68,49 @@ public class Test {
                 Collectors.partitioningBy(e -> e.getAge() > 30));
         // map的key 可选值为 true/false 为了区分为两个集合
         listMap.forEach((k,v) -> System.out.println("key:" + k + ",value" + v));
+
+        // 数组转集合
+        List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        int[] res = list.stream().mapToInt(Integer::intValue).toArray();
+        System.out.println(Arrays.toString(res));
+
+        // 将数组元素 存储到 List 中
+        int[] arr = {1, 2, 3, 4, 5};
+        // boxed的作用就是将int类型的stream转成了Integer类型的Stream
+        IntStream.of(arr).boxed().collect(Collectors.toList());
+
+        // 统计数组元素中的个数,传统的方法借助map实现，较为冗余
+        String[] arr1 = {"a", "c", "a", "b", "d", "c"};
+        // 第一个参数代表将arr中的每一个元素作为Map中的key，
+        // 第二个参数代表每一个key所对应的value，在这里每一个元素都对应个数1，
+        // 第三个参数代表，如果存在相同的key，该如何进行合并，这里通过使用Integer::sum，代表将具有相同key的元素进行合并时，其value进行相加，这样便实现了每个元素个数的统计。
+        Stream.of(arr1)
+                .collect(Collectors.toMap(k -> k, k -> 1, Integer::sum))
+                .forEach((k, v) -> System.out.println(k + " : " + v));
+
+        // 基本数据类型的数组自定义排序
+        int[] arr2 = {1, 5, 9, 7, 2, 3, 7, -1, 0, 3};
+        int[] res1 = IntStream.of(arr2)
+                .boxed()
+                .sorted(Comparator.reverseOrder())
+                .mapToInt(Integer::intValue)
+                .toArray();
+        System.out.println(Arrays.toString(res1));
+
+        // 统计数组中前 k 个个高频元素
+        int[] nums = {1, 5, 9, 7, 2, 3, 7, -1, 0, 3};
+        int k = 3;
+        int[] res2 = Arrays.stream(nums)
+                .boxed()
+                .collect(Collectors.toMap(i -> i, i -> 1, Integer::sum))
+                .entrySet()
+                .stream()
+                .sorted((m1, m2) -> m2.getValue() - m1.getValue())
+                .limit(k)
+                .mapToInt(Map.Entry::getKey)
+                .toArray();
+        System.out.println(Arrays.toString(res2));
+
     }
 
     /**

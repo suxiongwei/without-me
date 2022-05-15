@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sxw</groupId>
-	<artifactId>java-learn</artifactId>
+	<artifactId>without-me</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>java-learn</name>
+	<name>without-me</name>
 	<description>Java相关的学习</description>
 
 	<properties>
@@ -118,6 +118,11 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.61</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.19</version>
 		</dependency>
 	</dependencies>
 

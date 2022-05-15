@@ -10,29 +10,14 @@ import java.util.Objects;
 
 public class SqlTest {
     public static void main(String[] args) throws JSQLParserException {
-        String sql = "select \n" +
-                "formatDateTime(order_time,'%Y-%m-%d') AS date,\n" +
-                "count(*) as orderNum,\n" +
-                "sum(goods_num) as goodsNum,\n" +
-                " toFloat64(sum(gmv)) as gmvcount ,\n" +
-                "toFloat64(sumIf(gmv, is_aftersale !=0)) as aftersale_gmv,\n" +
-                "countIf(1,is_aftersale !=0) as aftersale_num,\n" +
-                "toFloat64(sumIf(gmv, is_aftersale =2)) as no_shipment_refund_only_gmv,\n" +
-                "countIf(1,is_aftersale =2) as no_shipment_refund_only_num,\n" +
-                "toFloat64(sumIf(gmv, is_aftersale =1)) as shipped_for_refund_only_gmv,\n" +
-                "countIf(1,is_aftersale =1) as shipped_for_refund_only_num,\n" +
-                "if(gmvcount=0,0,no_shipment_refund_only_gmv/gmvcount) as no_shipment_refund_only_gmv_rate,\n" +
-                "if(gmvcount=0,0,shipped_for_refund_only_gmv/gmvcount) as shipped_for_refund_only_gmv_rate,\n" +
-                "if(orderNum=0,0,no_shipment_refund_only_num/orderNum) as no_shipment_refund_only_num_rate,\n" +
-                "if(orderNum=0,0,shipped_for_refund_only_num/orderNum) as shipped_for_refund_only_num_rate,\n" +
-                "if(orderNum=0,0,aftersale_num/orderNum) as aftersale_gmv_rate,\n" +
-                "if(goodsNum=0,0,gmvcount/goodsNum) as unit_price,\n" +
-                "if(orderNum=0,0,gmvcount/orderNum) as order_unit_price\n" +
-                "\n" +
-                "from dwd_sub_opr_order_detail_di where ods_table_name= 'douyin_operating_order' \n" +
-                "group by date \n" +
-                "\n";
-
+        String sql = "SELECT month,\n" +
+                "         toFloat64(sumIf(gmv,\n" +
+                "        platform ='taobao')) AS taobao_gmv, toFloat64(sumIf(service_fee,platform ='taobao')) AS taobao_fee, toUInt64(sumIf(order_num,platform ='taobao')) AS taobao_order_num, toFloat64(sumIf(gmv,platform ='jingdong')) AS jingdong_gmv, toFloat64(sumIf(service_fee,platform ='jingdong')) AS jingdong_fee, toUInt64(sumIf(order_num,platform ='jingdong')) AS jingdong_order_num, toFloat64(sumIf(gmv,platform ='suning')) AS suning_gmv, toFloat64(sumIf(service_fee,platform ='suning')) AS suning_fee, toUInt64(sumIf(order_num,platform ='suning')) AS suning_order_num, toFloat64(sumIf(gmv,platform ='pinduoduo')) AS pinduoduo_gmv, toFloat64(sumIf(service_fee,platform ='pinduoduo')) AS pinduoduo_fee, toUInt64(sumIf(order_num,platform ='pinduoduo')) AS pinduoduo_order_num, toFloat64(sumIf(gmv,platform ='douyin')) AS douyin_gmv, toFloat64(sumIf(service_fee,platform ='douyin')) AS douyin_fee, toUInt64(sumIf(order_num,platform ='douyin')) AS douyin_order_num, toFloat64(sumIf(gmv,platform ='kuaishou')) AS kuaishou_gmv, toFloat64(sumIf(service_fee,platform ='kuaishou')) AS kuaishou_fee, toUInt64(sumIf(order_num,platform ='kuaishou')) AS kuaishou_order_num\n" +
+                "    FROM dws_order_detail_di AS di\n" +
+                "    WHERE 1 = 1\n" +
+                "            AND day >= '2021-09-01'\n" +
+                "            AND day <= '2021-11-31'\n" +
+                "    GROUP BY  formatDateTime(day, '%Y-%m')";
 
         Select stmt = (Select) CCJSqlParserUtil.parse(sql);
 

@@ -2,14 +2,19 @@ package com.sxw.learn.sort;
 
 import java.util.Arrays;
 
-public class WithoutMe {
+public class Question {
+    /**
+     * 插入排序
+     * @param arr
+     * @param n
+     */
     public static void insertSort(int[] arr, int n){
         if (n <= 1) return;
         for (int i = 1; i < n; i++){
             int j = i - 1;
             int value = arr[i];
             for (; j >= 0; j--){
-                if (arr[j] > value){
+                if (value < arr[j]){
                     arr[j + 1] = arr[j];
                 }else {
                     break;
@@ -19,20 +24,13 @@ public class WithoutMe {
         }
     }
 
+    /**
+     * 冒泡排序
+     * @param arr
+     * @param n
+     */
     public static void bubbleSort(int[] arr, int n){
-        if (n <= 1) return;
-        for (int i = 0; i < n; i++){
-            boolean flag = false;
-            for (int j = 0; j < n- i- 1; j++){
-                if (arr[j] > arr[j + 1]){
-                    int tmp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = tmp;
-                    flag = true;
-                }
-            }
-            if (!flag) return;
-        }
+
     }
 
 

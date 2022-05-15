@@ -3,9 +3,7 @@ package com.sxw.learn.leetcode.array;
 import java.util.Arrays;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
  * @Description 两个数组的交集 II
- * @Date 2021-03-16 5:04 下午
  */
 public class Intersect {
     public int[] intersect(int[] nums1, int[] nums2) {

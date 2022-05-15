@@ -1,9 +1,6 @@
 package com.sxw.learn.jvm.ref;
 
-import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * 测试弱引用
@@ -33,7 +30,7 @@ public class TestWeakRef {
         WeakReference<User> weakReference = new WeakReference<>(u);
         u = null;
         System.out.println(weakReference.get());
-        // 展示gc的时候，weakReference会被回收
+        // 显式gc的时候，weakReference会被回收
         System.gc();
         System.out.println("After GC");
         System.out.println(weakReference.get());

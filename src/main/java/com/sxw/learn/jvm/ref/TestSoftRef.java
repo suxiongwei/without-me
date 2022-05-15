@@ -31,7 +31,7 @@ public class TestSoftRef {
         SoftReference<User> softReference = new SoftReference<>(u);
         u = null;
         System.out.println(softReference.get());
-        // 展示gc的时候，softReference不一定会被回收
+        // 显式gc的时候，softReference不一定会被回收
         System.gc();
         System.out.println("After GC");
         System.out.println(softReference.get());
