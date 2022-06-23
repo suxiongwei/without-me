@@ -2,7 +2,6 @@
 ## Java
 已包含内容：
 - Java的虚引用、弱引用...(com.sxw.learn.jvm.ref)
-- 布隆过滤器BloomFilter
 - ExecutorCompletionService
 - InheritableThreadLocal
 - CompletableFuture
@@ -10,11 +9,21 @@
 - wait notify(WaitNotifyCase) 
 - Java中的按值传递(CallByValue)
 - Java的反射(ReflectTest)
+- Volatile(VolatileDemo)
+- Lambda(LambdaTest)
+- JDK动态代理(JdkDynamicProxyTest)
+- Synchronized(SynchronizedDemo)
 
 ## 设计模式
 - 工厂模式(Factory、SimpleFactoryDesignTest)
 - 单例模式(SingletonTest)
 - 装饰器模式(DecoratorDesignTest) 
+
+## 其它
+- 布隆过滤器BloomFilter(BloomFilterDemo)
+- 限流算法(RateLimiterTest)
+- Guava的常见用法(GuavaTest)
+- SpringBoot 启动时自动执行代码的几种方式(com.sxw.learn.spring.startrun)
 
 # 一些面试题： 
 #### CompletableFuture 的join和get有什么区别？

@@ -57,5 +57,6 @@ public class SynchronizedDemo {
 
     public static void main(String[] args) {
         SynchronizedDemo.objectSizeLearn();
+        System.out.println(103478837.36 + 607248.00);
     }
 }

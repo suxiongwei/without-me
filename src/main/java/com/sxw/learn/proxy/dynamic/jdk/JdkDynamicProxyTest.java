@@ -3,7 +3,7 @@ package com.sxw.learn.proxy.dynamic.jdk;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
-public class ClientTest {
+public class JdkDynamicProxyTest {
     public static void main(String[] args) {
         // 设置变量可以保存动态代理类，默认名称以 $Proxy0 格式命名
         // System.getProperties().setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");

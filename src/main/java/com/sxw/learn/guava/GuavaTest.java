@@ -16,7 +16,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-public class Test {
+public class GuavaTest {
     public static void main(String[] args) {
         // Multimap 测试
         Multimap<String, Integer> multimap = ArrayListMultimap.create();

@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class Test {
+public class LambdaTest {
     /**
      * https://mp.weixin.qq.com/s/qVpbnmrzhCwp9oYuOq3VgQ
      * @param args
