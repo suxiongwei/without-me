@@ -15,10 +15,12 @@ public class SimpleSmallMovieFactory implements SmallMovieFactory{
         }
         return smallMovie;
     }
+
     // 当然上面的代码也可以通过反射进行优化
     public <T> T createMovieNew(Class<? extends T> clazz) {
         T obj = null;
         try {
+            // clazz.getName() com.sxw.learn.design.factory.simple.product.CangSmallMovie
             obj = (T) Class.forName(clazz.getName()).newInstance();
         } catch (Exception e) {
             e.printStackTrace();
