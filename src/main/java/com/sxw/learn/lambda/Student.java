@@ -5,10 +5,10 @@ import lombok.Data;
 @Data
 public class Student {
     private String name;
-    private int age, stature;
+    private Integer age, stature;
     private SpecialityEnum specialities;
 
-    public Student(String name, int age, int stature) {
+    public Student(String name, Integer age, Integer stature) {
         this.name = name;
         this.age = age;
         this.stature = stature;
