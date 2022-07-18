@@ -12,7 +12,7 @@ public class ABADemo {
             val stamp = reference.getStamp();
             System.out.println(Thread.currentThread().getName() + "初次版本号" + stamp);
 
-            // 暂停500毫秒，保证后面的t2线程拿到的初次版本好和t1是一致的
+            // 暂停500毫秒，保证后面的t2线程拿到的初次版本号和t1是一致的
             try {
                 TimeUnit.MILLISECONDS.sleep(500);
             } catch (InterruptedException e) {

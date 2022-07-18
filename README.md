@@ -66,6 +66,32 @@
 - []()
 - []()
 
+## LeetCode题解
+### master公式
+### 排序
+- [冒泡排序]()
+- [插入排序]()
+- [选择排序]()
+- [归并排序]()
+- [快速排序]()
+- [堆排序]()
+### 数组
+- [最长公共前缀](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/LongestCommonPrefix.java)
+- [两个数组的交集II](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Intersect.java)
+- [买卖股票的最佳时机](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MaxProfit.java)
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+### 二叉树
+- [最大深度与DFS](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/MaxDepth.java)
+- [层次遍历与BFS](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/LevelOrder.java)
+- [BST与其验证](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsValidBST.java)
+- [BST的查找](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/SearchBSF.java)
+- []()
+- []()
 ## 一些面试题
 #### 为什么任何一个对象都可以成为一个锁？
 每个对象都有一个监视器

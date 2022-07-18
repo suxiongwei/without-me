@@ -22,12 +22,13 @@ public class FutureDemo {
             long start = System.currentTimeMillis();
             while (true){
                 long time = System.currentTimeMillis() - start;
-                if (time > 1000){
+                if (time > 10000){
                     return 1;
                 }
             }
         });
 
+        // 阻塞的获取
         Integer result = (Integer) future.get();
         System.out.println(result);
 
