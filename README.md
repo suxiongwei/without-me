@@ -92,6 +92,9 @@
 - [BST的查找](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/SearchBSF.java)
 - []()
 - []()
+### 其它
+- [荷兰国旗问题]()
+- []()
 ## 一些面试题
 #### 为什么任何一个对象都可以成为一个锁？
 每个对象都有一个监视器
