@@ -1,5 +1,7 @@
 package com.sxw.learn.leetcode.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -36,12 +38,35 @@ public class MaxDepth {
         return maxDepth;
     }
 
+
+    /**
+     * 广度优先搜索
+     * @param root
+     * @return
+     */
+    public static int maxDepth1(TreeNode root) {
+        if (root == null) return 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        int ans = 0;
+        queue.offer(root);
+        while (!queue.isEmpty()){
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+            ans++;
+        }
+        return ans;
+    }
+
     /**
      * 递归求解
      */
-    public static int maxDepth1(TreeNode node){
+    public static int maxDepth2(TreeNode node){
         if (null == node) return 0;
-        return Integer.max(maxDepth1(node.left), maxDepth1(node.right)) + 1;
+        return Integer.max(maxDepth2(node.left), maxDepth2(node.right)) + 1;
     }
 
     public static void main(String[] args) {
@@ -56,5 +81,6 @@ public class MaxDepth {
 
         System.out.println(maxDepth(node3));
         System.out.println(maxDepth1(node3));
+        System.out.println(maxDepth2(node3));
     }
 }
