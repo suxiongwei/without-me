@@ -1,10 +1,7 @@
-package com.sxw.learn.leetcode;
-
-
+package com.sxw.learn.leetcode.dp;
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-02-24 6:48 下午
+ * 最大子序和(53)
+ * 题目描述：给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
  */
 public class MaxSubArray {
     public int solution(int[] nums){

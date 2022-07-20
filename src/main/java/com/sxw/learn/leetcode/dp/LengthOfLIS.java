@@ -1,9 +1,11 @@
-package com.sxw.learn.leetcode;
+package com.sxw.learn.leetcode.dp;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-30 7:43 下午
+ * 最长上升子序列(300)
+ * 题目描述：给定一个无序的整数数组，找到其中最长上升子序列的长度。
+ * 题目解法：
+ * dp[i] ：表示以nums[i]结尾的最长上升子序列的长度
+ * dp[i] = max(dp[j]+1，dp[k]+1，dp[p]+1，.....)
  */
 public class LengthOfLIS {
     public int lengthOfLIS(int[] nums) {

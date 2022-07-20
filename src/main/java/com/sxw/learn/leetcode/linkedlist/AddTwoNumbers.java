@@ -1,11 +1,8 @@
-package com.sxw.learn.leetcode;
-
-import com.sxw.learn.leetcode.linkedlist.ListNode;
+package com.sxw.learn.leetcode.linkedlist;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-20 11:43 上午
+ * 两数相加（2）
+ * 题目描述：给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
  */
 public class AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

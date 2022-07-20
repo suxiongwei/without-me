@@ -1,12 +1,10 @@
 package com.sxw.learn.leetcode.linkedlist;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-10 7:29 下午
+ * 合并两个有序链表(21)
  */
 public class MergeTwoLists {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode prehead = new ListNode(0);
         ListNode result = prehead;
         while (l1 != null && l2 != null){
@@ -41,8 +39,11 @@ public class MergeTwoLists {
         l2.next = node3;
         node3.next = node4;
 
-        MergeTwoLists mergeTwoLists = new MergeTwoLists();
-        mergeTwoLists.mergeTwoLists(l1, l2);
+        ListNode listNode = MergeTwoLists.mergeTwoLists(l1, l2);
+        while (listNode != null){
+            System.out.println(listNode.val);
+            listNode = listNode.next;
+        }
     }
 
 }
