@@ -8,7 +8,7 @@ package com.sxw.learn.leetcode.linkedlist;
  * [要求]：时间复杂度O(N)，额外空间复杂度O(1)
  *
  * [解法]
- * 解法一：利用map结构
+ * 解法一：利用map结构 key存node，value存克隆出来的节点
  * 空间复杂度不满足题目的要求
  *
  * 解法二：在每一个节点的后面复制一个节点

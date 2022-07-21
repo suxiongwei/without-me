@@ -67,7 +67,8 @@
 - []()
 
 ## LeetCode题解
-### master公式
+### [master公式](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/GetMax.java)
+
 ### 排序
 - [冒泡排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/BubbleSort.java)
 - [插入排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/InsertionSort.java)

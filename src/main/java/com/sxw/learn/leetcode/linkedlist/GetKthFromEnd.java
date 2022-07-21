@@ -1,7 +1,5 @@
 package com.sxw.learn.leetcode.linkedlist;
 
-import com.sxw.learn.leetcode.linkedlist.ListNode;
-
 /**
  * @Author 苏雄伟[suxiongwei@smzdm.com]
  * @Description
