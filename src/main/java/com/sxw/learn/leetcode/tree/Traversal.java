@@ -174,7 +174,7 @@ public class Traversal {
          *                     /       \
          *                   6           10
          *                  /           /
-         *                 7           11         
+         *                 7           11
          */
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
@@ -234,7 +234,5 @@ public class Traversal {
         System.out.println("后序遍历输出二叉树:" + Joiner.on(",").join(res));// 后序遍历输出二叉树:4,5,2,6,7,3,1
 
         System.out.println("------------非递归 的方式实现二叉树的三种遍历 end------------");
-
-
     }
 }

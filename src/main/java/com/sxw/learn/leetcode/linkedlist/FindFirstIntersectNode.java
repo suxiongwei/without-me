@@ -20,6 +20,18 @@ package com.sxw.learn.leetcode.linkedlist;
  * 3) 两个链表都有环 -> bothLoop方法
  */
 public class FindFirstIntersectNode {
+    public static ListNode findFirstIntersectNode(ListNode head1, ListNode head2){
+        if (head1 == null || head2 == null) return null;
+        ListNode loop1 = getLoopNode(head1);
+        ListNode loop2 = getLoopNode(head2);
+        if (loop1 == null && loop2 == null){
+            return noLoop(head1, head2);
+        }
+        if (loop1 != null && loop2 != null){
+            return bothLoop(head1, loop1, head2, loop2);
+        }
+        return null;
+    }
     // 查找第一个入环的节点
     public static ListNode getLoopNode(ListNode head){
         if (head == null || head.next == null) return head;
@@ -159,6 +171,7 @@ public class FindFirstIntersectNode {
         }else {
             System.out.println("无环链表相交的节点:null");
         }
-
+        ListNode firstIntersectNode = findFirstIntersectNode(head1, head2);
+        System.out.println("第一个相交的节点:" + firstIntersectNode.val);
     }
 }
