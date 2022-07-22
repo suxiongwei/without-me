@@ -165,6 +165,17 @@ public class Traversal {
 
 
     public static void main(String[] args) {
+        /**
+         *                         1
+         *                     /       \
+         *                 2               3
+         *              /     \         /     \
+         *           4           5   8           9
+         *                     /       \
+         *                   6           10
+         *                  /           /
+         *                 7           11         
+         */
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3);
