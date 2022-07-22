@@ -74,7 +74,44 @@ public class FindFirstIntersectNode {
     }
 
     // 如果两个链表都有环，返回第一个相交节点，如果不相交，则返回null
-    public static ListNode bothLoop(ListNode head1, ListNode hoop1, ListNode head2, ListNode hoop2){
+    public static ListNode bothLoop(ListNode head1, ListNode loop1, ListNode head2, ListNode loop2){
+        ListNode cur1 = null;
+        ListNode cur2 = null;
+        if (loop1 == loop2){// 在入环之前就相交或者刚好在入环的节点相交
+            cur1 = head1;
+            cur2 = head2;
+            int n = 0;
+            while (cur1 != null){
+                n++;
+                cur1 = head1.next;
+            }
+            while (cur2 != null){
+                n--;
+                cur2 = head2.next;
+            }
+            cur1 = n > 0 ? head1 : head2;// 谁长，谁的头变成cur1
+            cur2 = cur1 == head1 ? head2 : head1; // 谁短，谁的头变成cur2
+            n = Math.abs(n);
+            while (n > 0){
+                cur1 = cur1.next;
+                n--;
+            }
+            while (cur1 != cur2){
+                cur1 = cur1.next;
+                cur2 = cur2.next;
+            }
+            return cur1;
+        }
+        // case1：在一个环的不同位置有支出去的链表,类似这样：∝，case2：两个有环的链表根本就不相交，
+        // 针对case1：就让任意一个入环节点往后遍历，loop1跑一圈看能不能找到loop2，能找着则证明在一个环，此时任意一个入环的节点都可以当作相交的节点
+        // 针对case2：loop1跑一圈看能不能找到loop2，找不到则证明此时loop1和loop2不在一个环，直接return null
+        else {
+            cur1 = loop1.next;
+            while (cur1 != loop1){// loop1跑一圈看能不能找到loop2，能找到则证明，此时loop1和loop2在一个环
+                if (cur1 == loop2) return loop1;
+                cur1 = cur1.next;
+            }
+        }
         return null;
     }
 

@@ -6,6 +6,10 @@ package com.sxw.learn.leetcode.tree;
  *      若它的左子树不为空，则左子树的所有节点的值均小于它的根节点的值
  *      若它的右子树不为空，则右子树的所有节点的值均大于它的根节点的值
  *      它的左、右子树也分别为二叉搜索树
+ *
+ * [二叉搜索数验证]
+ * - 解法一：本文档的解法
+ * - 解法二：使用中序遍历，如果是升序，那就是搜索二叉树，具体编码就是将升序的打印时机换成比较时机
  */
 public class IsValidBST {
     /**
@@ -14,11 +18,11 @@ public class IsValidBST {
      * @param root
      * @return
      */
-    public boolean isValidBST(TreeNode root) {
+    public static boolean isValidBST(TreeNode root) {
         return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    public boolean isValidBST(TreeNode node, long lower, long upper) {
+    public static boolean isValidBST(TreeNode node, long lower, long upper) {
         if (node == null) {
             return true;
         }
@@ -53,7 +57,8 @@ public class IsValidBST {
         node29.left = node19;
         node29.right = node33;
 
-        IsValidBST isValidBST = new IsValidBST();
-        isValidBST.isValidBST(node17);
+        TreeNodeShow.show(node17);
+
+        IsValidBST.isValidBST(node17);
     }
 }
