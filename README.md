@@ -18,28 +18,18 @@
 - [CompletableFuture 的join和get有什么区别？]()
 - [为什么任何一个对象都可以成为一个锁？]()
 - [非公平锁的优点]()
-- []()
-- []()
-- []()
 
 ## Spring框架
 - [@Autowired和@Resource注解的区别](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E5%92%8C%40Resource%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 - [@Autowired的实现原理](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86.md)
-- []()
 
 ## MySQL
 - [MySQL事务隔离级别]()
 - [事务的特性(ACID)]()
-- []()
-- []()
-- []()
 
 ## 计算机网络
 - [TCP三次握手和四次挥手]()
-- []()
-- []()
-- []()
-- 
+
 ## 设计模式
 - [工厂模式]()
 - [单例模式]()
@@ -54,17 +44,10 @@
 - [常见软件的QPS](https://github.com/suxiongwei/without-me/blob/main/doc/%E5%B8%B8%E8%A7%81%E8%BD%AF%E4%BB%B6%E7%9A%84QPS.md)
 - [领域驱动设计在互联网业务开发中的实践](https://tech.meituan.com/2017/12/22/ddd-in-practice.html)
 - [一般实现分布式锁都有哪些方式？使用 Redis 如何设计分布式锁？使用 zk 来设计分布式锁可以吗？这两种分布式锁的实现方式哪种效率比较高？](https://github.com/doocs/advanced-java/blob/main/docs/distributed-system/distributed-lock-redis-vs-zookeeper.md)
-- []()
-- []()
-- []()
 
 ## 其它(工具)
 - [Guava的常见用法]()
 - [SpringBoot 启动时自动执行代码的几种方式]()
-- []()
-- []()
-- []()
-- []()
 
 ## LeetCode题解
 ### [master公式](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/GetMax.java)
@@ -84,9 +67,6 @@
 - [最小和](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SmallSum.java)
 - [求最大值](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/GetMax.java)
 - [二分查找]()
-- []()
-- []()
-- []()
 ### 链表
 - [删除链表倒数第N个节点(19)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/RemoveNthFromEnd.java)
 - [合并两个有序链表(21)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/MergeTwoLists.java)
@@ -103,6 +83,12 @@
 - [BST的查找](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/SearchBSF.java)
 - [用递归和非递归两种方式实现二叉树的前序遍历、中序遍历、后序遍历](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/Traversal.java)
 - [二叉树的层次遍历](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/LevelOrder.java)
+- [判断一颗二叉树是否为完全二叉树](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsCompleteBinaryTree.java)
+- [判断一颗二叉树是否为满二叉树](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsFullBinaryTree.java)
+- [给定两个二叉树的节点node1和node2，找到它们的最低公共祖先节点](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/LowestCommonAncestor.java)
+- [在二叉树中找到一个节点的后继节点](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/GetSuccessorNode.java)
+- [二叉树的序列化与反序列化](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/SerializationAndDeserializationTree.java)
+- [折纸问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/PaperFolding.java)
 ### 位运算
 - [只出现一次的数字](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bit/SingleNumber.java)
 ### 动态规划
@@ -110,17 +96,12 @@
 - [爬楼梯(70)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/ClimbStairs.java)
 - [最大子序和(53)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxSubArray.java)
 - [最长上升子序列(300)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/LengthOfLIS.java)
-- []()
-- []()
 ### 字符串
 - [反转字符串(301)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/ReverseString.java)
-- []()
-- []()
-- []()
-- []()
+### 图
+
 ### 其它
 - [荷兰国旗问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/DutchFlag.java)
-- []()
 ## 一些面试题
 #### 为什么任何一个对象都可以成为一个锁？
 每个对象都有一个监视器

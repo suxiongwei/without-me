@@ -11,8 +11,7 @@ public class IsBalanced {
         if (!isBalanced(root.left) || !isBalanced(root.right)) return false;// 其中任意一个节点如果不满足平衡二叉树时，那说明整棵树已经不是一颗平衡二叉树，我们可以对其进行阻断，不需要继续递归下去
         int leftH = maxDepth(root.left);// maxDepth本身就是递归的，上面的代码就是为了提前阻断，提升效率
         int rightH = maxDepth(root.right);
-        if (Math.abs(leftH - rightH) > 1) return false;
-        return true;
+        return Math.abs(leftH - rightH) > 1;
     }
 
     public int maxDepth(TreeNode node){
