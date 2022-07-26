@@ -1,10 +1,6 @@
 package com.sxw.learn.leetcode.tree;
 
-/**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-30 1:38 下午
- */
+[]
 public class KthLargest {
     private int k, res;
     public int kthLargest(TreeNode root, int k) {
