@@ -96,6 +96,7 @@
 - [平衡二叉树(110)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsBalanced.java)
 - [相同的树(100)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsSameTree.java)
 - [对称二叉树(101)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsSymmetric.java)
+- [二叉搜索树的第k大节点(54)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/KthLargest.java)
 ### 位运算
 - [只出现一次的数字](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bit/SingleNumber.java)
 ### 动态规划
@@ -114,9 +115,13 @@
 ### 贪心算法
 - [什么是贪心算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95.md)
 - [会场安排问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/BestArrange.java)
+- [金条切割问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/LessMoneySplitGold.java)
 ### 其它
 - [荷兰国旗问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/DutchFlag.java)
 - [约瑟夫环](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/Cir.java)
+- [N皇后(51)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/SolveNQueens.java)
+- [汉诺塔问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Hanota.java)
+- [金条切割问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/LessMoneySplitGold.java)
 ## 一些面试题
 #### 为什么任何一个对象都可以成为一个锁？
 每个对象都有一个监视器
