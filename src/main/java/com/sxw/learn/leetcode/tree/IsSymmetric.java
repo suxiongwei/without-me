@@ -1,9 +1,8 @@
 package com.sxw.learn.leetcode.tree;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-04-01 4:30 下午
+ * [题目]：对称二叉树
+ * 你一个二叉树的根节点 root ， 检查它是否轴对称。
  */
 public class IsSymmetric {
     public boolean isSymmetric(TreeNode root) {

@@ -1,5 +1,8 @@
 package com.sxw.learn.leetcode.array.sort;
 
+import com.sxw.learn.leetcode.tree.TreeNode;
+import com.sxw.learn.leetcode.tree.TreeNodeShow;
+
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
@@ -10,6 +13,13 @@ import java.util.PriorityQueue;
  * 右孩子：2 * i + 2
  * 父亲：i - 1 / 2
  *
+ * [1, 3, 3, 4, 5, 6]
+ *       1
+ *     /   \
+ *   2       3
+ *  / \     / \
+ * 4   5   6   7
+ *
  * - 堆结构就是用数组实现的完全二叉树结构
  * - 完全二叉树每棵子树的最大值都在顶部就是大根堆
  * - 完全二叉树每棵子树的最小值都在顶部就是小根堆
@@ -19,18 +29,18 @@ import java.util.PriorityQueue;
 public class HeapSort {
     public static void heapSort(int[] arr){
         if (null == arr || arr.length < 2) return;
-//        for (int i = 0; i < arr.length; i++) {// O(N)
-//            heapInsert(arr, i);// O(logN)
-//        }
-        // 这个方式和上面的方式都是为了使数组变成大跟堆，这种方式会稍微快一点，是O(N)的时间复杂度
-        for (int i = arr.length - 1; i >= 0; i--){
-            heapify(arr, i, arr.length);
+        for (int i = 0; i < arr.length; i++) {// heapInsert结束，当前堆就是大根堆，O(N)
+            heapInsert(arr, i);// O(logN)
         }
+        // 这个方式和上面的方式都是为了使数组变成大跟堆，这种方式会稍微快一点，是O(N)的时间复杂度
+//        for (int i = arr.length - 1; i >= 0; i--){
+//            heapify(arr, i, arr.length);
+//        }
 
         int heapSize = arr.length;
-        swap(arr, 0, --heapSize);
+        swap(arr, 0, --heapSize);// 将顶部的最大元素移到末尾，并减少堆大小（目的是使剩下的元素参与heapify）
         while (heapSize > 0){// O(N)
-            heapify(arr, 0, heapSize);// O(logN)
+            heapify(arr, 0, heapSize);// O(logN)，将堆顶的元素往下移动，重新构建为大顶堆
             swap(arr, 0, --heapSize);// O(1)
         }
 
@@ -73,5 +83,25 @@ public class HeapSort {
 
         // 默认小根堆
         PriorityQueue<Integer> heap = new PriorityQueue<>();
+
+        // {1,2,3,4,5,6,7,8,9}
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
+
+        node1.left = node2;
+        node1.right = node3;
+
+        node2.left = node4;
+        node2.right = node5;
+
+        node3.left = node6;
+        node3.right = node7;
+
+        TreeNodeShow.show(node1);
     }
 }
