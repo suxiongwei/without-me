@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode;
+package com.sxw.learn.leetcode.str;
 
 /**
  * [题目]: 实现 Sunday 匹配

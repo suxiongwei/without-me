@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode;
+package com.sxw.learn.leetcode.str;
 
 /**
  * 反转字符串(301)

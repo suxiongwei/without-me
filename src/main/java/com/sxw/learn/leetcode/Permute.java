@@ -2,11 +2,6 @@ package com.sxw.learn.leetcode;
 
 import java.util.*;
 
-/**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-17 1:50 下午
- */
 public class Permute {
     public List<List<Integer>> permute(int[] nums) {
         int len = nums.length;

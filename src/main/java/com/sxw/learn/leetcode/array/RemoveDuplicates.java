@@ -22,8 +22,7 @@ public class RemoveDuplicates {
     }
 
     public static void main(String[] args) {
-        RemoveDuplicates removeDuplicates = new RemoveDuplicates();
-        int i = removeDuplicates.removeDuplicates(new int[]{0,0,1,1,1,2,2,3,3,4});
+        int i = RemoveDuplicates.removeDuplicates(new int[]{0,0,1,1,1,2,2,3,3,4});
         System.out.println(i);
     }
 }
