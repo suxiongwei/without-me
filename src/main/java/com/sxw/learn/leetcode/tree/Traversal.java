@@ -32,7 +32,7 @@ public class Traversal {
         res.add(node.value);
 
         recurOrder(res, node.left);
-        res.add(node.value);
+        res.add(node.value);// 上面的return之后，node还是当前栈的node
 
         recurOrder(res, node.right);
         res.add(node.value);

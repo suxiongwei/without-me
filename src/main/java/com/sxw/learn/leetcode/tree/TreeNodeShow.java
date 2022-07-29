@@ -1,5 +1,8 @@
 package com.sxw.learn.leetcode.tree;
 
+/**
+ * 用于打印二叉树
+ */
 public class TreeNodeShow {
 
     // 用于获得树的层数

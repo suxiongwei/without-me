@@ -17,17 +17,4 @@ public class SearchBSF {
             return searchBSF(root.left, val);
         }
     }
-
-    public static TreeNode searchBSF1(TreeNode root, int val){
-        while (root != null){
-            if (root.value == val) {
-                return root;
-            } else if (root.value > val) {
-                root = root.left;
-            } else {
-                root = root.right;
-            }
-        }
-        return null;
-    }
 }

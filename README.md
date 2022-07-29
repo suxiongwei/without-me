@@ -91,7 +91,7 @@
 - [二叉树的序列化与反序列化](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/SerializationAndDeserializationTree.java)
 - [折纸问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/PaperFolding.java)
 - [完全二叉树的节点个数](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/CountNodes.java)
-- [路径总和(112)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/CountNodes.java)
+- [路径总和(112)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/HasPathSum.java)
 - [反转二叉树](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/InvertTree.java)
 - [平衡二叉树(110)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsBalanced.java)
 - [相同的树(100)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsSameTree.java)
@@ -116,6 +116,8 @@
 - [什么是贪心算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95.md)
 - [会场安排问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/BestArrange.java)
 - [金条切割问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/LessMoneySplitGold.java)
+### 栈
+- [在不使用额外数据结构的情况下逆序栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/ReverseStack.java)
 ### 其它
 - [荷兰国旗问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/DutchFlag.java)
 - [约瑟夫环](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/Cir.java)

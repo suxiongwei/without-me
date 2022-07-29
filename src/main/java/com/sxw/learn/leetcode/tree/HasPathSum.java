@@ -51,10 +51,55 @@ public class HasPathSum {
      * @param targetSum
      * @return
      */
-    public boolean solution1(TreeNode root, int targetSum) {
+    public static boolean solution1(TreeNode root, int targetSum) {
+        if (root != null) System.out.println("cur:" + root.value + ",targetSum:" + targetSum);
         if (root == null) return false;
         if (root.left == null && root.right == null) return targetSum == root.value;
         return solution1(root.left, targetSum - root.value) || solution1(root.right, targetSum - root.value);
+    }
+
+    public static void main(String[] args) {
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node8 = new TreeNode(8);
+        TreeNode node9 = new TreeNode(9);
+        TreeNode node10 = new TreeNode(10);
+        TreeNode node11 = new TreeNode(11);
+        node1.left = node2;
+        node1.right = node3;
+
+        node2.left = node4;
+        node2.right = node5;
+
+        node4.left = node6;
+        node4.right = node7;
+
+        node3.left = node8;
+        node3.right = node9;
+
+        node5.left = node10;
+
+        node8.right = node11;
+
+        TreeNodeShow.show(node1);
+        /**
+         *             1
+         *          /     \
+         *       2           3
+         *     /   \       /   \
+         *   4       5   8       9
+         *  / \     /     \
+         * 6   7   10      11
+         *
+         * 1,2,4,6 走完之后直接return
+         */
+        boolean b = HasPathSum.solution1(node1, 13);
+        System.out.println(b);
     }
 
 

@@ -2,6 +2,9 @@ package com.sxw.learn.leetcode.tree;
 
 import java.util.Objects;
 
+/**
+ * 完全二叉树的节点个数
+ */
 public class CountNodes {
     /**
      * 递归求解
@@ -10,8 +13,7 @@ public class CountNodes {
      */
     public static int countNodes(TreeNode root){
         System.out.println("begin node:" + (Objects.isNull(root) ? "" : root.value));
-        int result = 0;
-        if (null == root) return result;
+        if (null == root) return 0;
         int currentCount = 1 + countNodes(root.left) + countNodes(root.right);
         System.out.println("current node:" + root.value + " / " + "current count:" + currentCount);
         return currentCount;
