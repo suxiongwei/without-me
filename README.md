@@ -109,6 +109,7 @@
 - [最后一个单词的长度(58)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LengthOfLastWord.java)
 - [颠倒字符串中的单词(151)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/ReverseWords.java)
 - [实现Sunday匹配(151)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/StrStr.java)
+- [KMP算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/KMP.java)
 ### 图
 - [图的宽度优先遍历](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/graph/BFS.java)
 - [图的深度优先搜索](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/graph/DFS.java)
@@ -122,12 +123,16 @@
 - [在不使用额外数据结构的情况下逆序栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/ReverseStack.java)
 ### 字典树
 - [字典树](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/trie/TrieTree.java)
+### 并查集算法
+- [并查集算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/UnionFind.java)
 ### 其它
 - [荷兰国旗问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/DutchFlag.java)
 - [约瑟夫环](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/Cir.java)
 - [N皇后(51)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/SolveNQueens.java)
 - [汉诺塔问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Hanota.java)
 - [金条切割问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/LessMoneySplitGold.java)
+- [海岛问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CountIslands.java)
+  
 ## 一些面试题
 #### 为什么任何一个对象都可以成为一个锁？
 每个对象都有一个监视器
