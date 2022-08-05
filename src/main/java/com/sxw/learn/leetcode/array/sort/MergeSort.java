@@ -33,17 +33,16 @@ public class MergeSort {
         int i = 0;
         int p1 = L;
         int p2 = M + 1;
-
         while (p1 <= M && p2 <= R){
             help[i++] = arr[p1] <= arr[p2] ? arr[p1++] : arr[p2++];
         }
+        // 剩下的元素一定是较大的元素，因为小的已经走到头了，所以直接按照从小到大往后排
         while (p1 <= M){
             help[i++] = arr[p1++];
         }
         while (p2 <= R){
             help[i++] = arr[p2++];
         }
-
         for (i = 0; i < help.length; i++){
             arr[L + i] = help[i];
         }

@@ -12,6 +12,39 @@ package com.sxw.learn.leetcode.str;
  *
  * 原字符串：aba，长度为3
  * 预处理后：#a#b#a#，长度为7
+ *
+ * [解法思路]:
+ * R：回文区域的最右边界
+ * C：当前回文区域的中间点
+ * 伪代码如下：
+ * for(int i = 0; i < str.length; i++){
+ *     if(i在R的外部){
+ *         从i开始往两边暴力扩，R变大
+ *     }else{
+ *         if(i`回文区域彻底在L..R内){
+ *             pArr[i] = 某个O(1)的表达式
+ *         }else if(i`回文区域有一部分在L..R外){
+ *             pArr[i] = 某个O(1)的表达式
+ *         }else{// i`回文区域和L..R的左边界压线
+ *             从R之外的字符右扩，然后确定pArr的答案
+ *             从第一步扩失败了，R不变
+ *             从第一步成功了，R变大
+ *         }
+ *     }
+ * }
  */
 public class Manacher {
+    public static char[] manacherString(String str){
+        char[] charArray = str.toCharArray();
+        char[] res = new char[str.length() * 2 + 1];
+        int index = 0;
+        for (int i = 0; i != res.length; i++){
+            res[i] = (i & 1) == 0 ? '#' : charArray[index++];
+        }
+        return res;
+    }
+
+    // TODO
+
+
 }

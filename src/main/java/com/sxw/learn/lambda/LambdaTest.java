@@ -111,6 +111,14 @@ public class LambdaTest {
                 .toArray();
         System.out.println(Arrays.toString(res2));
 
+        // Collector收集器的叠加嵌套
+        // 按照子公司+部门双层维度，统计各个部门内的人员数
+//        Map<String, Map<String, Long>> resultMap = getAllEmployees().stream()
+//                .collect(Collectors.groupingBy(Employee::getSubCompany,
+//                        Collectors.groupingBy(Employee::getDepartment, Collectors.counting())));
+//        System.out.println(resultMap);
+
+
     }
 
     /**

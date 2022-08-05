@@ -14,14 +14,18 @@ public class BubbleSort {
             boolean flag = false;// 用来标记数组是否为有序，如果经过一次冒泡没有发生数据的交换，说明当前数组已经有序，直接返回即可
             for (int j = 0; j < n - i - 1; j++){
                 if (a[j] > a[j + 1]){
-                    int tmp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = tmp;
+                    swap(a, j, j + 1);
                     flag = true;// 表示有数据交换
                 }
             }
             if (!flag) break;// 没有数据交换，提前退出
         }
+    }
+
+    public static void swap(int[] arr, int i, int j){
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 
     public static void main(String[] args) {
