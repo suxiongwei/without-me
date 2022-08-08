@@ -12,6 +12,11 @@ import java.util.List;
  * 给定一棵多叉树，请输出派对的最大快乐值。
  */
 public class MaxHappy {
+    public static int maxHappy(Employee boss){
+        Info process = process(boss);
+        return Math.max(process.buMaxHappy, process.laiMaxHappy);
+    }
+
     public static class Employee{
         public int happy;// 这名员工可以带来的快乐值
         public List<Employee> subordinates;// 这名员工有哪些直接下级
@@ -21,6 +26,30 @@ public class MaxHappy {
             this.subordinates = subordinates;
         }
     }
+
+    static class Info{
+        public int laiMaxHappy;// 来的最大快乐值
+        public int buMaxHappy;// 不来的最大快乐值
+
+        public Info(int laiMaxHappy, int buMaxHappy) {
+            this.laiMaxHappy = laiMaxHappy;
+            this.buMaxHappy = buMaxHappy;
+        }
+    }
+
+    public static Info process(Employee x){
+        if (x.subordinates.isEmpty()) return new Info(x.happy, 0);
+        int lai = x.happy;
+        int bu = 0;
+        for (Employee next : x.subordinates) {
+            Info nextInfo = process(next);
+            lai += nextInfo.buMaxHappy;// 来的话，下级员工只能不来
+            bu += Math.max(nextInfo.laiMaxHappy, nextInfo.buMaxHappy);// 不来的话，下级可以来也可以不来
+        }
+        return new Info(lai, bu);
+    }
+
+
 
 
 }
