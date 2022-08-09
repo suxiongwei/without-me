@@ -1,5 +1,7 @@
 package com.sxw.learn.leetcode.dp;
 
+import com.google.common.collect.Lists;
+
 import java.util.List;
 
 /**
@@ -19,11 +21,16 @@ public class MaxHappy {
 
     public static class Employee{
         public int happy;// 这名员工可以带来的快乐值
-        public List<Employee> subordinates;// 这名员工有哪些直接下级
+        public List<Employee> nexts;// 这名员工有哪些直接下级
 
-        public Employee(int happy, List<Employee> subordinates) {
+        public Employee(int happy) {
             this.happy = happy;
-            this.subordinates = subordinates;
+            this.nexts = Lists.newArrayList();
+        }
+
+        public Employee(int happy, List<Employee> nexts) {
+            this.happy = happy;
+            this.nexts = nexts;
         }
     }
 
@@ -38,10 +45,10 @@ public class MaxHappy {
     }
 
     public static Info process(Employee x){
-        if (x.subordinates.isEmpty()) return new Info(x.happy, 0);
+        if (x.nexts.isEmpty()) return new Info(x.happy, 0);
         int lai = x.happy;
         int bu = 0;
-        for (Employee next : x.subordinates) {
+        for (Employee next : x.nexts) {
             Info nextInfo = process(next);
             lai += nextInfo.buMaxHappy;// 来的话，下级员工只能不来
             bu += Math.max(nextInfo.laiMaxHappy, nextInfo.buMaxHappy);// 不来的话，下级可以来也可以不来
@@ -49,7 +56,18 @@ public class MaxHappy {
         return new Info(lai, bu);
     }
 
-
-
+    //测试
+    public static void main(String[] args) {
+        Employee head1 = new Employee(1);
+        Employee head2 = new Employee(3);
+        Employee head3 = new Employee(2);
+        Employee head4 = new Employee(5);
+        Employee head5 = new Employee(6);
+        head1.nexts.add(head2);
+        head1.nexts.add(head3);
+        head1.nexts.add(head4);
+        head1.nexts.add(head5);
+        System.out.println(maxHappy(head1));
+    }
 
 }
