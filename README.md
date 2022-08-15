@@ -97,8 +97,11 @@
 - [相同的树(100)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsSameTree.java)
 - [对称二叉树(101)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsSymmetric.java)
 - [二叉搜索树的第k大节点(54)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/KthLargest.java)
+- [Morris遍历](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/Morris.java)
 ### 位运算
 - [只出现一次的数字](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bit/SingleNumber.java)
+- [二进制中1的个数](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bit/BinaryOneCount.java)
+- [给定两个有符号整数a和b，返回a和b中较大的](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bit/GetMax.java)
 ### 动态规划
 - [买卖股票的最佳时机](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxProfit.java)
 - [爬楼梯(70)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/ClimbStairs.java)
@@ -136,7 +139,7 @@
 - [滑动窗口](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.md)
 - [生成最大窗口数组](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/GetMaxWindow.md)
 ### 资源限制型题目
-- [大数据题目]()
+- [大数据题目](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bigdata/%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%A2%98%E7%9B%AE.md)
 ### 其它
 - [荷兰国旗问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/DutchFlag.java)
 - [约瑟夫环](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/Cir.java)

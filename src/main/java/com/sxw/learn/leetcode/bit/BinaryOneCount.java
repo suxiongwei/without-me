@@ -1,12 +1,11 @@
 package com.sxw.learn.leetcode.bit;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-02-04 7:52 下午
+ * [题目]: 二进制中1的个数
+ * [解题思路]: 利用掩码和与运算的性质，从低位依次往高位判断
  */
 public class BinaryOneCount {
-    private int hammingWeight(int n){
+    public static int hammingWeight(int n){
         String nBinaryString = Integer.toBinaryString(n);
         System.out.println("目标值的二进制值:" + nBinaryString);
         // 初始化掩码为1
@@ -26,8 +25,7 @@ public class BinaryOneCount {
     }
 
     public static void main(String[] args) {
-        BinaryOneCount binaryOneCount = new BinaryOneCount();
-        int i = binaryOneCount.hammingWeight(11);
+        int i = BinaryOneCount.hammingWeight(11);
         System.out.println(i);
     }
 }

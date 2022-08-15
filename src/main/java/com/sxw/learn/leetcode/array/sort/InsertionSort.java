@@ -1,5 +1,7 @@
 package com.sxw.learn.leetcode.array.sort;
 
+import java.util.Arrays;
+
 /**
  * 插入排序
  */
@@ -34,6 +36,12 @@ public class InsertionSort {
             }
             a[j+1] = value; // 插入数据
         }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{4,5,6,1,3,2};
+        insertionSort(arr, arr.length);
+        System.out.println("插入排序:" + Arrays.toString(arr));
     }
 
 
