@@ -16,6 +16,9 @@ import java.util.*;
 
 import static java.time.temporal.ChronoUnit.SECONDS;
 
+/**
+ * https://nullpointer.pw/interface-authentication.html
+ */
 @Slf4j
 public class AuthUtils {
 

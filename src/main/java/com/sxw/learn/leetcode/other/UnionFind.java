@@ -14,6 +14,8 @@ import java.util.Stack;
  * 希望isSameSet和union都是O(1)
  * 用map和链表都无法实现
  *
+ * 空间复杂度是 O(n)
+ *
  * 具体的实现思路：
  * 使用往上指的图的结构来指向单链表
  */
