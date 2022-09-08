@@ -1,9 +1,9 @@
-package com.sxw.learn.leetcode;
+package com.sxw.learn.leetcode.array;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-04-12 4:31 下午
+ * [题目]:轮转数组(189)
+ * [题目描述]:给你一个数组，将数组中的元素向右轮转 k 个位置，其中 k 是非负数。
+ * [解题思路]:双指针 翻转链表，做到了空间复杂度O(1)
  */
 public class Rotate {
     public void rotate(int[] nums, int k) {

@@ -32,6 +32,22 @@ public class Search {
         return -1;
     }
 
+    public static int search1(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        int mid = (l + r) >> 1;
+        while (l <= r){
+            if(nums[mid] == target) return mid;
+            if(nums[mid] > target){
+                r = mid - 1;
+            }else{
+                l = mid + 1;
+            }
+            mid = (l + r) >> 1;
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         Search search = new Search();
         int search1 = search.search(new int[]{4, 5, 6, 7, 0, 1, 2}, 0);
