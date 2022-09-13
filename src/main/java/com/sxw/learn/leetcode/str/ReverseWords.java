@@ -63,5 +63,45 @@ public class ReverseWords {
         }
         return sb;
     }
+
+    /**
+     * 以下是反转字符串中的单词III(557)
+     * 给定一个字符串s，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。
+     *
+     * 示例 1：
+     * 输入：s = "Let's take LeetCode contest"
+     * 输出："s'teL ekat edoCteeL tsetnoc"
+     *
+     * 提示：
+     * 1 <= s.length <= 5 * 104
+     * s包含可打印的 ASCII 字符。
+     * s不包含任何开头或结尾空格。
+     * s里 至少 有一个词。
+     * s中的所有单词都用一个空格隔开。
+     */
+    public static String reverseWords1(String s) {
+        StringBuffer ret = new StringBuffer();
+        int length = s.length();
+        int i = 0;
+        while (i < length) {
+            int start = i;
+            while (i < length && s.charAt(i) != ' ') {
+                i++;
+            }
+            for (int p = start; p < i; p++) {
+                ret.append(s.charAt(start + i - 1 - p));
+            }
+            while (i < length && s.charAt(i) == ' ') {
+                i++;
+                ret.append(' ');
+            }
+        }
+        return ret.toString();
+    }
+
+    public static void main(String[] args) {
+        String s = reverseWords1("Let's take LeetCode contest");
+        System.out.println(s);
+    }
 }
 
