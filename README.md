@@ -67,6 +67,7 @@
 - [二分查找](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Search.java)
 - [第一个错误的版本(278)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FirstBadVersion.java)
 - [搜索插入位置(35)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SearchInsert.java)
+- [搜索旋转排序数组(33)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Search.java)
 ### 双指针
 - [有序数组的平方(977)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SortedSquares.java)
 - [轮转数组(189)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Rotate.java)
@@ -133,6 +134,7 @@
 - [实现Sunday匹配(151)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/StrStr.java)
 - [KMP算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/KMP.java)
 - [无重复字符的最长子串(3)-tag:滑动窗口](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LengthOfLongestSubstring.java)
+- [字符串转换整数(atoi)(8)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/MyAtoi.java)
 ### 图
 - [图的宽度优先遍历](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/graph/BFS.java)
 - [图的深度优先搜索](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/graph/DFS.java)
@@ -183,14 +185,22 @@
 - [金条切割问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/LessMoneySplitGold.java)
 - [rand5到rand7及扩展](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Rand5ToRand7.java)
 - [缺失的括号](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/GetNeed.java)
-## 一些面试题
-#### 为什么任何一个对象都可以成为一个锁？
-每个对象都有一个监视器
-#### 非公平锁的优点
-减少线程的切换，更能充分的利用CPU
+
 
 ## 系统设计
 - [接口鉴权](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/auth/AuthUtils.java)
 
 ## 简历
 [Java开发工程师](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/%E7%AE%80%E5%8E%86.md)
+
+## 一些面试题
+#### 为什么任何一个对象都可以成为一个锁？
+每个对象都有一个监视器
+#### 非公平锁的优点
+减少线程的切换，更能充分的利用CPU
+#### B-树和B+树的区别
+https://www.jianshu.com/p/ace3cd6526c4<br/>
+1. B+树内节点不存储数据，所有 data 存储在叶节点导致查询时间复杂度固定为 log n。而B-树查询时间复杂度不固定，与 key 在树中的位置有关，最好为O(1)。
+2. B+树叶节点两两相连可大大增加区间访问性，可使用在范围查询等，而B-树每个节点 key 和 data 在一起，则无法区间查找。
+3. B+树更适合外部存储。由于内节点无 data 域，每个节点能索引的范围更大更精确
+

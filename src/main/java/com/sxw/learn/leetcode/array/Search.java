@@ -1,9 +1,14 @@
 package com.sxw.learn.leetcode.array;
 
+
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-22 11:14 上午
+ * [题目]: 搜索旋转排序数组(33)
+ * [题目描述]:
+ * 整数数组 nums 按升序排列，数组中的值 互不相同 。
+ * 在传递给函数之前，nums 在预先未知的某个下标 k（0 <= k < nums.length）上进行了 旋转，使数组变为 [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]（下标 从 0 开始 计数）。例如， [0,1,2,4,5,6,7] 在下标 3 处经旋转后可能变为[4,5,6,7,0,1,2] 。
+ * 给你旋转后的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回-1。
+ * 你必须设计一个时间复杂度为 O(log n) 的算法解决此问题。
+ * [解题思路]: 二分查找
  */
 public class Search {
     public int search(int[] nums, int target) {
@@ -11,20 +16,20 @@ public class Search {
         if (n == 0) return -1;
         if (n == 1) return target == nums[0] ? 0 : -1;
         int l = 0, r = n - 1;
-        while (l <= r){
+        while (l <= r) {
             // 二分查找
             int mid = (l + r) >> 1;
             if (target == nums[mid]) return mid;
             if (nums[mid] >= nums[0]) {// mid 左边的有序
-                if (target >= nums[l] && target < nums[mid]){
+                if (target >= nums[l] && target < nums[mid]) {
                     r = mid - 1;
-                }else {
+                } else {
                     l = mid + 1;
                 }
-            }else {// mid 右边的有序
-                if (target > nums[mid] && target <= nums[r]){
+            } else {// mid 右边的有序
+                if (target > nums[mid] && target <= nums[r]) {
                     l = mid + 1;
-                }else {
+                } else {
                     r = mid - 1;
                 }
             }
@@ -36,11 +41,11 @@ public class Search {
         int l = 0;
         int r = nums.length - 1;
         int mid = (l + r) >> 1;
-        while (l <= r){
-            if(nums[mid] == target) return mid;
-            if(nums[mid] > target){
+        while (l <= r) {
+            if (nums[mid] == target) return mid;
+            if (nums[mid] > target) {
                 r = mid - 1;
-            }else{
+            } else {
                 l = mid + 1;
             }
             mid = (l + r) >> 1;
