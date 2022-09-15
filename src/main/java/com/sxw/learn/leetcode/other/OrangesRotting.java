@@ -60,18 +60,21 @@ public class OrangesRotting {
     }
 
     public static void main(String[] args) {
-        int[][] grid = {
-                {2, 1, 1},
-                {2, 1, 0},
-                {0, 1, 1}
-        };
-        OrangesRotting solution = new OrangesRotting();
-        int rotting = solution.orangesRotting(grid);
-        System.out.println(rotting);
+//        int[][] grid = {
+//                {2, 1, 1},
+//                {2, 1, 0},
+//                {0, 1, 1}
+//        };
+//        OrangesRotting solution = new OrangesRotting();
+//        int rotting = solution.orangesRotting(grid);
+//        System.out.println(rotting);
 
-        int x = 5000;
-        int m = 4;
+        int x = 5000;// 房租
+        int m = 3;// 鹏哥住的月份
         int pay = ((x / 3) * m + (x / 2) * (12 - m)) / 12;
-        System.out.println(pay);
+        System.out.println("平均月租金："+ pay);
+//        System.out.println("平均月租金："+ pay + x / 12 / 3);
+
+
     }
 }
