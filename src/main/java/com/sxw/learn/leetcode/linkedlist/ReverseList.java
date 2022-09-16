@@ -1,10 +1,9 @@
 package com.sxw.learn.leetcode.linkedlist;
 
 /**
- * 剑指 Offer 24. 反转链表
- *
- * 定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
- * 0 <= 节点个数 <= 5000
+ * [题目]: 反转链表(206)
+ * [题目描述]: 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+ * [解题思路]:
  */
 public class ReverseList {
     public ListNode reverseList(ListNode head) {
@@ -17,34 +16,5 @@ public class ReverseList {
             curr = next;
         }
         return prev;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public ListNode reverseListWithoutMe(ListNode head) {
-        return null;
     }
 }
