@@ -5,9 +5,11 @@ import com.google.common.collect.Lists;
 import java.util.List;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-10 11:05 上午
+ * [题目]: 三角形最小路径和(120)
+ * [题目描述]:
+ * 给定一个三角形 triangle ，找出自顶向下的最小路径和。
+ * 每一步只能移动到下一行中相邻的结点上。相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。也就是说，如果正位于当前行的下标 i ，那么下一步可以移动到下一行的下标 i 或 i + 1 。
+ * [解题思路]: 动态规划
  */
 public class MinimumTotal {
     public static int solution(int[][] triangle){
@@ -32,6 +34,7 @@ public class MinimumTotal {
         return dp[0][0];
     }
 
+    // 与上面的只是入参的形式不同
     public static int solution(List<List<Integer>> triangle){
         // 行
         int m = triangle.size();

@@ -69,11 +69,13 @@ public class OrangesRotting {
 //        int rotting = solution.orangesRotting(grid);
 //        System.out.println(rotting);
 
-        int x = 4500;
-        int m = 3;
-        int pay = ((x / 3) * m + (x / 2) * (12 - m)) / 12;
+        for (int m = 3; m <= 12; m++) {
+            int x = 4400;
+            int pay = ((x / 3) * m + (x / 2) * (12 - m)) / 12;
 //        System.out.println("平均月租金："+ pay);
-        System.out.println("平均月租金："+ (pay + (x * 0.8) / 12 / 3));
+//        System.out.println("平均月租金："+ (pay + (x * 0.8) / 12 / 3));
+            System.out.println(m + "个月平均月租金：" + (pay + (x * 0.1 * 0.85) / 3));
+        }
 
 
     }
