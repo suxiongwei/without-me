@@ -1,8 +1,7 @@
 package com.sxw.learn.leetcode.array;
 
 /**
- * [题目]:
- * 给定一个元素为非负整数的二维数组matrix，每行和每列都是从小到大排序的。
+ * [题目]: 搜索二维矩阵(74)
  * 再给定一个非负整数aim，请判断aim是否在matrix中。
  * [解题思路]:
  * 1   2   3   4   5
@@ -17,15 +16,15 @@ package com.sxw.learn.leetcode.array;
  * 对于一个只有01的二维数组，0始终在1的左边，返回具有1最多的行
  */
 public class SearchInDoubleArray {
-    public static boolean isInDoubleArray(int[][] arr,int num){
-        if(arr == null || num < 0) return false;
-        int m = arr.length;// 行数
-        int n = arr[0].length;// 列数
+    public static boolean isInDoubleArray(int[][] matrix,int target){
+        if(matrix == null) return false;
+        int m = matrix.length;// 行数
+        int n = matrix[0].length;// 列数
         int row = 0;// 当前行号
         int col = n -1;// 当前列号，i和j确定了初始位置在右上角
         while (row < m && col >= 0){
-            if (num == arr[row][col]) return true;
-            if (num < arr[row][col]){
+            if (target == matrix[row][col]) return true;
+            if (target < matrix[row][col]){
                 col--;// 比当前数小，往左移动
             }else {
                 row++;// 比当前数大，往下移动
@@ -35,12 +34,14 @@ public class SearchInDoubleArray {
     }
 
     public static void main(String[] args) {
-        int[][] arr = {
-                {1,2},
-                {2,4},
-                {5,6}
-        };
-        boolean result = isInDoubleArray(arr, 3);
+//        int[][] arr = {
+//                {1,2},
+//                {2,4},
+//                {5,6}
+//        };
+
+        int[][] arr = {{-10},{-7},{-5}};
+        boolean result = isInDoubleArray(arr, -10);
         System.out.println(result);
     }
 }
