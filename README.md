@@ -10,6 +10,7 @@
 - [Java的虚引用、弱引用]()
 - [ExecutorCompletionService]()
 - [InheritableThreadLocal]()
+- [ThreadLocal](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/ThreadLocalDemo.java)
 - [CompletableFuture](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/future/CompletableFutureApiDemo.java)
 - [LockSupport](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/lock/LockSupportDemo.java)
 - [wait notify](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/TestSleepAndWait.java)
@@ -22,6 +23,7 @@
 - [CompletableFuture 的join和get有什么区别？]()
 - [为什么任何一个对象都可以成为一个锁？]()
 - [非公平锁的优点]()
+- [Wait&Notify](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/WaitNotifyCase.java)
 
 ## Spring框架
 - [@Autowired和@Resource注解的区别](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E5%92%8C%40Resource%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%8C%BA%E5%88%AB.md)

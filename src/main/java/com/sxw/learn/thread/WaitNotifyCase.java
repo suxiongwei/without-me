@@ -2,11 +2,6 @@ package com.sxw.learn.thread;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-02-03 8:26 下午
- */
 public class WaitNotifyCase {
     public static void main(String[] args) {
         // wait/notify 必须配合 synchronized 使用

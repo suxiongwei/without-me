@@ -22,7 +22,7 @@ public class ThreadLocalDemo {
         /**
          * ThreadLocalMap:
          * 保存ThreadLocal对象的map(以ThreadLocal为key)，不过是经过了两次包装的ThreadLocal对象
-         * 1、第一次是经过WeakReference将ThreadLocal对象变成一个弱引用的对象
+         * 1、第一层是经过WeakReference将ThreadLocal对象变成一个弱引用的对象
          * 2、第二层是定义Entry来扩展WeakReference<ThreadLocal<?>>
          *
          * 为什么源代码用弱引用？
