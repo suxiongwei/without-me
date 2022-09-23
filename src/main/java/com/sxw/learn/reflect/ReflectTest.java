@@ -1,7 +1,5 @@
 package com.sxw.learn.reflect;
 
-import com.sxw.learn.bean.Person;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -13,7 +11,7 @@ import java.lang.reflect.Method;
  */
 public class ReflectTest {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
-        Class aClass = Class.forName("com.sxw.learn.bean.Person");
+        Class aClass = Class.forName("com.sxw.learn.reflect.Person");
         Person person = (Person) aClass.newInstance();
 
         Method method = person.getClass().getDeclaredMethod("playGame");

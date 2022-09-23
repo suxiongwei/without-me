@@ -4,12 +4,12 @@
 > - [一些面试题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 ## Java语言部分
 - [死锁发生的原因]()
-- [Java的JUC框架介绍]()
+- [Java的JUC框架](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/juc)
 - [JVM的调优策略]()
 - [内存泄漏与内存溢出的区别，何时产生内存泄漏]()
-- [Java的虚引用、弱引用]()
-- [ExecutorCompletionService]()
-- [InheritableThreadLocal]()
+- [Java的虚引用、弱引用](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/jvm/ref/package-info.java)
+- [ExecutorCompletionService](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/ExecutorCompletionServiceTest.java)
+- [InheritableThreadLocal](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/InheritableThreadLocalTest.java)
 - [ThreadLocal](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/ThreadLocalDemo.java)
 - [CompletableFuture](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/future/CompletableFutureApiDemo.java)
 - [LockSupport](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/lock/LockSupportDemo.java)
@@ -17,13 +17,16 @@
 - [Java中的按值传递](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/base/CallByValue.java)
 - [Java的反射](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/reflect/ReflectTest.java)
 - [Volatile](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/jmm/VolatileDemo.java)
-- [Lambda]()
-- [JDK动态代理](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/proxy)
+- [Lambda](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/jvm/lambda/LambdaTest.java)
+- [JDK动态代理](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/design/proxy)
 - [Synchronized](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/sync)
-- [CompletableFuture 的join和get有什么区别？]()
-- [为什么任何一个对象都可以成为一个锁？]()
-- [非公平锁的优点]()
+- CompletableFuture 的join和get有什么区别？<br/>
+```dtd
+  join()方法抛出的是uncheck异常（即RuntimeException),不会强制开发者抛出<br/>
+  get()方法抛出的是经过检查的异常，ExecutionException, InterruptedException 需要用户手动处理（抛出或者 try catch）<br/>
+```
 - [Wait&Notify](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/WaitNotifyCase.java)
+- [LongAdder]()
 
 ## Spring框架
 - [@Autowired和@Resource注解的区别](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E5%92%8C%40Resource%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%8C%BA%E5%88%AB.md)

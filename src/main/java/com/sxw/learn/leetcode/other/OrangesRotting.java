@@ -70,7 +70,7 @@ public class OrangesRotting {
 //        System.out.println(rotting);
 
         for (int m = 3; m <= 12; m++) {
-            int x = 4400;
+            int x = 5300;
             int pay = ((x / 3) * m + (x / 2) * (12 - m)) / 12;
 //        System.out.println("平均月租金："+ pay);
 //        System.out.println("平均月租金："+ (pay + (x * 0.8) / 12 / 3));

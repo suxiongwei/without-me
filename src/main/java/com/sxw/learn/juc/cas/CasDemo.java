@@ -1,9 +1,5 @@
 package com.sxw.learn.juc.cas;
 
-import org.xnio.AutomaticReference;
-
-import java.util.concurrent.atomic.AtomicReference;
-
 /**
  * CAS靠硬件实现的，从而在硬件层面提升效率，最底层还是交给硬件来保证原子性和可见性
  * 实现方式是基于硬件的汇编指令

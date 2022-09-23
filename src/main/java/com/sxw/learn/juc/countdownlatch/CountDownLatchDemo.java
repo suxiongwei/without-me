@@ -14,7 +14,8 @@ public class CountDownLatchDemo {
         t1.start();
         t2.start();
         System.out.println("Waiting for t1 thread and t2 thread to finish");
-        // 首先main线程会调用await操作，此时main线程会被阻塞，等待被唤醒，之后t1线程执行了countDown操作，最后，t2线程执行了countDown操作，此时main线程就被唤醒了，可以继续运行。
+        // 首先main线程会调用await操作，此时main线程会被阻塞，等待被唤醒，
+        // 之后t1线程执行了countDown操作，最后，t2线程执行了countDown操作，此时main线程就被唤醒了，可以继续运行。
         countDownLatch.await();
         System.out.println(Thread.currentThread().getName() + " continue");
     }
