@@ -3,7 +3,7 @@
 > - [LeetCode题解](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/LeetCode%E9%A2%98%E8%A7%A3.md)
 > - [一些面试题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 ## Java语言部分
-- [死锁发生的原因]()
+- [死锁发生的原因](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/lock/DeadLockSample.java)
 - [Java的JUC框架](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/juc)
 - [JVM的调优策略]()
 - [内存泄漏与内存溢出的区别，何时产生内存泄漏]()
@@ -26,7 +26,7 @@
   get()方法抛出的是经过检查的异常，ExecutionException, InterruptedException 需要用户手动处理（抛出或者 try catch）<br/>
 ```
 - [Wait&Notify](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/WaitNotifyCase.java)
-- [LongAdder]()
+- [LongAdder](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/cas/LongAdderDemo.java)
 
 ## Spring框架
 - [@Autowired和@Resource注解的区别](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E5%92%8C%40Resource%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%8C%BA%E5%88%AB.md)

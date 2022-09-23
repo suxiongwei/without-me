@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.LongAdder;
  * LongAdder使用分段累加的设计 比AtomicLong要快
  *
  * 但是LongAdder提供的API较少
+ * https://mp.weixin.qq.com/s?__biz=MzU0OTk3ODQ3Ng==&mid=2247484070&idx=1&sn=c1d49bce3c9da7fcc7e057d858e21d69&chksm=fba6eaa5ccd163b3a935303f10a54a38f15f3c8364c7c1d489f0b1aa1b2ef293a35c565d2fda&mpshare=1&scene=1&srcid=0608QzOXG2l0z2QyfVaCKqRH%23rd
  */
 public class LongAdderDemo {
     @SneakyThrows
