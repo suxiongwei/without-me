@@ -4,6 +4,14 @@ import com.google.common.base.Charsets;
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
 
+/**
+ * 布隆过滤器
+ * > 应用场景
+ * 布隆过滤器的用处就是，能够在节省存储空间的情况下迅速判断一个元素是否在一个集合中。主要有如下三个使用场景：
+ *  1、网页爬虫对URL的去重，避免爬取相同的URL地址；
+ *  2、反垃圾邮件，从数十亿个垃圾邮件列表中判断某邮箱是否垃圾邮箱；
+ *  3、缓存击穿，将已存在的缓存放到布隆过滤器中，当黑客访问不存在的缓存时迅速返回避免缓存及DB挂掉。
+ */
 public class BloomFilterDemo {
     public static void main(String[] args) {
         // 元素的总数量
