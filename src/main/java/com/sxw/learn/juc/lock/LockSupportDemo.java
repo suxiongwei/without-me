@@ -10,9 +10,9 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 三种让线程实现阻塞唤醒的方式
  * 1、Object中的wait、notify实现线程的阻塞唤醒
- * 2、Condition接口中的await和signal实现线程的 阻塞唤醒
+ * 2、Condition接口中的await和signal实现线程的阻塞唤醒
  * 3、park、unpark
- * 上述两种方式的局限性：
+ * 方式1和2的局限性：
  * - 线程先要获取并持有锁，必须在锁块中（synchronized或lock）
  * - 必须要先等待后唤醒，线程才能够被唤醒
  *
