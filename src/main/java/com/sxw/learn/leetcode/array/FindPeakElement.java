@@ -12,6 +12,7 @@ package com.sxw.learn.leetcode.array;
  * 2、方法二：迭代爬坡(可以进行二分优化)
  */
 public class FindPeakElement {
+    // 解法一
     public int findPeakElement(int[] nums) {
         int idx = 0;
         for (int i = 1; i < nums.length; ++i) {
@@ -20,5 +21,29 @@ public class FindPeakElement {
             }
         }
         return idx;
+    }
+
+    // 解法二
+    // 每次二分去爬坡，只要在爬坡，就一定有下一个山峰要被越过。
+    public int findPeakElement1(int[] nums) {
+        int N = nums.length;
+        int left = 0;
+        int right = N - 1;
+        while (left < right) {
+            int mid = left + ((right - left) >> 1);
+            if (nums[mid + 1] > nums[mid]) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return left;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 1, 3, 5, 6, 4};
+        FindPeakElement solution = new FindPeakElement();
+        int peakElement1 = solution.findPeakElement1(nums);
+        System.out.println(peakElement1);
     }
 }
