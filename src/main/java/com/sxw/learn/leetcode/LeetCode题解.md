@@ -36,6 +36,7 @@
 - [搜索二维矩阵(74)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SearchInDoubleArray.java)
 - [数组中的第K个最大元素(215)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindKthLargest.java)
 - [合并区间(56)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Merge.java)
+- [下一个排列（31）](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/NextPermutation.java)
 
 ### 链表
 - [删除链表倒数第N个节点(19)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/RemoveNthFromEnd.java)
