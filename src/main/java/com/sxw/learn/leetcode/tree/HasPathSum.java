@@ -23,7 +23,7 @@ public class HasPathSum {
         Queue<Integer> valueQueue = new LinkedList<>();
 
         nodeQueue.offer(root);
-        valueQueue.offer(root.value);
+        valueQueue.offer(root.val);
 
         while (!nodeQueue.isEmpty()){
             TreeNode node = nodeQueue.poll();
@@ -33,12 +33,12 @@ public class HasPathSum {
 
             if (node.left != null){
                 nodeQueue.offer(node.left);
-                valueQueue.offer(node.left.value + value);
+                valueQueue.offer(node.left.val + value);
             }
 
             if (node.right != null){
                 nodeQueue.offer(node.right);
-                valueQueue.offer(node.right.value + value);
+                valueQueue.offer(node.right.val + value);
             }
         }
         return false;
@@ -52,10 +52,10 @@ public class HasPathSum {
      * @return
      */
     public static boolean solution1(TreeNode root, int targetSum) {
-        if (root != null) System.out.println("cur:" + root.value + ",targetSum:" + targetSum);
+        if (root != null) System.out.println("cur:" + root.val + ",targetSum:" + targetSum);
         if (root == null) return false;
-        if (root.left == null && root.right == null) return targetSum == root.value;
-        return solution1(root.left, targetSum - root.value) || solution1(root.right, targetSum - root.value);
+        if (root.left == null && root.right == null) return targetSum == root.val;
+        return solution1(root.left, targetSum - root.val) || solution1(root.right, targetSum - root.val);
     }
 
     public static void main(String[] args) {

@@ -31,7 +31,7 @@ public class Rand5ToRand7 {
     public static int f07(){
         int res = 0;
         do {
-            res = (r01() << 2) + (r01() << 1) + r01();// 二进制的每一位都是随机的，整体就是随机的
+            res = (r01() << 2) + (r01() << 1) + r01();// 二进制的每一位都是随机的，整体就是随机的, 4 + 2 + 1
         }while (res != 7);
         return res + 1;
     }

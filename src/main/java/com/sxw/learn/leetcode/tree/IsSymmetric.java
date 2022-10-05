@@ -12,6 +12,6 @@ public class IsSymmetric {
     boolean check(TreeNode p, TreeNode q){
         if (p == null && q == null) return true;
         if (p == null || q == null) return false;
-        return p.value == q.value && check(p.left, q.right) && check(p.right, q.left);
+        return p.val == q.val && check(p.left, q.right) && check(p.right, q.left);
     }
 }

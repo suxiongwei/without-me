@@ -29,13 +29,13 @@ public class Traversal {
 
     public static void recurOrder(List<Integer> res, TreeNode node){
         if (node == null) return;
-        res.add(node.value);
+        res.add(node.val);
 
         recurOrder(res, node.left);
-        res.add(node.value);// 上面的return之后，node还是当前栈的node
+        res.add(node.val);// 上面的return之后，node还是当前栈的node
 
         recurOrder(res, node.right);
-        res.add(node.value);
+        res.add(node.val);
     }
 
     // 前序遍历(头、左、右)：相当于递归顺序，第一次的时候打印
@@ -48,7 +48,7 @@ public class Traversal {
 
     public static void preOrderTraversal(List<Integer> res, TreeNode node){
         if (node == null) return;
-        res.add(node.value);
+        res.add(node.val);
 
         preOrderTraversal(res, node.left);
         preOrderTraversal(res, node.right);
@@ -65,7 +65,7 @@ public class Traversal {
     public static void inOrderTraversal(List<Integer> res, TreeNode node){
         if (node == null) return;
         inOrderTraversal(res, node.left);
-        res.add(node.value);
+        res.add(node.val);
         inOrderTraversal(res, node.right);
     }
 
@@ -81,7 +81,7 @@ public class Traversal {
         if (node == null) return;
         postOrderTraversal(res, node.left);
         postOrderTraversal(res, node.right);
-        res.add(node.value);
+        res.add(node.val);
     }
 
     // -------------------以上是递归解法,下面的是非递归解法-------------------
@@ -99,7 +99,7 @@ public class Traversal {
 
         while (!stack.empty()){
             TreeNode cur = stack.pop();
-            res.add(cur.value);
+            res.add(cur.val);
 
             if (cur.right != null){
                 stack.add(cur.right);
@@ -127,7 +127,7 @@ public class Traversal {
                 cur = cur.left;
             }else {
                 cur = stack.pop();
-                res.add(cur.value);
+                res.add(cur.val);
                 cur = cur.right;
             }
         }
@@ -157,7 +157,7 @@ public class Traversal {
             }
         }
         while (!s2.empty()){
-            res.add(s2.pop().value);
+            res.add(s2.pop().val);
         }
         return res;
     }

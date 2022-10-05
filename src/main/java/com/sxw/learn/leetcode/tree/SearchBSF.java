@@ -9,9 +9,9 @@ public class SearchBSF {
         if (root == null){
             return null;
         }
-        if (root.value == val){
+        if (root.val == val){
             return root;
-        }else if(root.value < val){
+        }else if(root.val < val){
             return searchBSF(root.right, val);
         }else {
             return searchBSF(root.left, val);

@@ -21,7 +21,7 @@ public class SerializationAndDeserializationTree {
     // 通过先序列遍历的方式将树序列化为字符串
     public static String serialByPre(TreeNode node){
         if (node == null) return "#_";
-        String res = node.value + "_";
+        String res = node.val + "_";
         res += serialByPre(node.left);
         res += serialByPre(node.right);
         return res;

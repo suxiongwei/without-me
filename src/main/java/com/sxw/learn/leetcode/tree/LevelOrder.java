@@ -20,7 +20,7 @@ public class LevelOrder {
             Integer currentLevelSize = queue.size();// 定义一个变量，因为在执行过程中size的值是变化的
             for (Integer i = 0; i < currentLevelSize; i++) {
                 TreeNode curNode = queue.poll();
-                level.add(curNode.value);
+                level.add(curNode.val);
                 if (curNode.left != null) queue.offer(curNode.left);// 从队尾插入，当此轮循环结束，上一层的节点都已经弹出，队列按照从左到右存储的已经是下一层的节点
                 if (curNode.right != null) queue.offer(curNode.right);
             }

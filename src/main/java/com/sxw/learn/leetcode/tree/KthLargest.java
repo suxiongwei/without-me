@@ -25,7 +25,7 @@ public class KthLargest {
             return;
         }
         if (--k == 0) {
-            res = root.value;
+            res = root.val;
         }
         dfs(root.left);
     }

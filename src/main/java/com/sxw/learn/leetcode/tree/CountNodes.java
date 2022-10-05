@@ -12,10 +12,10 @@ public class CountNodes {
      * @return
      */
     public static int countNodes(TreeNode root){
-        System.out.println("begin node:" + (Objects.isNull(root) ? "" : root.value));
+        System.out.println("begin node:" + (Objects.isNull(root) ? "" : root.val));
         if (null == root) return 0;
         int currentCount = 1 + countNodes(root.left) + countNodes(root.right);
-        System.out.println("current node:" + root.value + " / " + "current count:" + currentCount);
+        System.out.println("current node:" + root.val + " / " + "current count:" + currentCount);
         return currentCount;
     }
 
@@ -37,11 +37,11 @@ public class CountNodes {
        if (leftLevel == rightLevel){
            // 左移n位就相当于乘以2的n次方
            int currentCount = countNodes1(root.right) + (1 << leftLevel);
-           System.out.println("左右子树level相等：currentNode:" + root.value + ",leftLevel:" + leftLevel + ",rightLevel:" + rightLevel + ",currentCount:" + currentCount);
+           System.out.println("左右子树level相等：currentNode:" + root.val + ",leftLevel:" + leftLevel + ",rightLevel:" + rightLevel + ",currentCount:" + currentCount);
            return currentCount;
        }else {
            int currentCount = countNodes1(root.left) + (1 << rightLevel);
-           System.out.println("左右子树level不等：currentNode:" + root.value + ",leftLevel:" + leftLevel + ",rightLevel:" + rightLevel + ",currentCount:" + currentCount);
+           System.out.println("左右子树level不等：currentNode:" + root.val + ",leftLevel:" + leftLevel + ",rightLevel:" + rightLevel + ",currentCount:" + currentCount);
            return currentCount;
        }
     }

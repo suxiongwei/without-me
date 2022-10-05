@@ -49,7 +49,7 @@ public class RightSideView {
 
     private void dfs(TreeNode root, int depth) {
         if (root == null) return;
-        if (depth == res.size()) res.add(root.value);// 如果当前节点所在深度没有出现在res里，说明在该深度下当前节点是第一个被访问的节点，因此加入
+        if (depth == res.size()) res.add(root.val);// 如果当前节点所在深度没有出现在res里，说明在该深度下当前节点是第一个被访问的节点，因此加入
         depth ++;
         dfs(root.right, depth);
         dfs(root.left, depth);

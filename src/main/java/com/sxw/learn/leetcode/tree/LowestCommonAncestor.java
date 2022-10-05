@@ -1,7 +1,7 @@
 package com.sxw.learn.leetcode.tree;
 
 /**
- * [题目描述]：给定两个二叉树的节点node1和node2，找到它们的最低公共祖先节点
+ * [题目描述]：二叉树的最近公共祖先(236)
  * [说明]：前提条件是一定存在公共祖先
  * [解题思路]：
  * 分析当有公共祖先时的可能的情况
@@ -66,6 +66,6 @@ public class LowestCommonAncestor {
         TreeNodeShow.show(node1);
 
         TreeNode lowestCommonAncestor = LowestCommonAncestor.lowestCommonAncestor(node1, node6, node9);
-        System.out.println("最低公共祖先节点：" + lowestCommonAncestor.value);
+        System.out.println("最低公共祖先节点：" + lowestCommonAncestor.val);
     }
 }
