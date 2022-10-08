@@ -29,12 +29,12 @@ public class IsValidBST {
         if (node == null) {
             return true;
         }
-        if (node.value <= lower || node.value >= upper) {
-            System.out.println("return false -> node:" + node.value + " lower:" + lower + " upper:" + upper);
+        if (node.val <= lower || node.val >= upper) {
+            System.out.println("return false -> node:" + node.val + " lower:" + lower + " upper:" + upper);
             return false;
         }
-        System.out.println("node:" + node.value + " lower:" + lower + " upper:" + upper);
-        return isValidBST(node.left, lower, node.value) && isValidBST(node.right, node.value, upper);
+        System.out.println("node:" + node.val + " lower:" + lower + " upper:" + upper);
+        return isValidBST(node.left, lower, node.val) && isValidBST(node.right, node.val, upper);
     }
 
     public static void main(String[] args) {

@@ -66,6 +66,6 @@ public class LowestCommonAncestor {
         TreeNodeShow.show(node1);
 
         TreeNode lowestCommonAncestor = LowestCommonAncestor.lowestCommonAncestor(node1, node6, node9);
-        System.out.println("最低公共祖先节点：" + lowestCommonAncestor.value);
+        System.out.println("最低公共祖先节点：" + lowestCommonAncestor.val);
     }
 }

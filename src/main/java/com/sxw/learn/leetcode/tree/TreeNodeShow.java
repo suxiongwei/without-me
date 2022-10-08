@@ -15,7 +15,7 @@ public class TreeNodeShow {
         if (currNode == null)
             return;
         // 先将当前节点保存到二维数组中
-        res[rowIndex][columnIndex] = String.valueOf(currNode.value);
+        res[rowIndex][columnIndex] = String.valueOf(currNode.val);
 
         // 计算当前位于树的第几层
         int currLevel = ((rowIndex + 1) / 2);
