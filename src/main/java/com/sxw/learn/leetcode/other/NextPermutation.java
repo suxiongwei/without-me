@@ -3,7 +3,7 @@ package com.sxw.learn.leetcode.other;
 import java.util.Arrays;
 
 /**
- * [题目]: 下一个排列（31）
+ * [题目]: 下一个排列(31)
  * [题目描述]:
  * 整数数组的一个 排列 就是将其所有成员以序列或线性顺序排列。
  *
