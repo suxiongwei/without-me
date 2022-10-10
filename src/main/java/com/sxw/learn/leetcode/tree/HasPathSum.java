@@ -47,15 +47,27 @@ public class HasPathSum {
     /**
      * 递归解法
      *
-     * @param root
-     * @param targetSum
-     * @return
+     *             1
+     *          /     \
+     *       2           3
+     *     /   \       /   \
+     *   4       5   8       9
+     *  / \     /     \
+     * 6   7   10      11
+     * cur:1,targetSum:18
+     * cur:2,targetSum:17
+     * cur:4,targetSum:15
+     * cur:6,targetSum:11
+     * cur:7,targetSum:11
+     * cur:5,targetSum:15
+     * cur:10,targetSum:10
+     * true
      */
     public static boolean solution1(TreeNode root, int targetSum) {
         if (root != null) System.out.println("cur:" + root.val + ",targetSum:" + targetSum);
         if (root == null) return false;
         if (root.left == null && root.right == null) return targetSum == root.val;
-        return solution1(root.left, targetSum - root.val) || solution1(root.right, targetSum - root.val);
+        return solution1(root.left, targetSum - root.val) || solution1(root.right, targetSum - root.val);// 左节点返回false才会去右节点继续
     }
 
     public static void main(String[] args) {
@@ -98,7 +110,7 @@ public class HasPathSum {
          *
          * 1,2,4,6 走完之后直接return
          */
-        boolean b = HasPathSum.solution1(node1, 13);
+        boolean b = HasPathSum.solution1(node1, 18);
         System.out.println(b);
     }
 
