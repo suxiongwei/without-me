@@ -53,8 +53,9 @@
 - [删除排序链表中的重复元素II(82)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/DeleteDuplicates.java)
 - [重排链表(143)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/ReorderList.java)
 - [K个一组翻转链表(25)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/ReverseKGroup.java)
+- [LRU缓存(146)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/LRUCache.java)
 
-### 二叉树
+`### 二叉树
 - [最大深度与DFS](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/MaxDepth.java)
 - [二叉树的层序遍历与BFS(102)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/LevelOrder.java)
 - [BST与其验证](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsValidBST.java)
@@ -82,6 +83,7 @@
 - [二叉树的直径(543)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/DiameterOfBinaryTree.java)
 - [二叉树展开为链表(114)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/Flatten.java)
 - [二叉搜索树中第K小的元素(230)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/KthSmallest.java)
+- [二叉树最大宽度(662)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/WidthOfBinaryTree.java)
 
 ### 位运算
 - [只出现一次的数字(136)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bit/SingleNumber.java)
@@ -92,7 +94,7 @@
 ### 动态规划
 - [买卖股票的最佳时机](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxProfit.java)
 - [爬楼梯(70)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/ClimbStairs.java)
-- [最大子序和(53)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxSubArray.java)
+- [最大子数组和(53)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxSubArray.java)
 - [最长上升子序列(300)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/LengthOfLIS.java)
 - [数字转字符串的方式](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/NumToStringWays.java)
 - [打家劫舍(198)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/Rob.java)

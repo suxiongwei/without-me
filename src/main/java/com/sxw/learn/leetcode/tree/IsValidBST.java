@@ -30,10 +30,10 @@ public class IsValidBST {
             return true;
         }
         if (node.val <= lower || node.val >= upper) {
-            System.out.println("return false -> node:" + node.val + " lower:" + lower + " upper:" + upper);
+//            System.out.println("return false -> node:" + node.val + " lower:" + lower + " upper:" + upper);
             return false;
         }
-        System.out.println("node:" + node.val + " lower:" + lower + " upper:" + upper);
+//        System.out.println("node:" + node.val + " lower:" + lower + " upper:" + upper);
         return isValidBST(node.left, lower, node.val) && isValidBST(node.right, node.val, upper);
     }
 

@@ -17,7 +17,7 @@ public class LengthOfLongestSubstring {
                 left = Math.max(left, map.get(s.charAt(right)));// 防止map中已有的字符已经不在当前的串中，然后左窗口从重复字符的下一个开始
             }
             result = Math.max(result, right - left + 1);
-            map.put(s.charAt(right), right + 1);
+            map.put(s.charAt(right), right + 1);// 注意这里是加1，即存储的时候就存储的是下一个字符的位置
         }
         return result;
     }
