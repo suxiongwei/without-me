@@ -5,29 +5,31 @@ import java.util.Queue;
 
 /**
  * [题目]：判断一颗二叉树是否为完全二叉树
- * 完全二叉树的定义：如果二叉树中除去最后一层节点为满二叉树，且最后一层的结点依次从左到右分布，则此二叉树被称为完全二叉树。
- *             1
- *          /     \
- *       2           3
- *     /   \       /   \
- *   4       5   8       9
- *  / \     / \ /
- * 6   7   10  12
+ * leetcode名称：二叉树的完全性检验(isCompleteTree)
  *
+ * 完全二叉树的定义：如果二叉树中除去最后一层节点为满二叉树，且最后一层的结点依次从左到右分布，则此二叉树被称为完全二叉树。
+ * 1
+ * /     \
+ * 2           3
+ * /   \       /   \
+ * 4       5   8       9
+ * / \     / \ /
+ * 6   7   10  12
+ * <p>
  * [解题思路]：
  * 使用层次遍历
  * 1) 任意节点，有右子树无左子树，返回false
  * 2) 不违反第一步的前提下，如果遇到了第一个左右子树不全，则接下来的节点必须为叶子节点
  */
 public class IsCompleteBinaryTree {
-    public static boolean isCompleteBinaryTree(TreeNode node){
+    public static boolean isCompleteBinaryTree(TreeNode node) {
         if (node == null) return true;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(node);
         // 是否遇到过左右孩子不双全的节点
         boolean leaf = false;
-        TreeNode left = null, right = null;
-        while (!queue.isEmpty()){
+        TreeNode left, right;
+        while (!queue.isEmpty()) {
             TreeNode cur = queue.poll();
             left = cur.left;
             right = cur.right;

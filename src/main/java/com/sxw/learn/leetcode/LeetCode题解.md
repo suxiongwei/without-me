@@ -54,8 +54,9 @@
 - [重排链表(143)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/ReorderList.java)
 - [K个一组翻转链表(25)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/ReverseKGroup.java)
 - [LRU缓存(146)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/LRUCache.java)
+- [两两交换链表中的节点(24)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/SwapPairs.java)
 
-`### 二叉树
+### 二叉树
 - [最大深度与DFS](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/MaxDepth.java)
 - [二叉树的层序遍历与BFS(102)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/LevelOrder.java)
 - [BST与其验证](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsValidBST.java)
