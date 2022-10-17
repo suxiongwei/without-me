@@ -35,7 +35,7 @@ public class ReverseBetween {
         ListNode next;
         for (int i = left; i < right; i++){
             next = curr.next;// 需要插入到头部的节点
-            curr.next = next.next;// 先把当前节点和未遍历到到节点连接上
+            curr.next = next.next;// 先把当前节点和未遍历到的节点连接上
             next.next = pre.next;
             pre.next = next;
         }
