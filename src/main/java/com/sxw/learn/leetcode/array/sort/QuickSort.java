@@ -1,6 +1,5 @@
 package com.sxw.learn.leetcode.array.sort;
 
-import java.util.Arrays;
 
 /**
  * 快速排序
@@ -12,6 +11,7 @@ public class QuickSort {
 
     public static void quickSort(int[] arr, int L, int R){
         if (L < R){
+            // 比如 L = 3，R = 5,需要生成的随机数为 3～5， 也就是 3 + （随机的0～2）, Math.random() 随机选取大于等于0.0且小于1.0的伪随机 double 值
             swap(arr, L + (int) Math.random() * (R - L + 1), R);
             int[] partition = partition(arr, L, R);
             quickSort(arr, L, partition[0] - 1);
@@ -58,7 +58,7 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] a = new int[]{4,3,5,6,1,3};
 //        partition(a, 0, a.length - 1);
-        quickSort(a);
-        System.out.println(Arrays.toString(a));
+//        quickSort(a);
+//        System.out.println(Arrays.toString(a));
     }
 }

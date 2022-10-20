@@ -4,9 +4,19 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-22 1:36 下午
+ * [题目]: 最小栈(155)
+ * [题目描述]:
+ * 设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
+ *
+ * 实现 MinStack 类:
+ * MinStack() 初始化堆栈对象。
+ * void push(int val) 将元素val推入堆栈。
+ * void pop() 删除堆栈顶部的元素。
+ * int top() 获取堆栈顶部的元素。
+ * int getMin() 获取堆栈中的最小元素。
+ *
+ * [解题思路]:
+ * 定义一个辅助栈 存储当前元素的最小值
  */
 public class MinStack {
     Deque<Integer> xStack;

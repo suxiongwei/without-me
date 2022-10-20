@@ -27,6 +27,7 @@
 ```
 - [Wait&Notify](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/WaitNotifyCase.java)
 - [LongAdder](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/cas/LongAdderDemo.java)
+- [偏向锁](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/sync/SynchronizedDemo.java)
 
 ## Spring框架
 - [@Autowired和@Resource注解的区别](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E5%92%8C%40Resource%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%8C%BA%E5%88%AB.md)
@@ -35,9 +36,19 @@
 ## MySQL
 - [MySQL事务隔离级别]()
 - [事务的特性(ACID)]()
+- [红黑树和二叉平衡树的特点和区别](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91%26%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%26%E7%BA%A2%E9%BB%91%E6%A0%91%26B-%E6%A0%91%26B%2B%E6%A0%91%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94.md)
+- [MySQL悲观锁和乐观锁](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/MySQL%E6%82%B2%E8%A7%82%E9%94%81%E5%92%8C%E4%B9%90%E8%A7%82%E9%94%81.md)
+
+## 分布式
+#### [为何Kafka这么"快"?](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E4%B8%BA%E4%BD%95Kafka%E8%BF%99%E4%B9%88%22%E5%BF%AB%22%EF%BC%9F.md)
+#### [雪花算法(SnowFlake)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95(SnowFlake).md)
+
 
 ## 计算机网络
 - [TCP三次握手和四次挥手]()
+- [请说说你对守护进程，僵尸进程和孤儿进程的理解](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E3%80%81%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3.md)
+- [请解释一下什么是虚拟内存？](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md)
+
 
 ## 设计模式
 - [工厂模式](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/design/factory)
