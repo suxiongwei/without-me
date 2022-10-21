@@ -28,6 +28,7 @@
 - [三数之和(15)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/ThreeSum.java)
 - [四数之和(18)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FourSum.java)
 - [删除有序数组中的重复项](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/RemoveDuplicates.java)
+- [比较版本号(165)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/CompareVersion.java)
 
 ### 数组(10)
 - [最长公共前缀](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/LongestCommonPrefix.java)
@@ -142,6 +143,8 @@
 
 ### 栈(1)
 - [在不使用额外数据结构的情况下逆序栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/ReverseStack.java)
+- [用栈实现队列(232)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/MyQueue.java)
+- [最小栈(155)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/MinStack.java)
 
 ### 字典树(1)
 - [字典树](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/trie/TrieTree.java)

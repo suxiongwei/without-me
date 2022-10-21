@@ -4,9 +4,12 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * @Author 苏雄伟[suxiongwei@smzdm.com]
- * @Description
- * @Date 2021-03-22 8:28 下午
+ * [题目]: 用栈实现队列(232)
+ * [题目描述]:
+ *
+ * [解题思路]:
+ * 队列：先进先出，队尾添加，队头弹出
+ * 借助一个辅助栈来翻转元素的顺序
  */
 public class MyQueue {
     Deque<Integer> inStack;

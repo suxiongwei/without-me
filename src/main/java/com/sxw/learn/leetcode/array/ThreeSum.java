@@ -21,7 +21,7 @@ public class ThreeSum {
         Arrays.sort(nums);
         for (int first = 0; first < n; first++) {
             if (first > 0 && nums[first] == nums[first - 1]) continue;// 需要和上一次枚举的值不相同
-            int third = n - 1;
+            int third = n - 1;// 定义第三个元素的位置。也就是从右边界开始，随着second的增大，third的边界是一直在缩短的
             int target = -nums[first];
             for (int second = first + 1; second < n; second++) {
                 if (second > first + 1 && nums[second] == nums[second - 1]) continue;// 需要和上一次枚举的数不相同
