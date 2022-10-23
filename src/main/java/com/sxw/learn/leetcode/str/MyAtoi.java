@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.array;
+package com.sxw.learn.leetcode.str;
 
 
 import java.util.HashMap;
@@ -96,7 +96,7 @@ public class MyAtoi {
         while (index < len) {
             char currChar = charArray[index];
             // 4.1 先判断不合法的情况
-            if (currChar > '9' || currChar < '0') {
+            if (currChar > '9' || currChar < '0') {// '0'~'9'对应ASCII码为 48～57
                 break;
             }
 
