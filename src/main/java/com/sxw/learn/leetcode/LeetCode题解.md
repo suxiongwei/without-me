@@ -41,6 +41,7 @@
 - [合并区间(56)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Merge.java)
 - [下一个排列(31)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/NextPermutation.java)
 - [螺旋矩阵(54)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SpiralOrder.java)
+- [最大数(179)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LargestNumber.java)
 
 ### 链表(18)
 - [删除链表倒数第N个节点(19)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/RemoveNthFromEnd.java)
@@ -110,6 +111,7 @@
 - [最长公共子序列(1143)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/LongestCommonSubsequence.java)
 - [接雨水(42)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/Trap.java)
 - [最长重复子数组(718)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/FindLength.java)
+- [单词拆分(139)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/WordBreak.java)
 
 #### 数型DP(3)
 - [树型DP介绍及解题套路](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/%E6%A0%91%E5%9E%8BDP.md)
@@ -128,6 +130,9 @@
 - [字符串相加(415)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/AddStrings.java)
 - [删除字符串中的所有相邻重复项(1047)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/RemoveDuplicates.java)
 - [最长回文子串(5)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LongestPalindrome.java)
+
+### 模拟(1)
+- [最大交换(670)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MaximumSwap.java)
 
 ### 图(4)
 - [图的宽度优先遍历](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/graph/BFS.java)
