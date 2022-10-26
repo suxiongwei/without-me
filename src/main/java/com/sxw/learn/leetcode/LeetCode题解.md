@@ -125,7 +125,7 @@
 - [实现Sunday匹配(151)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/StrStr.java)
 - [KMP算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/KMP.java)
 - [无重复字符的最长子串(3)-tag:滑动窗口](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LengthOfLongestSubstring.java)
-- [字符串转换整数(atoi)(8)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MyAtoi.java)
+- [字符串转换整数(atoi)(8)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/MyAtoi.java)
 - [最长连续序列(128)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LongestConsecutive.java)
 - [字符串相加(415)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/AddStrings.java)
 - [删除字符串中的所有相邻重复项(1047)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/RemoveDuplicates.java)
