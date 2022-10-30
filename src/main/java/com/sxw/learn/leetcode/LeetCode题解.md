@@ -30,7 +30,7 @@
 - [删除有序数组中的重复项](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/RemoveDuplicates.java)
 - [比较版本号(165)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/CompareVersion.java)
 
-### 数组(10)
+### 数组(14)
 - [最长公共前缀](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/LongestCommonPrefix.java)
 - [两个数组的交集II](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Intersect.java)
 - [最小和](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SmallSum.java)
@@ -43,6 +43,8 @@
 - [螺旋矩阵(54)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SpiralOrder.java)
 - [最大数(179)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LargestNumber.java)
 - [最长连续序列(128)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LongestConsecutive.java)
+- [移掉K位数字(402)-tag:贪心、单调栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/RemoveKdigits.java)
+- [跳跃游戏(55)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/CanJump.java)
 
 ### 链表(18)
 - [删除链表倒数第N个节点(19)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/RemoveNthFromEnd.java)
@@ -115,6 +117,7 @@
 - [最长重复子数组(718)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/FindLength.java)
 - [单词拆分(139)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/WordBreak.java)
 - [乘积最大子数组(152)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxProduct.java)
+- [最大正方形(221)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaximalSquare.java)
 
 #### 数型DP(3)
 - [树型DP介绍及解题套路](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/%E6%A0%91%E5%9E%8BDP.md)
@@ -163,10 +166,12 @@
 ### 单调栈(2)
 - [单调栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E5%8D%95%E8%B0%83%E6%A0%88.md)
 - [在数组中想找到一个数，左边和右边比这个数大、且离这个数最近的位置](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/GetNearMore.java)
+- [每日温度(739)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/DailyTemperatures.java)
 
 ### 滑动窗口(2)
 - [滑动窗口](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.md)
 - [生成最大窗口数组](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/GetMaxWindow.md)
+- [长度最小的子数组(209)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MinSubArrayLen.md)
 
 ### 深度优先搜索(3)
 - [海岛个数问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CountIslands.java)
