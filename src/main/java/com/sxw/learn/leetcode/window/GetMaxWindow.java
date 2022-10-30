@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.other;
+package com.sxw.learn.leetcode.window;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -20,6 +20,8 @@ import java.util.LinkedList;
  * 请实现一个函数
  * 输入：整型数组 arr, 窗口大小为 w。
  * 输出：一个长度为 n - w + 1的数组 res ,res[i]表示每一种窗口状态下的最大值，以本题为例，结果应该返回 [5,5,5,4,6,7]。
+ *
+ * https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.md
  */
 public class GetMaxWindow {
     public static int[] getMaxWindow(int[] arr, int w){
@@ -28,10 +30,16 @@ public class GetMaxWindow {
         int res[] = new int[arr.length - w + 1];
         int index = 0;
         for (int i = 0; i < arr.length; i++){// 相当与窗口的R，会一直右移
-            while (!qmax.isEmpty() && arr[qmax.peekLast()] <= arr[i]) qmax.pollLast();
+            while (!qmax.isEmpty() && arr[qmax.peekLast()] <= arr[i]) {
+                qmax.pollLast();
+            }
             qmax.addLast(i);
-            if (qmax.peekFirst() == i - w) qmax.pollFirst();// 过期的下标需要从窗口中移出去
-            if (i >= w - 1) res[index++] = arr[qmax.peekFirst()];// 窗口形成了，返回结果
+            if (qmax.peekFirst() == i - w) {
+                qmax.pollFirst();// 过期的下标需要从窗口中移出去
+            }
+            if (i >= w - 1) {
+                res[index++] = arr[qmax.peekFirst()];// 窗口形成了，返回结果
+            }
         }
         return res;
     }

@@ -32,15 +32,16 @@ public class JolTest {
 
         System.out.println("----------test map-------------");
         /**
-         * 测试10亿个数字的map占用内存空间
+         * 测试20万个数字的map占用内存空间
          */
-        Map<Integer, Integer> map = Maps.newHashMap();
-        for (int i = 0; i < 10000; i++) {
-            map.put(i, i);
+        Map<String, String> map = Maps.newHashMap();
+        for (int i = 0; i < 200000; i++) {
+            map.put(String.valueOf(i), "品牌" + i);
         }
         Long mapTotalByte = GraphLayout.parseInstance(map).totalSize();
         System.out.println( mapTotalByte + "Byte" );
-        System.out.println(100000 * mapTotalByte / 1024 / 1024 / 1024 + "G");
+        System.out.println(mapTotalByte / 1024 / 1024 + "M");
+        System.out.println(mapTotalByte / 1024 / 1024 / 1024 + "G");
 
         System.out.println("----------test array-------------");
         /**
