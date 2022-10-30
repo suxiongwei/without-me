@@ -45,6 +45,7 @@
 - [最长连续序列(128)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LongestConsecutive.java)
 - [移掉K位数字(402)-tag:贪心、单调栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/RemoveKdigits.java)
 - [跳跃游戏(55)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/CanJump.java)
+- [缺失的第一个正数(41)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FirstMissingPositive.java)
 
 ### 链表(18)
 - [删除链表倒数第N个节点(19)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/RemoveNthFromEnd.java)
@@ -104,7 +105,7 @@
 - [给定两个有符号整数a和b，返回a和b中较大的](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bit/GetMax.java)
 - [2的幂(231)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bit/PowerOfX.java)
   
-### 动态规划(10)
+### 动态规划(14)
 - [买卖股票的最佳时机](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxProfit.java)
 - [爬楼梯(70)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/ClimbStairs.java)
 - [最大子数组和(53)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxSubArray.java)
@@ -118,6 +119,7 @@
 - [单词拆分(139)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/WordBreak.java)
 - [乘积最大子数组(152)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxProduct.java)
 - [最大正方形(221)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaximalSquare.java)
+- [最小路径和(64)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MinPathSum.java)
 
 #### 数型DP(3)
 - [树型DP介绍及解题套路](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/%E6%A0%91%E5%9E%8BDP.md)
@@ -133,6 +135,7 @@
 - [无重复字符的最长子串(3)-tag:滑动窗口](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LengthOfLongestSubstring.java)
 - [字符串转换整数(atoi)(8)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/MyAtoi.java)
 - [字符串相加(415)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/AddStrings.java)
+- [36进制加法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/Add36Strings.java)
 - [删除字符串中的所有相邻重复项(1047)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/RemoveDuplicates.java)
 - [最长回文子串(5)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LongestPalindrome.java)
 
@@ -170,7 +173,7 @@
 
 ### 滑动窗口(2)
 - [滑动窗口](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.md)
-- [生成最大窗口数组](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/GetMaxWindow.md)
+- [滑动窗口最大值(239)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MaxSlidingWindow.md)
 - [长度最小的子数组(209)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MinSubArrayLen.md)
 
 ### 深度优先搜索(3)

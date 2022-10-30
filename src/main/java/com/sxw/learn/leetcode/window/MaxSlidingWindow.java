@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
- * [题目]:生成最大窗口数组
+ * [题目]: 滑动窗口最大值(239)
  * 有一个整型数组 arr 和一个大小为 w 的窗口从数组的最左边滑倒最右边，窗口每次向右边划一个位置。
  * 例如：
  * 数组为 [4,3,5,4,3,3,6,7],窗口大小为3时：
@@ -23,8 +23,8 @@ import java.util.LinkedList;
  *
  * https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.md
  */
-public class GetMaxWindow {
-    public static int[] getMaxWindow(int[] arr, int w){
+public class MaxSlidingWindow {
+    public static int[] maxSlidingWindow(int[] arr, int w){
         if (arr == null || w < 1  || arr.length < w) return null;
         LinkedList<Integer> qmax = new LinkedList<>();// 存储的是数组的下标，存储的值是从大到小
         int res[] = new int[arr.length - w + 1];
@@ -46,7 +46,7 @@ public class GetMaxWindow {
 
     public static void main(String[] args) {
         int[] arr = {4,3,5,4,3,3,6,7};
-        int[] res = getMaxWindow(arr, 3);
+        int[] res = maxSlidingWindow(arr, 3);
         Arrays.stream(res).boxed().forEach(System.out::println);
     }
 

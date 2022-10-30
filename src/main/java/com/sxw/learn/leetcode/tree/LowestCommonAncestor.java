@@ -4,44 +4,27 @@ package com.sxw.learn.leetcode.tree;
  * [题目描述]：二叉树的最近公共祖先(236)
  * [说明]：前提条件是一定存在公共祖先
  * [解题思路]：
- * 分析当有公共祖先时的可能的情况
- * 情况1：o1是o2祖先，或者o2是o1的祖先
- * 情况2：o1和o2不互为祖先，需要向上找
  */
 public class LowestCommonAncestor {
-    public static TreeNode lowestCommonAncestor(TreeNode node, TreeNode o1, TreeNode o2){
-        if (node == null || node == o1 || node == o2) return node;// base case 遇到null返回null，遇到o1返回o1，遇到o2返回o2
-        TreeNode left = lowestCommonAncestor(node.left, o1, o2);
-        TreeNode right = lowestCommonAncestor(node.right, o1, o2);
-        if (left != null && right != null) return node;// 如果左子树和右子树返回的结果都不为空，往上传递
-        return left != null ? left : right;// 左右子树，并不是都有返回值，谁有值返回谁，都没值，返回null，叶子节点一定返回null
+    private static TreeNode ans;
+    public static TreeNode lowestCommonAncestor(TreeNode node, TreeNode p, TreeNode q){
+        dfs(node, p, q);
+        return ans;
+    }
 
-        /**
-         * 举例子:
-         *                         1
-         *                     /       \
-         *                 2               3
-         *              /     \
-         *           4           5
-         *         /   \           \
-         *       6       7           8
-         *                          /
-         *                         9
-         *  1）：1
-         *  2）：2
-         *  3）：4 -> return 6
-         *  4）：7 -> return null
-         *  5）：4 -> return 6
-         *  6）：5
-         *  7）：8 -> return 9
-         *  8）：5 -> return 9
-         *  9）：3 -> return null
-         *  10）：
-         */
-
+    private static boolean dfs(TreeNode root, TreeNode p, TreeNode q){
+        if (root == null) return false;
+        boolean lSon = dfs(root.left, p, q);
+        boolean rSon = dfs(root.right, p, q);
+        // 两种情况可以认为找到了最近公共祖先，只要有一种满足则证明找到了结果
+        boolean b1 = lSon && rSon;// p和q分别在root的左右子树
+        boolean b2 = (lSon || rSon) && (p.val == root.val || q.val == root.val);// p和q其中一个为当前节点，一个为子节点
+        if (b1 || b2) ans = root;
+        return lSon || rSon || (p.val == root.val || q.val == root.val);
     }
 
     public static void main(String[] args) {
+        TreeNode node0 = new TreeNode(0);
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3);
@@ -50,22 +33,22 @@ public class LowestCommonAncestor {
         TreeNode node6 = new TreeNode(6);
         TreeNode node7 = new TreeNode(7);
         TreeNode node8 = new TreeNode(8);
-        TreeNode node9 = new TreeNode(9);
-        node1.left = node2;
-        node1.right = node3;
 
-        node2.left = node4;
-        node2.right = node5;
+        node3.left = node5;
+        node3.right = node1;
 
-        node4.left = node6;
-        node4.right = node7;
+        node5.left = node6;
+        node5.right = node2;
 
-        node5.right = node8;
+        node1.left = node0;
+        node1.right = node8;
 
-        node8.left = node9;
-        TreeNodeShow.show(node1);
+        node2.left = node7;
+        node2.right = node4;
 
-        TreeNode lowestCommonAncestor = LowestCommonAncestor.lowestCommonAncestor(node1, node6, node9);
+        TreeNodeShow.show(node3);
+
+        TreeNode lowestCommonAncestor = LowestCommonAncestor.lowestCommonAncestor(node3, node5, node4);
         System.out.println("最低公共祖先节点：" + lowestCommonAncestor.val);
     }
 }
