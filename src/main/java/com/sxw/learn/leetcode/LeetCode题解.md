@@ -20,7 +20,7 @@
 - [寻找旋转排序数组中的最小值(153)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindMin.java)
 - [寻找峰值(162)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindPeakElement.java)
 
-### 双指针(7)
+### 双指针(8)
 - [有序数组的平方(977)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SortedSquares.java)
 - [轮转数组(189)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Rotate.java)
 - [移动零(283)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MoveZeroes.java)
@@ -30,7 +30,7 @@
 - [删除有序数组中的重复项](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/RemoveDuplicates.java)
 - [比较版本号(165)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/CompareVersion.java)
 
-### 数组(14)
+### 数组(15)
 - [最长公共前缀](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/LongestCommonPrefix.java)
 - [两个数组的交集II](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Intersect.java)
 - [最小和](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SmallSum.java)
@@ -47,7 +47,7 @@
 - [跳跃游戏(55)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/CanJump.java)
 - [缺失的第一个正数(41)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FirstMissingPositive.java)
 
-### 链表(18)
+### 链表(19)
 - [删除链表倒数第N个节点(19)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/RemoveNthFromEnd.java)
 - [合并两个有序链表(21)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/MergeTwoLists.java)
 - [环形链表(141)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/HasCycle.java)
@@ -158,7 +158,7 @@
 - [在不使用额外数据结构的情况下逆序栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/ReverseStack.java)
 - [用栈实现队列(232)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/MyQueue.java)
 - [最小栈(155)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/MinStack.java)
-- [双栈排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/StackSort.java)
+- [双栈排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/StackSort.java)
 
 ### 字典树(1)
 - [字典树](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/trie/TrieTree.java)
@@ -166,12 +166,12 @@
 ### 并查集算法(1)
 - [并查集算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/UnionFind.java)
 
-### 单调栈(2)
+### 单调栈(3)
 - [单调栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E5%8D%95%E8%B0%83%E6%A0%88.md)
 - [在数组中想找到一个数，左边和右边比这个数大、且离这个数最近的位置](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/GetNearMore.java)
 - [每日温度(739)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/DailyTemperatures.java)
 
-### 滑动窗口(2)
+### 滑动窗口(3)
 - [滑动窗口](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.md)
 - [滑动窗口最大值(239)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MaxSlidingWindow.md)
 - [长度最小的子数组(209)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MinSubArrayLen.md)
