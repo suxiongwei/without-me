@@ -126,7 +126,7 @@
 - [二叉树节点间的最大距离问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxDistance.java)
 - [派对的最大快乐值](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxHappy.java)
 
-### 字符串(11)
+### 字符串(14)
 - [反转字符串(301)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/ReverseString.java)
 - [最后一个单词的长度(58)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LengthOfLastWord.java)
 - [颠倒字符串中的单词(151)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/ReverseWords.java)
@@ -138,6 +138,9 @@
 - [36进制加法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/Add36Strings.java)
 - [删除字符串中的所有相邻重复项(1047)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/RemoveDuplicates.java)
 - [最长回文子串(5)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LongestPalindrome.java)
+- [阿拉伯数字转化为中文读法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/NumToChinese.java)
+- [字符串解码(394)-tag:栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/DecodeString.java)
+- [字符串相乘(43)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/Multiply.java)
 
 ### 模拟(1)
 - [最大交换(670)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MaximumSwap.java)
@@ -154,11 +157,13 @@
 - [金条切割问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/LessMoneySplitGold.java)
 - [数轴覆盖](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CordCoverMaxPoint.java)
 
-### 栈(4)
+### 栈(5)
 - [在不使用额外数据结构的情况下逆序栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/ReverseStack.java)
 - [用栈实现队列(232)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/MyQueue.java)
 - [最小栈(155)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/MinStack.java)
 - [双栈排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/StackSort.java)
+- [最长有效括号(32)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/LongestValidParentheses.java)
+
 
 ### 字典树(1)
 - [字典树](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/trie/TrieTree.java)
@@ -175,6 +180,7 @@
 - [滑动窗口](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.md)
 - [滑动窗口最大值(239)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MaxSlidingWindow.md)
 - [长度最小的子数组(209)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MinSubArrayLen.md)
+- [最小覆盖子串(76)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MinWindow.md)
 
 ### 深度优先搜索(3)
 - [海岛个数问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CountIslands.java)
@@ -184,13 +190,14 @@
 ### 广度优先搜索(1)
 - [腐烂的橘子(994)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/OrangesRotting.java)
 
-### 回溯&剪枝(6)
+### 回溯&剪枝(7)
 - [组合(77)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Combine.java)
 - [全排列(46)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Permute.java)
 - [字母大小写全排列(784)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/LetterCasePermutation.java)
 - [括号生成(22)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/GenerateParenthesis.java)
 - [子集(78)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Subsets.java)
 - [组合总和(39)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CombinationSum.java)
+- [复原IP地址(93)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/RestoreIpAddresses.java)
 
 ### 资源限制型题目(1)
 - [大数据题目](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bigdata/%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%A2%98%E7%9B%AE.md)
