@@ -1,7 +1,7 @@
 package com.sxw.learn.leetcode.tree;
 
 /**
- * [题目]：反转二叉树
+ * [题目]：反转二叉树/二叉树的镜像(剑指Offer27)
  */
 public class InvertTree {
     public static TreeNode invertTree(TreeNode root) {
