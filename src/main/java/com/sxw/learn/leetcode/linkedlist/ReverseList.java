@@ -6,7 +6,7 @@ package com.sxw.learn.leetcode.linkedlist;
  * [解题思路]:
  */
 public class ReverseList {
-    public ListNode reverseList(ListNode head) {
+    public static ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
         while (curr != null){
