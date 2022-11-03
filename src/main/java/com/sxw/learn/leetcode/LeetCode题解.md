@@ -236,3 +236,5 @@
 - [rand5到rand7及扩展](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Rand5ToRand7.java)
 - [缺失的括号](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/GetNeed.java)
 - [最大公约数和最小公倍数](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/MaxDivisor.java)
+- [Pow(x, n)(50)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/MyPow.java)
+
