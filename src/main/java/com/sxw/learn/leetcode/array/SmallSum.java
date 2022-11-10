@@ -15,7 +15,6 @@ package com.sxw.learn.leetcode.array;
  *
  */
 public class SmallSum {
-
     public static int smallSum(int[] arr){
         if (arr == null || arr.length < 2){
             return 0;

@@ -67,7 +67,7 @@ public class GuavaTest {
             System.out.println("txt isNullOrEmpty");
         }
 
-        int count = 0;
+        int count = 1;
         Preconditions.checkArgument(count > 0, "must be positive: %s", count);
 
         List<Integer> eleList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, null);
@@ -95,5 +95,21 @@ public class GuavaTest {
         // 运行结果:{id=123, name=green}
         System.out.println(split);
 
+        // 测试BiMap
+        System.out.println("--------------------测试BIMap-----------------------");
+        HashBiMap<String,String> upperToLower = HashBiMap.create();
+        upperToLower.forcePut("A","a");
+        upperToLower.forcePut("B","b");
+        upperToLower.forcePut("C","c");
+        //upperToLower.put("D","d");会丢出IllegalArgumentException, 需要用forceput
+        upperToLower.forcePut("D","c");
+
+        //用key获取value
+        System.out.println(upperToLower.get("D"));  //c
+
+        //用value获取key
+        BiMap<String, String> lowerToUpper = upperToLower.inverse();
+        System.out.println(lowerToUpper.get("c"));  //D
+        System.out.println(upperToLower.get("D"));  //c
     }
 }

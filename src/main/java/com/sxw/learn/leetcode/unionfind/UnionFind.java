@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.other;
+package com.sxw.learn.leetcode.unionfind;
 
 import java.util.HashMap;
 import java.util.List;
