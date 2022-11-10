@@ -11,8 +11,6 @@ package com.sxw.learn.leetcode.tree;
  * - 问左树要信息（本题就是，左子树的高度，左子树的节点个数）
  * - 问右树要信息（本题就是，右子树的高度，右子树的节点个数）
  * - 比较条件
- *
- *
  */
 public class IsFullBinaryTree {
     public static boolean isFullBinaryTree(TreeNode node){

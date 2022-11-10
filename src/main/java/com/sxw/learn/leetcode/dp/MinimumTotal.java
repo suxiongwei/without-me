@@ -27,8 +27,8 @@ public class MinimumTotal {
         for (int i = m - 2; i >= 0; i--) {
             for (int i1 = 0; i1 < i + 1; i1++) {
                 // System.out.println(triangle[i][i1]);
-                int tmp = i1 + 1;
-                dp[i][i1] = + triangle[i][i1] + Math.min(dp[i + 1][i1], dp[i + 1][tmp]);
+//                int tmp = i1 + 1;
+                dp[i][i1] = dp[i][i1] + triangle[i][i1] + Math.min(dp[i + 1][i1], dp[i + 1][i1 + 1]);
             }
         }
         return dp[0][0];
