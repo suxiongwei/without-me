@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.str;
+package com.sxw.learn.leetcode.unionfind;
 
 import java.util.HashSet;
 import java.util.Set;
