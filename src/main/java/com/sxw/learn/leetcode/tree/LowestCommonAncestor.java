@@ -17,7 +17,7 @@ public class LowestCommonAncestor {
         boolean lSon = dfs(root.left, p, q);
         boolean rSon = dfs(root.right, p, q);
         // 两种情况可以认为找到了最近公共祖先，只要有一种满足则证明找到了结果
-        boolean b1 = lSon && rSon;// p和q分别在root的左右子树
+        boolean b1 = lSon && rSon;// true: p和q分别在root的左右子树
         boolean b2 = (lSon || rSon) && (p.val == root.val || q.val == root.val);// p和q其中一个为当前节点，一个为子节点
         if (b1 || b2) ans = root;
         return lSon || rSon || (p.val == root.val || q.val == root.val);

@@ -102,6 +102,7 @@
 - [二叉树最大宽度(662)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/WidthOfBinaryTree.java)
 - [从前序与中序遍历序列构造二叉树(105)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/BuildTree.java)
 - [树的子结构(剑指Offer26)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsSubStructure.java)
+- [查找二叉树中给定节点对之间的距离](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/FindDistance.java)
 
 ### 位运算(4)
 - [只出现一次的数字(136)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bit/SingleNumber.java)
@@ -186,6 +187,8 @@
 - [滑动窗口最大值(239)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MaxSlidingWindow.md)
 - [长度最小的子数组(209)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MinSubArrayLen.md)
 - [最小覆盖子串(76)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/MinWindow.md)
+- [最大连续1的个数III(1004)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/window/LongestOnes.md)
+
 
 ### 深度优先搜索(3)
 - [海岛个数问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CountIslands.java)
@@ -203,6 +206,7 @@
 - [子集(78)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Subsets.java)
 - [组合总和(39)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CombinationSum.java)
 - [复原IP地址(93)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/RestoreIpAddresses.java)
+- [单词搜索(79)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Exist.java)
 
 ### 资源限制型题目(1)
 - [大数据题目](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bigdata/%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%A2%98%E7%9B%AE.md)
