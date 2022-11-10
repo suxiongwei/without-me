@@ -38,7 +38,7 @@
 - [荷兰国旗问题/颜色分类(75)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/DutchFlag.java)
 
 ### 字符串
-- [最长公共前缀(14)★★★](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/LongestCommonPrefix.java)
+- [最长公共前缀(14) ★★★](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/LongestCommonPrefix.java)
 
 ### 数组(14)
 - [两个数组的交集II](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Intersect.java)
