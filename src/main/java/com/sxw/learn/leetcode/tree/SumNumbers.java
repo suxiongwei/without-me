@@ -23,7 +23,9 @@ public class SumNumbers {
     public int dfs(TreeNode node, int preSum){
         if (node == null) return 0;
         int sum = preSum * 10 + node.val;
-        if (node.left == null && node.right == null) return sum;// 处理根节点的值，没有这行代码，下面这一行在根节点的时候返回的是0，层层往上，最终结果就是0了
+        if (node.left == null && node.right == null) {
+            return sum;// 处理根节点的值，没有这行代码，下面这一行在根节点的时候返回的是0，层层往上，最终结果就是0了
+        }
         return dfs(node.left, sum) + dfs(node.right, sum);
     }
 }

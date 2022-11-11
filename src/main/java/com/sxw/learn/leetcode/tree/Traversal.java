@@ -8,26 +8,26 @@ import java.util.Stack;
 
 /**
  * [题目]：用递归和非递归两种方式实现二叉树的前序遍历、中序遍历、后序遍历
- *
+ * <p>
  * 遍历的方式：
  * - 前序遍历(头、左、右)：相当于递归顺序，第一次的时候打印
  * - 中序遍历(左、头、右)：相当于递归顺序，第二次的时候打印
  * - 后续遍历(左、右、头)：相当于递归顺序，第三次的时候打印
- *
+ * <p>
  * 解法：
  * - 递归解法：重点需要了解递归的序列
  * - 非递归解法
  */
 public class Traversal {
     // 二叉树的递归顺序
-    public static List<Integer> recurOrder(TreeNode node){
+    public static List<Integer> recurOrder(TreeNode node) {
         List<Integer> res = new ArrayList<>();
         if (node == null) return res;
         recurOrder(res, node);
         return res;
     }
 
-    public static void recurOrder(List<Integer> res, TreeNode node){
+    public static void recurOrder(List<Integer> res, TreeNode node) {
         if (node == null) return;
         res.add(node.val);
 
@@ -39,14 +39,14 @@ public class Traversal {
     }
 
     // 前序遍历(头、左、右)：相当于递归顺序，第一次的时候打印
-    public static List<Integer> preOrderTraversal(TreeNode node){
+    public static List<Integer> preOrderTraversal(TreeNode node) {
         List<Integer> res = new ArrayList<>();
         if (node == null) return res;
         preOrderTraversal(res, node);
         return res;
     }
 
-    public static void preOrderTraversal(List<Integer> res, TreeNode node){
+    public static void preOrderTraversal(List<Integer> res, TreeNode node) {
         if (node == null) return;
         res.add(node.val);
 
@@ -55,14 +55,14 @@ public class Traversal {
     }
 
     // 中序遍历(左、头、右)：相当于递归顺序，第二次的时候打印
-    public static List<Integer> inOrderTraversal(TreeNode node){
+    public static List<Integer> inOrderTraversal(TreeNode node) {
         List<Integer> res = new ArrayList<>();
         if (node == null) return res;
         inOrderTraversal(res, node);
         return res;
     }
 
-    public static void inOrderTraversal(List<Integer> res, TreeNode node){
+    public static void inOrderTraversal(List<Integer> res, TreeNode node) {
         if (node == null) return;
         inOrderTraversal(res, node.left);
         res.add(node.val);
@@ -70,14 +70,14 @@ public class Traversal {
     }
 
     // 后续遍历(左、右、头)：相当于递归顺序，第三次的时候打印
-    public static List<Integer> postOrderTraversal(TreeNode node){
+    public static List<Integer> postOrderTraversal(TreeNode node) {
         List<Integer> res = new ArrayList<>();
         if (node == null) return res;
         postOrderTraversal(res, node);
         return res;
     }
 
-    public static void postOrderTraversal(List<Integer> res, TreeNode node){
+    public static void postOrderTraversal(List<Integer> res, TreeNode node) {
         if (node == null) return;
         postOrderTraversal(res, node.left);
         postOrderTraversal(res, node.right);
@@ -85,26 +85,27 @@ public class Traversal {
     }
 
     // -------------------以上是递归解法,下面的是非递归解法-------------------
+
     /**
      * 用辅助栈的方式实现先序遍历,实现思路:
      * 1、从栈中弹出一个节点
      * 2、处理这个节点(打印)
      * 3、按照先右后左的方式将左右孩子分别入栈
      */
-    public static List<Integer> preOrderTraversalUnRecur(TreeNode node){
+    public static List<Integer> preOrderTraversalUnRecur(TreeNode node) {
         List<Integer> res = new ArrayList<>();
         if (node == null) return res;
         Stack<TreeNode> stack = new Stack<>();
         stack.add(node);
 
-        while (!stack.empty()){
+        while (!stack.empty()) {
             TreeNode cur = stack.pop();
             res.add(cur.val);
 
-            if (cur.right != null){
+            if (cur.right != null) {
                 stack.add(cur.right);
             }
-            if (cur.left != null){
+            if (cur.left != null) {
                 stack.add(cur.left);
             }
         }
@@ -116,16 +117,16 @@ public class Traversal {
      * 1、每棵子数，整棵子数的左边界进栈
      * 2、依次弹出的过程中，输出结果，然后对弹出节点的右子树循环第一步的操作
      */
-    public static List<Integer> inOrderTraversalUnRecur(TreeNode node){
+    public static List<Integer> inOrderTraversalUnRecur(TreeNode node) {
         List<Integer> res = new ArrayList<>();
         if (node == null) return res;
         Stack<TreeNode> stack = new Stack<>();
         TreeNode cur = node;
-        while (!stack.empty() || cur != null){
-            if (cur != null){
+        while (!stack.empty() || cur != null) {
+            if (cur != null) {
                 stack.push(cur);
                 cur = cur.left;
-            }else {
+            } else {
                 cur = stack.pop();
                 res.add(cur.val);
                 cur = cur.right;
@@ -140,28 +141,27 @@ public class Traversal {
      * 2、cur放入结果栈
      * 3、先左再右 循环往复
      */
-    public static List<Integer> postOrderTraversalUnRecur(TreeNode node){
+    public static List<Integer> postOrderTraversalUnRecur(TreeNode node) {
         List<Integer> res = new ArrayList<>();
         if (node == null) return res;
         Stack<TreeNode> s1 = new Stack<>();
         Stack<TreeNode> s2 = new Stack<>();
         s1.add(node);
-        while (!s1.empty()){
+        while (!s1.empty()) {
             TreeNode cur = s1.pop();
             s2.add(cur);
-            if (cur.left != null){
+            if (cur.left != null) {
                 s1.add(cur.left);
             }
-            if (cur.right != null){
+            if (cur.right != null) {
                 s1.add(cur.right);
             }
         }
-        while (!s2.empty()){
+        while (!s2.empty()) {
             res.add(s2.pop().val);
         }
         return res;
     }
-
 
 
     public static void main(String[] args) {
