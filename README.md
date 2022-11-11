@@ -1,5 +1,6 @@
 > - [个人简历](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/%E7%AE%80%E5%8E%86.md)
 > - [LeetCode/算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/LeetCode%E9%A2%98%E8%A7%A3.md)
+> - [SQL题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/SQL.md)
 > - [一些面试题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 ## Java语言部分
 - [死锁发生的原因](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/lock/DeadLockSample.java)
