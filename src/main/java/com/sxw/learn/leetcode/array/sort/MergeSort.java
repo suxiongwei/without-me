@@ -15,6 +15,7 @@ import java.util.Arrays;
  * 归并排序就避免了上述问题
  */
 public class MergeSort {
+
     public static void mergeSort(int[] arr){
         if (null == arr || arr.length <= 2) return;
         process(arr, 0, arr.length - 1);
