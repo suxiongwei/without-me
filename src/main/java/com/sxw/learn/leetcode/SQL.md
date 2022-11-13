@@ -35,3 +35,73 @@ mysql> select
 |    100 |     4 |     4 |     3 |
 +--------+-------+-------+-------+
 ```
+
+### 一些题目
+[180. 连续出现的数字](https://leetcode.cn/problems/consecutive-numbers/)
+```sql
+表：Logs
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| num         | varchar |
++-------------+---------+
+id 是这个表的主键。
+
+编写一个 SQL 查询，查找所有至少连续出现三次的数字。
+返回的结果表中的数据可以按 任意顺序 排列。
+
+SQL:
+select 
+distinct log1.num as ConsecutiveNums
+from 
+logs as log1
+inner join logs log2 on log1.id = (log2.id - 1) and log1.num = log2.num
+inner join logs log3 on log2.id = (log3.id - 1) and log2.num = log3.num
+```
+
+[185. 部门工资前三高的所有员工](https://leetcode.cn/problems/department-top-three-salaries/description/)
+
+```sql
+# Write your MySQL query statement below
+-- 解法1：使用子查询
+# SELECT 
+# d1.name as Department
+# ,e1.name as Employee
+# ,e1.salary as Salary
+# FROM 
+# Employee e1 
+# INNER JOIN Department d1 on e1.departmentId = d1.id
+# -- 代表超过当前员工工资的人数少于3个
+# WHERE 3 > (
+#     SELECT count(distinct salary) 
+#     FROM Employee e2
+#     WHERE e2.salary > e1.salary AND e1.departmentId = e2.departmentId
+# )
+-- 解法2：使用窗口函数
+SELECT
+d.name as Department
+,e.name as Employee
+,e.salary as Salary
+FROM(
+    SELECT 
+    *
+    ,dense_rank() over(PARTITION BY departmentId ORDER BY salary DESC) as rnk
+    FROM 
+    Employee
+) e
+INNER JOIN Department d on e.departmentId = d.id
+WHERE rnk <= 3
+
+涉及到“既要分组，又要排序”的情况，要能想到用窗口函数来实现。
+# topN问题 sql模板
+select *
+from (
+   select *, 
+          row_number() over (partition by 要分组的列名
+                       order by 要排序的列名 desc) as 排名
+   from 表名) as a
+where 排名 <= N;
+
+```
