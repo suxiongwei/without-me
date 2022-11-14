@@ -23,7 +23,7 @@ public class FirstMissingPositive {
         for (int i = 0; i < n; ++i) {
             int num = Math.abs(nums[i]);
             if (num <= n) {
-                nums[num - 1] = -Math.abs(nums[num - 1]);// 将符合答案区间的数对应的数组下标打上标记
+                nums[num - 1] = -Math.abs(nums[num - 1]);// 将符合答案区间的数对应的数组下标打上标记,加上绝对值的目的是为了将已打上负1标记的数修改为正1，比如 1、1的case
             }
         }
         for (int i = 0; i < n; ++i) {
@@ -35,7 +35,8 @@ public class FirstMissingPositive {
     }
 
     public static void main(String[] args) {
-        int[] arr = {3, 4, -1, 1};
+//        int[] arr = {3, 4, -1, 1};
+        int[] arr = {1, 1};
         FirstMissingPositive solution = new FirstMissingPositive();
         int i = solution.firstMissingPositive(arr);
         System.out.println(i);

@@ -1,7 +1,7 @@
 ## 窗口函数
 mysql8.0内置函数支持各种排名问题：
 
-> 以力扣177. 第N高的薪水为例子
+> 以力扣177. 第N高的薪水为例子<br/>
 > Create table If Not Exists Employee (Id int, Salary int) <br/>
 > Truncate table Employee<br/>
 > insert into Employee (id, salary) values ('1', '100')<br/>
