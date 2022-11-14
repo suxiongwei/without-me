@@ -22,7 +22,9 @@ public class Permute {
             return;
         }
         for (int i = 0; i < len; i++) {
-            if (used[i]) continue;
+            if (used[i]) {
+                continue;
+            }
             path.addLast(nums[i]);
             used[i] = true;
             dfs(nums, len, depth + 1, path, used, res);
