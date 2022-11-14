@@ -16,15 +16,16 @@ public class Multiply {
             return "0";
         }
         String ans = "0";
+        // num1:1234 num2:567
         int m = num1.length(), n = num2.length();
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = n - 1; i >= 0; i--) {// 循环的是num2，从低位开始运算
             StringBuffer curr = new StringBuffer();
             int add = 0;
-            for (int j = n - 1; j > i; j--) {
+            for (int j = n - 1; j > i; j--) {// num2除了最低位以外，其余的每一位的运算结果都需要补0。
                 curr.append(0);
             }
             int y = num2.charAt(i) - '0';
-            for (int j = m - 1; j >= 0; j--) {
+            for (int j = m - 1; j >= 0; j--) {// 循环num1，进行运算
                 int x = num1.charAt(j) - '0';
                 int product = x * y + add;
                 curr.append(product % 10);
@@ -52,6 +53,12 @@ public class Multiply {
         }
         ans.reverse();
         return ans.toString();
+    }
+
+    public static void main(String[] args) {
+        Multiply solution = new Multiply();
+        String multiply = solution.multiply("1234", "567");
+        System.out.println(multiply);
     }
 
 }

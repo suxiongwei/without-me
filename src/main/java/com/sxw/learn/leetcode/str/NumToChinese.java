@@ -25,7 +25,7 @@ public class NumToChinese {
                 while (i < len - 1 && newNum[i + 1] == '0') {
                     i++;
                 }
-                if (i != len - 1) {
+                if (i != len - 1) {// 当前没有到达末尾位置
                     res.append(numArr[0]);
                 }
             } else {
