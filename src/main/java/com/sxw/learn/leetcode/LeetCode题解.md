@@ -17,6 +17,7 @@
 - [合并区间(56) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Merge.java)
 - [最大数(179)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/LargestNumber.java)
 - [缺失的第一个正数(41) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FirstMissingPositive.java)
+- [分割数组(915)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/PartitionDisjoint.java)
 
 #### 双指针
 - [有序数组的平方(977) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SortedSquares.java)
@@ -45,6 +46,8 @@
 - [寻找旋转排序数组中的最小值(153) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindMin.java)
 - [寻找峰值(162) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindPeakElement.java)
 - [寻找重复数(287)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindDuplicate.java)
+- [爱吃香蕉的珂珂(875) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MinEatingSpeed.java)
+
 
 #### 矩阵
 - [螺旋矩阵(54) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SpiralOrder.java)
@@ -126,9 +129,10 @@
 - [判断一颗二叉树是否为满二叉树 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsFullBinaryTree.java)
 - [二叉树的直径(543) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/DiameterOfBinaryTree.java)
 - [相同的树(100) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsSameTree.java)
+- [二叉树的所有路径(257) tag:回溯 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/BinaryTreePaths.java)
 
 #### BFS-广度优先搜索
-- [腐烂的橘子(994)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/OrangesRotting.java)
+- [腐烂的橘子(994) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/OrangesRotting.java)
 - [二叉树的层序遍历与BFS(102) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/LevelOrder.java)
 - [路径总和(112)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/HasPathSum.java)
 - [二叉树的锯齿形层序遍历(103) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/ZigzagLevelOrder.java)
@@ -240,6 +244,7 @@
 
 #### 模拟(1)
 - [最大交换(670)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MaximumSwap.java)
+- [对角线遍历(498)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindDiagonalOrder.java)
 
 ### 资源限制型题目
 - [大数据题目](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bigdata/%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%A2%98%E7%9B%AE.md)
