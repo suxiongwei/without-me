@@ -23,7 +23,6 @@ public class UnionFind {
     // 样本进来会先包装一下，叫做元素
     public static class Element<V>{
         public V value;
-
         public Element(V value) {
             this.value = value;
         }
@@ -49,12 +48,12 @@ public class UnionFind {
         }
 
         public boolean isSameSet(V a, V b){
-            if (!elementMap.containsKey(a) || elementMap.containsKey(b)) return false;
+            if (!elementMap.containsKey(a) || !elementMap.containsKey(b)) return false;
             return findHead(elementMap.get(a)) == findHead(elementMap.get(b));
         }
 
         public void union(Element<V> a, Element<V> b){
-            if (elementMap.containsKey(a) && elementMap.containsKey(b)){
+            if (elementMap.containsKey(a.value) && elementMap.containsKey(b.value)){
                 Element<V> aF = findHead(a);// a的代表节点
                 Element<V> bF = findHead(b);// b的代表节点
                 if (aF != bF){
@@ -73,12 +72,14 @@ public class UnionFind {
          */
         private Element<V> findHead(Element<V> element) {
             Stack<Element<V>> path = new Stack<>();
-            while (element != fatherMap.get(element)){// 代表元素的父亲元素就是自己，所以当自己=自己的父则证明走到了代表元素
-                element = fatherMap.get(element);
+            // 代表元素的父亲元素就是自己，所以当自己=自己的父则证明走到了代表元素
+            while (element != fatherMap.get(element)){
                 path.add(element);
+                element = fatherMap.get(element);
             }
             while (!path.empty()){
-                fatherMap.put(path.pop(), element);// 链可能比较长,但是在路径压缩(打扁平)之后,时间复杂度就变成了O(1),具体实现:在查询的过程中,把沿途的每个元素都指向代表元素就可以了
+                // 链可能比较长,但是在路径压缩(打扁平)之后,时间复杂度就变成了O(1),具体实现:在查询的过程中,把沿途的每个元素都指向代表元素就可以了
+                fatherMap.put(path.pop(), element);
             }
             return element;
         }

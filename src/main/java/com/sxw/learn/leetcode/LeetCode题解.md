@@ -130,6 +130,7 @@
 - [二叉树的直径(543) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/DiameterOfBinaryTree.java)
 - [相同的树(100) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsSameTree.java)
 - [二叉树的所有路径(257) tag:回溯 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/BinaryTreePaths.java)
+- [二叉树中所有距离为K的结点(863)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/dfs/DistanceK.java)
 
 #### BFS-广度优先搜索
 - [腐烂的橘子(994) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/OrangesRotting.java)
@@ -191,6 +192,7 @@
 - [最小路径和(64)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MinPathSum.java)
 - [完全平方数(279)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/NumSquares.java)
 - [解码方法(91)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/NumDecodings.java)
+- [整数拆分(343)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/IntegerBreak.java)
 
 #### 数型DP
 - [树型DP介绍及解题套路](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/%E6%A0%91%E5%9E%8BDP.md)
@@ -209,6 +211,7 @@
 ### 并查集算法
 - [并查集算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/unionfind/UnionFind.java)
 - [最长连续序列(128)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LongestConsecutive.java)
+- [省份数量(547)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/unionfind/FindCircleNum.java)
 
 ### 滑动窗口
 - [滑动窗口](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.md)
@@ -233,18 +236,21 @@
 - [课程表(207)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CanFinish.java)
 
 ### 解题的技巧
-#### 观察表法(3)
+#### 观察表法
 - [买苹果问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/MinBags.java)
 - [牛羊吃草问题(Tag:博弈论)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/EatGrass.java)
 - [观察表法的总结]()
 
-#### 预处理法(2)
+#### 预处理法
 - [方格染色](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/SquareStaining.java)
 - [给定一个N*N的矩阵matrix，在这个矩阵中，只有0和1两种值，返回边框全是1的最大正方形的边长长度](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/MaxSquare.java)
 
-#### 模拟(1)
+#### 模拟
 - [最大交换(670)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MaximumSwap.java)
 - [对角线遍历(498)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindDiagonalOrder.java)
+
+#### 频繁解
+- [土豪打榜](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/MinCostCoins.java)
 
 ### 资源限制型题目
 - [大数据题目](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bigdata/%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%A2%98%E7%9B%AE.md)
