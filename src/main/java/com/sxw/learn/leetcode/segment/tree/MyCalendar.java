@@ -2,109 +2,104 @@ package com.sxw.learn.leetcode.segment.tree;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashSet;
+import java.util.Set;
+
+
+
+
+/**
+ * [题目]: 我的日程安排表I(729)
+ * [题目描述]:
+ * 实现一个 MyCalendar 类来存放你的日程安排。如果要添加的日程安排不会造成 重复预订 ，则可以存储这个新的日程安排。
+ * 当两个日程安排有一些时间上的交叉时（例如两个日程安排都在同一时间内），就会产生 重复预订 。
+ * 日程可以用一对整数 start 和 end 表示，这里的时间是半开区间，即 [start, end), 实数 x 的范围为，  start <= x < end 。
+ *
+ * 实现 MyCalendar 类：
+ * MyCalendar() 初始化日历对象。
+ * boolean book(int start, int end) 如果可以将日程安排成功添加到日历中而不会导致重复预订，返回 true 。否则，返回 false 并且不要将该日程安排添加到日历中。
+ * [解题思路]:
+ * 线段树
+ */
 @Slf4j
 public class MyCalendar {
+    // 存储元素idx的含义：[0,1e9)编号idx=1，[0,mid)编号idx=2, [mid,1e9)编号idx=3，以此类推
+    //  tree 记录区间 [l,r] 的是否存在标记为 1 的元素。
+    Set<Integer> tree;
+    //  标记区间 [l,r] 已经被预订，
+    Set<Integer> lazy;
+    // 线段数中能存储的最大范围
+    int R = 1000000000;
+//    int R = 50;
 
-    public MyCalendar() {}
+    public MyCalendar() {
+        tree = new HashSet<>();
+        lazy = new HashSet<>();
+    }
 
     public boolean book(int start, int end) {
-        // 先查询该区间是否为 0
-        log.info("book-start:{}, end:{}", start, end);
-        int query = query(root, 0, N, start, end - 1);
-        if (query != 0) {
+        boolean query = query(start, end - 1, 0, R, 1);
+        if (query) {
             return false;
         }
-        // 更新该区间
-        update(root, 0, N, start, end - 1, 1);
+        update(start, end - 1, 0, R, 1);
         return true;
     }
 
-    // *************** 下面是模版 ***************
-    class Node {
-        // 左右孩子节点
-        Node left, right;
-        // 当前节点值，以及懒惰标记的值
-        int val, add;
+    public boolean query(int start, int end, int l, int r, int idx) {
+        if (start > r || end < l) {
+            return false;
+        }
+        // 如果该区间已被预订，则直接返回
+        if (lazy.contains(idx)) {
+            return true;
+        }
+        if (start <= l && r <= end) {
+            return tree.contains(idx);
+        } else {
+            int mid = (l + r) >> 1;
+            if (end <= mid) {
+                return query(start, end, l, mid, 2 * idx);
+            } else if (start > mid) {
+                return query(start, end, mid + 1, r, 2 * idx + 1);
+            } else {
+                return query(start, end, l, mid, 2 * idx) | query(start, end, mid + 1, r, 2 * idx + 1);
+            }
+        }
     }
 
-//    private int N = (int) 1e9;
-    private int N = 50;
-    private Node root = new Node();
-    public void update(Node node, int start, int end, int l, int r, int val) {
-        if (l <= start && end <= r) {
-            node.val += val;
-            node.add += val;
-            return ;
+    public void update(int start, int end, int l, int r, int idx) {
+        if (r < start || end < l) {
+            return;
         }
-        pushDown(node);
-        int mid = (start + end) >> 1;
-        if (l <= mid) {
-            update(node.left, start, mid, l, r, val);
+        if (start <= l && r <= end) {
+            tree.add(idx);
+            lazy.add(idx);
+        } else {
+            int mid = (l + r) >> 1;
+            update(start, end, l, mid, 2 * idx);
+            update(start, end, mid + 1, r, 2 * idx + 1);
+            log.info("start:[{}],end:[{}],l:[{}],r:[{}],idx:[{}]", start, end, l, r, idx);
+            tree.add(idx);
         }
-        if (r > mid) {
-            update(node.right, mid + 1, end, l, r, val);
-        }
-        pushUp(node);
-    }
-
-    public int query(Node node, int start, int end, int l, int r) {
-        log.info("query node:{}, start:{}, end:{}, l:{}, r:{}", node.val, start, end, l, r);
-
-        // 区间 [l ,r] 完全包含区间 [start, end]
-        // 例如：[2, 4] = [2, 2] + [3, 4]，当 [start, end] = [2, 2] 或者 [start, end] = [3, 4]，直接返回
-        if (l <= start && end <= r) {
-            log.info("query return node:{}", node.val);
-            return node.val;
-        }
-        pushDown(node);
-        int mid = (start + end) >> 1;
-        int ans = 0;
-        if (l <= mid) {
-            ans = query(node.left, start, mid, l, r);
-        }
-        if (r > mid) {
-            ans = Math.max(ans, query(node.right, mid + 1, end, l, r));
-        }
-        return ans;
-    }
-
-    private void pushUp(Node node) {
-        // 每个节点存的是当前区间的最大值
-        node.val = Math.max(node.left.val, node.right.val);
-    }
-
-    private void pushDown(Node node) {
-        if (node.left == null) {
-            node.left = new Node();
-        }
-        if (node.right == null) {
-            node.right = new Node();
-        }
-        if (node.add == 0) {
-            return ;
-        }
-        node.left.val += node.add;
-        node.right.val += node.add;
-        node.left.add += node.add;
-        node.right.add += node.add;
-        node.add = 0;
     }
 
     public static void main(String[] args) {
+        MyCalendar solution = new MyCalendar();
+        // [10, 20], [15, 25], [20, 30]
+        boolean b1 = solution.book(10, 20);
+        System.out.println(b1);
         /**
-         * Your MyCalendar object will be instantiated and called as such:
-         * MyCalendar obj = new MyCalendar();
-         * boolean param_1 = obj.book(start,end);
+         * start:[10],end:[19],l:[7],r:[12],idx:[9]
+         * start:[10],end:[19],l:[0],r:[12],idx:[4]
+         * start:[10],end:[19],l:[13],r:[25],idx:[5]
+         * start:[10],end:[19],l:[0],r:[25],idx:[2]
+         * start:[10],end:[19],l:[0],r:[50],idx:[1]
          */
-        MyCalendar obj = new MyCalendar();
-        // [10,20],[15,25],[20,30]
-        boolean res1 = obj.book(10, 20);
-        System.out.println(res1);
+        boolean b2 = solution.book(15, 25);
+        System.out.println(b2);
 
-        boolean res2 = obj.book(15, 25);
-        System.out.println(res2);
-
-        boolean res3 = obj.book(20, 30);
-        System.out.println(res3);
+        boolean b3 = solution.book(20, 30);
+        System.out.println(b3);
     }
 }

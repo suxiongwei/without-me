@@ -135,6 +135,7 @@
 #### BFS-广度优先搜索
 - [腐烂的橘子(994) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/OrangesRotting.java)
 - [二叉树的层序遍历与BFS(102) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/LevelOrder.java)
+- [N叉树的层序遍历(429) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/NTreeLevelOrder.java)
 - [路径总和(112)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/HasPathSum.java)
 - [二叉树的锯齿形层序遍历(103) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/ZigzagLevelOrder.java)
 - [二叉树最大宽度(662) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/WidthOfBinaryTree.java)
@@ -144,6 +145,9 @@
 
 #### 字典树
 - [字典树/前缀树(208) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/trie/Trie.java)
+
+#### 线段树
+- [我的日程安排表I(729)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/segment/tree/MyCalendar.java)
 
 ### 栈
 - [在不使用额外数据结构的情况下逆序栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/ReverseStack.java)
@@ -200,13 +204,14 @@
 - [派对的最大快乐值](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxHappy.java)
 
 ### 贪心算法
-- [什么是贪心算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95.md)
-- [会场安排问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/BestArrange.java)
-- [金条切割问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/LessMoneySplitGold.java)
-- [数轴覆盖](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CordCoverMaxPoint.java)
-- [跳跃游戏(55)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/CanJump.java)
-- [跳跃游戏II(45)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Jump.java)
+- [什么是贪心算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/greedy/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95.md)
+- [会场安排问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/greedy/BestArrange.java)
+- [金条切割问题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/greedy/LessMoneySplitGold.java)
+- [数轴覆盖](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/greedy/CordCoverMaxPoint.java)
+- [跳跃游戏(55)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/greedy/CanJump.java)
+- [跳跃游戏II(45)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/greedy/Jump.java)
 - [移掉K位数字(402)-tag:贪心、单调栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/RemoveKdigits.java)
+- [无重叠区间(435)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/greedy/EraseOverlapIntervals.java)
 
 ### 并查集算法
 - [并查集算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/unionfind/UnionFind.java)

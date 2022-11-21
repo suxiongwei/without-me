@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.array;
+package com.sxw.learn.leetcode.greedy;
 
 /**
  * [题目]: 跳跃游戏(55)

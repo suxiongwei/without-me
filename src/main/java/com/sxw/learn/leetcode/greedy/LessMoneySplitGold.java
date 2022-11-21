@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.other;
+package com.sxw.learn.leetcode.greedy;
 
 import java.util.PriorityQueue;
 
