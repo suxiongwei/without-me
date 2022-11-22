@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.other;
+package com.sxw.learn.leetcode.dfs;
 
 /**
  * [题目]:岛屿的最大面积(695)

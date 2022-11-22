@@ -1,4 +1,6 @@
-package com.sxw.learn.leetcode.tree;
+package com.sxw.learn.leetcode.dfs;
+
+import com.sxw.learn.leetcode.tree.TreeNode;
 
 /**
  * [题目]: 求根节点到叶节点数字之和(129)

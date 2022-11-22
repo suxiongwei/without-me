@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.tree;
+package com.sxw.learn.leetcode.bfs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

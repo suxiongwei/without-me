@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.array.sort;
+package com.sxw.learn.leetcode.sort;
 
 import com.sxw.learn.leetcode.tree.TreeNode;
 import com.sxw.learn.leetcode.tree.TreeNodeShow;

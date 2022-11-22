@@ -1,4 +1,6 @@
-package com.sxw.learn.leetcode.tree;
+package com.sxw.learn.leetcode.dfs;
+
+import com.sxw.learn.leetcode.tree.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.other;
+package com.sxw.learn.leetcode.dfs;
 
 /**
  * [题目]:海岛问题

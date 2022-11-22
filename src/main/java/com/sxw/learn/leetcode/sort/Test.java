@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.array.sort;
+package com.sxw.learn.leetcode.sort;
 
 public class Test {
     public static void sort(int[] arr){

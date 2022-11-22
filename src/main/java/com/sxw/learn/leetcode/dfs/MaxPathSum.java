@@ -1,4 +1,6 @@
-package com.sxw.learn.leetcode.tree;
+package com.sxw.learn.leetcode.dfs;
+
+import com.sxw.learn.leetcode.tree.TreeNode;
 
 /**
  * [题目]: 二叉树中的最大路径和(124)

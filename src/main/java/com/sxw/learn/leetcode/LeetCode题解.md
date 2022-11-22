@@ -1,17 +1,17 @@
 ## Talk Is Cheap, Show Me The Code
 
 ### 排序/排序思想的变种问题
-- [冒泡排序 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/BubbleSort.java)
-- [插入排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/InsertionSort.java)
-- [选择排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/SelectionSort.java)
-- [归并排序 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/MergeSort.java)
+- [冒泡排序 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/BubbleSort.java)
+- [插入排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/InsertionSort.java)
+- [选择排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/SelectionSort.java)
+- [归并排序 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/MergeSort.java)
   - [最小和](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SmallSum.java)
   - [求最大值](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/GetMax.java)
-- [快速排序 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/QuickSort.java)
+- [快速排序 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/QuickSort.java)
   - [数组中的第K个最大元素(215)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindKthLargest.java)
-- [堆排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/HeapSort.java)
+- [堆排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/HeapSort.java)
 - [堆排序扩展题目:已知一个基本有序的数组，基本有序是指如果把数组排好序，每个元素移动的距离不超过K，并且K相对于数组长度来说比较小，请选择合适的算法针对这个数据进行排序]()
-- [排序算法的总结](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/sort/sort.md)
+- [排序算法的总结](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/sort.md)
 
 ### 数组
 - [合并区间(56) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Merge.java)
@@ -36,6 +36,9 @@
 - [下一个更大元素III(556) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/NextGreaterElement.java)
 - [最长回文子串(5) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LongestPalindrome.java)
 - [验证回文字符串Ⅱ(680) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/ValidPalindrome.java)
+
+#### 前缀和
+- [连续数组(525)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/prefixsum/FindMaxLength.java)
 
 #### 二分查找
 - [二分查找 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Search.java)
@@ -120,25 +123,26 @@
 - [二叉搜索树与双向链表(剑指Offer36)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/TreeToDoublyList.java)
 
 #### DFS-深度优先搜索
-- [最大深度与DFS ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/MaxDepth.java)
-- [海岛个数问题 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CountIslands.java)
-- [岛屿的最大面积(695) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/MaxAreaOfIsland.java)
-- [求根节点到叶节点数字之和(129) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/SumNumbers.java)
-- [平衡二叉树(110) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsBalanced.java)
-- [二叉树中的最大路径和(124) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/MaxPathSum.java)
-- [判断一颗二叉树是否为满二叉树 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsFullBinaryTree.java)
-- [二叉树的直径(543) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/DiameterOfBinaryTree.java)
-- [相同的树(100) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsSameTree.java)
-- [二叉树的所有路径(257) tag:回溯 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/BinaryTreePaths.java)
-- [二叉树中所有距离为K的结点(863)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/dfs/DistanceK.java)
+- [最大深度与DFS ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/MaxDepth.java)
+- [海岛个数问题 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/CountIslands.java)
+- [岛屿的最大面积(695) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/MaxAreaOfIsland.java)
+- [被围绕的区域(130) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/Solve.java)
+- [求根节点到叶节点数字之和(129) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/SumNumbers.java)
+- [平衡二叉树(110) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/IsBalanced.java)
+- [二叉树中的最大路径和(124) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/MaxPathSum.java)
+- [判断一颗二叉树是否为满二叉树 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/IsFullBinaryTree.java)
+- [二叉树的直径(543) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/DiameterOfBinaryTree.java)
+- [相同的树(100) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/IsSameTree.java)
+- [二叉树的所有路径(257) tag:回溯 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/BinaryTreePaths.java)
+- [二叉树中所有距离为K的结点(863)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/DistanceK.java)
 
 #### BFS-广度优先搜索
-- [腐烂的橘子(994) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/OrangesRotting.java)
-- [二叉树的层序遍历与BFS(102) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/LevelOrder.java)
-- [N叉树的层序遍历(429) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/NTreeLevelOrder.java)
-- [路径总和(112)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/HasPathSum.java)
-- [二叉树的锯齿形层序遍历(103) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/ZigzagLevelOrder.java)
-- [二叉树最大宽度(662) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/WidthOfBinaryTree.java)
+- [腐烂的橘子(994) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bfs/OrangesRotting.java)
+- [二叉树的层序遍历与BFS(102) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bfs/LevelOrder.java)
+- [N叉树的层序遍历(429) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bfs/NTreeLevelOrder.java)
+- [路径总和(112)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bfs/HasPathSum.java)
+- [二叉树的锯齿形层序遍历(103) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bfs/ZigzagLevelOrder.java)
+- [二叉树最大宽度(662) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bfs/WidthOfBinaryTree.java)
 
 #### 堆/大根堆/小根堆
 - [前K个高频单词(692)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/TopKFrequent.java)

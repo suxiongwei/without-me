@@ -1,4 +1,7 @@
-package com.sxw.learn.leetcode.tree;
+package com.sxw.learn.leetcode.dfs;
+
+import com.sxw.learn.leetcode.tree.TreeNode;
+import com.sxw.learn.leetcode.tree.TreeNodeShow;
 
 /**
  * [题目]：判断一颗二叉树是否为满二叉树

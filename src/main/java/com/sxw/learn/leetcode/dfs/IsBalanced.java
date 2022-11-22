@@ -1,4 +1,7 @@
-package com.sxw.learn.leetcode.tree;
+package com.sxw.learn.leetcode.dfs;
+
+import com.sxw.learn.leetcode.tree.TreeNode;
+import com.sxw.learn.leetcode.tree.TreeNodeShow;
 
 /**
  * [题目]：平衡二叉树(110)
