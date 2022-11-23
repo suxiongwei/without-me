@@ -24,6 +24,7 @@ public class RestoreIpAddresses {
         return ans;
     }
 
+    // 表示从segStart位置开始找第segId段
     public void dfs(String s, int segId, int segStart) {
         // 如果找到了 4 段 IP 地址并且遍历完了字符串，那么就是一种答案
         if (segId == SEG_COUNT) {
@@ -55,7 +56,7 @@ public class RestoreIpAddresses {
         int addr = 0;
         for (int segEnd = segStart; segEnd < s.length(); ++segEnd) {
             addr = addr * 10 + (s.charAt(segEnd) - '0');
-            if (addr > 0 && addr <= 0xFF) {
+            if (addr > 0 && addr <= 255) {
                 segments[segId] = addr;
                 dfs(s, segId + 1, segEnd + 1);
             } else {

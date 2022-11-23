@@ -22,7 +22,7 @@ public class MaximumSwap {
             num /= 10;
         }
         int n = list.size(), ans = 0;
-        int[] idx = new int[n];// 如2736 -> idx {0,0,2,2},可以看到此时是按照低位到高位来填充最大值位置的
+        int[] idx = new int[n];// 如2736 -> idx {0,0,2,2},可以看到此时是按照低位到高位来填充最大值位置的，因为在list中顺序已经颠倒了
         int curMaxNumIndex = 0;
         for (int i = 0; i < n; i++) {
             if (list.get(i) > list.get(curMaxNumIndex)) {// 当有数值相同的多个大数时，我们应当选择低位的数字，也就是这里的严格大于
