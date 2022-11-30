@@ -14,7 +14,8 @@ public class LengthOfLongestSubstring {
         Map<Character, Integer> map = new HashMap();
         for (int left = 0, right = 0; right < n; right++){
             if (map.containsKey(s.charAt(right))){
-                left = Math.max(left, map.get(s.charAt(right)));// 防止map中已有的字符已经不在当前的串中，然后左窗口从重复字符的下一个开始
+                // 防止map中已有的字符已经不在当前的串中，比如abba，到a到时候肯定不能回到1开始往后，此时窗口的边界已经到2
+                left = Math.max(left, map.get(s.charAt(right)));
             }
             result = Math.max(result, right - left + 1);
             map.put(s.charAt(right), right + 1);// 注意这里是加1，即存储的时候就存储的是下一个字符的位置
@@ -24,7 +25,9 @@ public class LengthOfLongestSubstring {
 
     public static void main(String[] args) {
         LengthOfLongestSubstring solution = new LengthOfLongestSubstring();
-        int s = solution.lengthOfLongestSubstring("abccbcbb");// 遇到第一个重复的c 直接从重复的c开始，因为前面的字符不可能有结果
+//        int s = solution.lengthOfLongestSubstring("abccbcbb");// 遇到第一个重复的c 直接从重复的c开始，因为前面的字符不可能有结果
+        int s = solution.lengthOfLongestSubstring("abba");
+
         System.out.println(s);
     }
 }

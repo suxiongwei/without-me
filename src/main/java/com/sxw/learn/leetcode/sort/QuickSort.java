@@ -12,6 +12,7 @@ public class QuickSort {
     public static void quickSort(int[] arr, int L, int R){
         if (L < R){
             // 比如 L = 3，R = 5,需要生成的随机数为 3～5， 也就是 3 + （随机的0～2）, Math.random() 随机选取大于等于0.0且小于1.0的伪随机 double 值
+            // 又因为 int强转是向下取整，因此需要加1
             swap(arr, L + (int) Math.random() * (R - L + 1), R);
             int[] partition = partition(arr, L, R);
             quickSort(arr, L, partition[0] - 1);
@@ -60,5 +61,10 @@ public class QuickSort {
 //        partition(a, 0, a.length - 1);
 //        quickSort(a);
 //        System.out.println(Arrays.toString(a));
+
+        double v = Math.random() * 2;
+        int s = (int)v;
+        System.out.println(v);
+        System.out.println(s);
     }
 }
