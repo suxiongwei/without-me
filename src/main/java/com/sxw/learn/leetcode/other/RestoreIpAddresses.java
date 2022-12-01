@@ -64,4 +64,11 @@ public class RestoreIpAddresses {
             }
         }
     }
+
+
+    public static void main(String[] args) {
+        RestoreIpAddresses solution = new RestoreIpAddresses();
+        int i = 1;
+        solution.dfs("", i++, i++);
+    }
 }
