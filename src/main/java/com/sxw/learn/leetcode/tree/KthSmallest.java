@@ -14,13 +14,13 @@ import java.util.Deque;
  */
 public class KthSmallest {
     public int kthSmallest(TreeNode root, int k) {
-        Deque<TreeNode> stack = new ArrayDeque<>();
-        while (root != null || !stack.isEmpty()) {
+        Deque<TreeNode> deque = new ArrayDeque<>();
+        while (root != null || !deque.isEmpty()) {
             while (root != null) {
-                stack.push(root);
+                deque.offerFirst(root);
                 root = root.left;
             }
-            root = stack.pop();
+            root = deque.pollFirst();
             --k;// 每弹出一个就 减少一次
             if (k == 0) {
                 break;

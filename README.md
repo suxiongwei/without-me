@@ -50,6 +50,8 @@
 - [请说说你对守护进程，僵尸进程和孤儿进程的理解](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E3%80%81%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3.md)
 - [请解释一下什么是虚拟内存？分段？分页？](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md)
 
+## 大数据/数据仓库
+- [列式存储]()
 
 ## 设计模式
 - [工厂模式](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/design/factory)

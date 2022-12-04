@@ -3,7 +3,9 @@ package com.sxw.learn.leetcode.array;
 /**
  * [题目]:轮转数组(189)
  * [题目描述]:给你一个数组，将数组中的元素向右轮转 k 个位置，其中 k 是非负数。
- * [解题思路]:双指针 翻转链表，做到了空间复杂度O(1)
+ * [解题思路]:
+ * 双指针
+ * 做到了空间复杂度O(1)
  */
 public class Rotate {
     public void rotate(int[] nums, int k) {
