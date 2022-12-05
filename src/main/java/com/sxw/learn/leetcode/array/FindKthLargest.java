@@ -43,9 +43,12 @@ public class FindKthLargest {
         int more = R;
         while (L < more) {
             if (arr[L] < arr[R]) {// arr[L]表示
-                swap(arr, ++less, L++);
+                less++;
+                swap(arr, less, L);
+                L++;
             } else if (arr[L] > arr[R]) {
-                swap(arr, --more, L);
+                more--;
+                swap(arr, more, L);
             } else {
                 L++;
             }

@@ -74,7 +74,7 @@ public class GuavaTest {
         String joinStr = Joiner.on("#")  //分隔符
                 .skipNulls()  //过滤null元素
                 .join(eleList);//要分割的集合
-        System.out.println(joinStr);
+        System.out.println("添加分割符" + joinStr);
 
         String str="1,2,3,4,5,6,7";
         List<String> stringList = Splitter.on(",")

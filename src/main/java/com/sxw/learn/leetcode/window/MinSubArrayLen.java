@@ -9,6 +9,8 @@ package com.sxw.learn.leetcode.window;
  * 示例：target = 7, nums = [2,3,1,2,4,3]
  * [解题思路]:
  * 滑动窗口
+ * 没超过target，右指针移动
+ * 超过了target更新答案，右指针向右移动的同时，不断更新左边界，因为右边可能进来一个极大的数，这样的话左边界可以大大往右移动
  * 时间复杂度：O(n)，因为指针 start和end最多各移动 n 次。
  * 空间复杂度：O(1)
  */
@@ -19,6 +21,9 @@ public class MinSubArrayLen {
         int start = 0;
         int end = 0;
         int sum = 0;
+        // 容易犯的错误：
+        // 1、设置为0，这样的话一直min运算，最后都是 0
+        // 2、在没有返回值时，需要将MAX_VALUE处理为 0
         int ans = Integer.MAX_VALUE;
         while (end < n) {
             sum = sum + nums[end];

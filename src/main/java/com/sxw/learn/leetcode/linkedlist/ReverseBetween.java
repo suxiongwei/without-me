@@ -33,11 +33,11 @@ public class ReverseBetween {
         }
         ListNode curr = pre.next;
         ListNode next;
-        for (int i = left; i < right; i++){
+        for (int i = left; i < right; i++){// 此处 < right 而不是 <= 因为每次处理的其实是next，将next元素不停的往前浮动
             next = curr.next;// 需要插入到头部的节点
             curr.next = next.next;// 先把当前节点和未遍历到的节点连接上
-            next.next = pre.next;
-            pre.next = next;
+            next.next = pre.next; // 将新的头节点与已翻转连接
+            pre.next = next;// 更新prev的下一个连接，因为循环中需要根据这个去连接
         }
         return dummy.next;
     }
