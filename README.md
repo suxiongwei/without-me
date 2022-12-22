@@ -20,11 +20,12 @@
 - [Lambda](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/jvm/lambda/LambdaTest.java)
 - [JDK动态代理](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/design/proxy)
 - [Synchronized](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/sync)
-- CompletableFuture 的join和get有什么区别？<br/>
-```dtd
-  join()方法抛出的是uncheck异常（即RuntimeException),不会强制开发者抛出<br/>
-  get()方法抛出的是经过检查的异常，ExecutionException, InterruptedException 需要用户手动处理（抛出或者 try catch）<br/>
-```
+- CompletableFuture 的join和get有什么区别？
+    <details>
+    <summary>展开</summary>
+      join()方法抛出的是uncheck异常（即RuntimeException),不会强制开发者抛出<br/>
+      get()方法抛出的是经过检查的异常，ExecutionException, InterruptedException 需要用户手动处理（抛出或者 try catch）<br/>
+    </details>
 - [Wait&Notify](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/WaitNotifyCase.java)
 - [LongAdder](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/cas/LongAdderDemo.java)
 - [偏向锁](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/sync/SynchronizedDemo.java)
