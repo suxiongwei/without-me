@@ -151,8 +151,8 @@ public class AuthUtils {
 
     public static void main(String[] args) {
         long timestamp = System.currentTimeMillis();
+        System.out.println(timestamp);
 //        long timestamp = 1670305211565L;
-
         Map<String, String> params = new HashMap<>();
         params.put("app_id", "Q7bsIiMA");
         params.put("type", "2");
@@ -164,6 +164,7 @@ public class AuthUtils {
         String hmacStr = hmac.toString();
         log.info("hmacStr:" + hmacStr);
         String sign = new String(Base64.encodeBase64(hmac));
+        System.out.println(sign);
         params.put("sign", sign);
         log.info("inSign: " + sign);
         log.info("inSignData: " + inSignData);

@@ -11,6 +11,11 @@ public enum AuthAppKeyAndSecretEnum {
     MRP_API("P7UKMGiN", "6607df5c734e0d779c24717c0c56f61851d15cc9"),
     TKT_API("Q7bsIiMA", "4c5afbd9d101fd0fd481589f486fd055ce9fb6c3");
 
+    /**
+     * 备用appid
+     * appId:jTnxiZUV
+     * appSecret:30ac6e41034f0eef3aa661df4576a986d23d7050
+     */
     AuthAppKeyAndSecretEnum(String appId, String appSecret) {
         this.appId = appId;
         this.appSecret = appSecret;

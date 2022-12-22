@@ -16,10 +16,13 @@ public class CoinChange {
     public int coinChange(int[] coins, int amount) {
         int max = amount + 1;
         int[] dp = new int[amount + 1];
-        Arrays.fill(dp, max);// 设置初始值为max = amount + 1，如果金额没有匹配的零钱 dp[amount] 为amount + 1  大于 amount，因此返回 -1
-        dp[0] = 0; // dp[0]原则上是-1，但是这里为了定义状态转移将其置为 0
+        // 设置初始值为max = amount + 1，如果金额没有匹配的零钱 dp[amount] 为amount + 1  大于 amount，因此返回 -1
+        Arrays.fill(dp, max);
+        // dp[0]原则上是-1，但是这里为了定义状态转移将其置为 0
+        dp[0] = 0;
         for (int i = 1; i <= amount; i++) {
             for (int j = 0; j < coins.length; j++) {
+                // 防止下面的dp[i - coins[j]] index溢出，同时含义为当前要组成的钱数最起码需要大于当前🪙的面值
                 if (coins[j] <= i) {
                     dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
                 }
@@ -68,6 +71,4 @@ public class CoinChange {
         int i = coinChange.coinChange1(new int[]{1, 2, 3}, 6);
         System.out.println(i);
     }
-
-
 }
