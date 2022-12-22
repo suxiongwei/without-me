@@ -35,12 +35,12 @@ public class AuthUtils {
             "W", "X", "Y", "Z"};
 
     public static ApiResult checkSign(Map<String, String> params){
-        if (Objects.isNull(params) || params.size() <= 2 || !params.containsKey("sign") || !params.containsKey("appId")){
+        if (Objects.isNull(params) || params.size() <= 2 || !params.containsKey("sign") || !params.containsKey("app_id")){
             return ApiResult.failure(ResultCode.PARAMS_ERROR);
         }
         log.info("********************************* 验签开始 *********************************");
         // 获取appId
-        String appId = params.get("appId");
+        String appId = params.get("app_id");
         String appSecret = AuthAppKeyAndSecretEnum.getAppSecret(appId);
         // 验证appKey是否合法
         if (Objects.isNull(appSecret)){
@@ -151,25 +151,24 @@ public class AuthUtils {
 
     public static void main(String[] args) {
         long timestamp = System.currentTimeMillis();
+//        long timestamp = 1670305211565L;
 
         Map<String, String> params = new HashMap<>();
-        params.put("appId", AuthAppKeyAndSecretEnum.MRP_API.getAppId());
-        params.put("urid", "114");
-        params.put("merchant_status", "");
-        params.put("order_time_s", "2021-11-01 00:00:00");
-        params.put("order_time_e", "2022-01-31 23:59:59");
-        params.put("platform", "taobao");
+        params.put("app_id", "Q7bsIiMA");
+        params.put("type", "2");
         params.put("timestamp", String.valueOf(timestamp));
 
 
         String inSignData = getSignData(params);
-        byte[] hmac = new HmacUtils(HmacAlgorithms.HMAC_SHA_1, AuthAppKeyAndSecretEnum.MRP_API.getAppSecret()).hmac(inSignData);
+        byte[] hmac = new HmacUtils(HmacAlgorithms.HMAC_SHA_1, "4c5afbd9d101fd0fd481589f486fd055ce9fb6c3").hmac(inSignData);
+        String hmacStr = hmac.toString();
+        log.info("hmacStr:" + hmacStr);
         String sign = new String(Base64.encodeBase64(hmac));
         params.put("sign", sign);
         log.info("inSign: " + sign);
         log.info("inSignData: " + inSignData);
-        String outParams = JSONObject.toJSONString(params);
-        log.info("inParams: " + outParams);
+//        String outParams = JSONObject.toJSONString(params);
+//        log.info("inParams: " + outParams);
 
         ApiResult apiResult = AuthUtils.checkSign(params);
         System.out.println(apiResult);

@@ -52,6 +52,7 @@
 
 ## 大数据/数据仓库
 - [列式存储]()
+- [窗口函数]()
 
 ## 设计模式
 - [工厂模式](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/design/factory)
