@@ -30,7 +30,7 @@
 
 ### 什么是三次握手 (three-way handshake)？
 
-![image-20221212004219997](https://github.com/suxiongwei/without-me/tree/main/src/main/resources/_v_images/image-20221212004219997.png)
+![image-20221212004219997](/_v_images/image-20221212004219997.png)
 
 - 第一次握手：Client将SYN置1，随机产生一个初始序列号seq发送给Server，进入SYN_SENT状态；
 - 第二次握手：Server收到Client的SYN=1之后，知道客户端请求建立连接，将自己的SYN置1，ACK置1，产生一个acknowledge number=sequence number+1，并随机产生一个自己的初始序列号，发送给客户端；进入SYN_RCVD状态；
