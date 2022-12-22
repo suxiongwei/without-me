@@ -35,12 +35,12 @@ public class AuthUtils {
             "W", "X", "Y", "Z"};
 
     public static ApiResult checkSign(Map<String, String> params){
-        if (Objects.isNull(params) || params.size() <= 2 || !params.containsKey("sign") || !params.containsKey("appId")){
+        if (Objects.isNull(params) || params.size() <= 2 || !params.containsKey("sign") || !params.containsKey("app_id")){
             return ApiResult.failure(ResultCode.PARAMS_ERROR);
         }
         log.info("********************************* 验签开始 *********************************");
         // 获取appId
-        String appId = params.get("appId");
+        String appId = params.get("app_id");
         String appSecret = AuthAppKeyAndSecretEnum.getAppSecret(appId);
         // 验证appKey是否合法
         if (Objects.isNull(appSecret)){
@@ -151,27 +151,36 @@ public class AuthUtils {
 
     public static void main(String[] args) {
         long timestamp = System.currentTimeMillis();
-
+        System.out.println(timestamp);
+//        long timestamp = 1670305211565L;
         Map<String, String> params = new HashMap<>();
-        params.put("appId", AuthAppKeyAndSecretEnum.MRP_API.getAppId());
-        params.put("urid", "114");
-        params.put("merchant_status", "");
-        params.put("order_time_s", "2021-11-01 00:00:00");
-        params.put("order_time_e", "2022-01-31 23:59:59");
-        params.put("platform", "taobao");
+        params.put("app_id", AuthAppKeyAndSecretEnum.TKT_API.getAppId());
+        params.put("type", "1");
         params.put("timestamp", String.valueOf(timestamp));
 
+        StringBuilder content = new StringBuilder();
+        // key 自然排序
+        List<String> keys = new ArrayList<>(params.keySet());
+        Collections.sort(keys);
 
-        String inSignData = getSignData(params);
-        byte[] hmac = new HmacUtils(HmacAlgorithms.HMAC_SHA_1, AuthAppKeyAndSecretEnum.MRP_API.getAppSecret()).hmac(inSignData);
+        for (int i = 0; i < keys.size(); i++) {
+            String key = keys.get(i);
+            if ("sign".equals(key)) {
+                continue;
+            }
+            String value = params.get(key);
+            if (value != null) {
+                content.append(i == 0 ? "" : "&").append(key).append("=").append(value);
+            } else {
+                content.append(i == 0 ? "" : "&").append(key).append("=");
+            }
+        }
+
+        byte[] hmac = new HmacUtils(HmacAlgorithms.HMAC_SHA_1, AuthAppKeyAndSecretEnum.TKT_API.getAppSecret()).hmac(content.toString());
         String sign = new String(Base64.encodeBase64(hmac));
+        System.out.println(sign);
         params.put("sign", sign);
-        log.info("inSign: " + sign);
-        log.info("inSignData: " + inSignData);
-        String outParams = JSONObject.toJSONString(params);
-        log.info("inParams: " + outParams);
-
-        ApiResult apiResult = AuthUtils.checkSign(params);
+        ApiResult apiResult = checkSign(params);
         System.out.println(apiResult);
     }
 }
