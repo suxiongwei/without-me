@@ -1,12 +1,11 @@
 > - [个人简历](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/%E7%AE%80%E5%8E%86.md)
-> - [LeetCode/算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/LeetCode%E9%A2%98%E8%A7%A3.md)
-> - [SQL题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/SQL.md)
-> - [一些面试题](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98.md)
+> - [LeetCode/算法](https://github.com/suxiongwei/without-me/blob/main/doc/LeetCode.md)
+> - [SQL题](https://github.com/suxiongwei/without-me/blob/main/doc/SQL.md)
+> - [一些面试题](https://github.com/suxiongwei/without-me/blob/main/doc/interview.md)
+
 ## Java语言部分
 - [死锁发生的原因](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/lock/DeadLockSample.java)
 - [Java的JUC框架](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/juc)
-- [JVM的调优策略]()
-- [内存泄漏与内存溢出的区别，何时产生内存泄漏]()
 - [Java的虚引用、弱引用](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/jvm/ref/package-info.java)
 - [ExecutorCompletionService](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/ExecutorCompletionServiceTest.java)
 - [InheritableThreadLocal](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/thread/InheritableThreadLocalTest.java)
@@ -35,7 +34,6 @@
 - [@Autowired的实现原理](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86.md)
 
 ## MySQL
-- [MySQL事务隔离级别]()
 - [事务的特性(ACID)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E6%95%B0%E6%8D%AE%E5%BA%93ACID%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7.md)
 - [红黑树和二叉平衡树的特点和区别](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91%26%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%26%E7%BA%A2%E9%BB%91%E6%A0%91%26B-%E6%A0%91%26B%2B%E6%A0%91%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94.md)
 - [MySQL悲观锁和乐观锁](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/MySQL%E6%82%B2%E8%A7%82%E9%94%81%E5%92%8C%E4%B9%90%E8%A7%82%E9%94%81.md)
@@ -50,11 +48,10 @@
 - [请说说你对守护进程，僵尸进程和孤儿进程的理解](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E3%80%81%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3.md)
 - [请解释一下什么是虚拟内存？分段？分页？](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.md)
 
-## [计算机网络]()
+## [计算机网络](https://github.com/suxiongwei/without-me/blob/main/doc/Computer-Network.md)
 
-## 大数据/数据仓库
-- [列式存储]()
-- [窗口函数]()
+## [大数据/数据仓库](https://github.com/suxiongwei/without-me/blob/main/doc/dw.md)
+
 
 ## 设计模式
 - [工厂模式](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/design/factory)
