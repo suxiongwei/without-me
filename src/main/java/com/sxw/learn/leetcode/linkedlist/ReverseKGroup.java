@@ -23,6 +23,12 @@ public class ReverseKGroup {
         ListNode pre = dummy;// 待翻转链表的前驱
         ListNode end = dummy;// 待翻转链表的末尾
         while (end != null) {
+            /**
+             * dummy -> 1 -> 2 -> 3, k = 3
+             * 第一轮: i = 0 执行前: end = dummy 执行后: end = 1
+             * 第二轮: i = 1 执行前: end = 1 执行后: end = 2
+             * 第三轮: i = 2 执行前: end = 2 执行后: end = 3
+             */
             for (int i = 0; i < k && end != null; i++) {// end == null 会直接终止循环 -> 只要end为null就会终止循环
                 end = end.next;
             }

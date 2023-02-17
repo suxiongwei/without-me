@@ -16,13 +16,13 @@ package com.sxw.learn.leetcode.array;
  * 通过记录遍历过程中到当前位置的最大元素curMax，更新分界线的位置
  */
 public class PartitionDisjoint {
-    // case1: [5,0,3,8,6] -> 5,0 / 3,8,6
+    // case1: [5,0,3,8,6] -> 5,0,3 / 8,6
     // case2: [1,1,1,0,6,12] -> 1,1,1,0 / 6,12
     public int PartitionDisjoint(int[] nums) {
         int n = nums.length;
         int leftMax = nums[0];// left分界线左边的最大元素
         int leftPos = 0;// left分界线
-        int curMax = nums[0];// 当前最大元素，会随着遍历不断更新
+        int curMax = nums[0];// 当前最大元素，会随着遍历不断更新，而leftMax在到了划分边界后，就固定下来了
         for (int i = 1; i < n - 1; i++) {
             curMax = Math.max(curMax, nums[i]);
             if (nums[i] < leftMax) {// 意味着 leftPos 作为划分位置是非法的，需要更新 leftPos = i
@@ -30,6 +30,6 @@ public class PartitionDisjoint {
                 leftPos = i;
             }
         }
-        return leftPos + 1;
+        return leftPos + 1;// 返回的是左边的元素数量，因此需要在下标的基础上加一
     }
 }

@@ -29,9 +29,13 @@
 - [LongAdder](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/cas/LongAdderDemo.java)
 - [偏向锁](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/sync/SynchronizedDemo.java)
 
-## Spring框架
+## Spring
 - [@Autowired和@Resource注解的区别](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E5%92%8C%40Resource%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 - [@Autowired的实现原理](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86.md)
+- [拦截器与过滤器](https://github.com/suxiongwei/without-me/blob/main/doc/FILTERANDINTERCEPTOR.md)
+- [@Configuration和@Component 的区别](https://github.com/suxiongwei/without-me/blob/main/doc/ConfigurationAndComponent.md)
+
+
 
 ## MySQL
 - [事务的特性(ACID)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E6%95%B0%E6%8D%AE%E5%BA%93ACID%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7.md)
@@ -59,7 +63,9 @@
 - [装饰器模式](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/design/decorator)
 
 ## 系统设计方面
-- [高并发下如何生成订单的唯一ID]()
+- [秒杀系统](https://github.com/suxiongwei/without-me/blob/main/doc/SECONDS_KILL_DESIGN.md)
+- [扫码登陆](https://github.com/suxiongwei/without-me/blob/main/doc/SCAN_LOGIN.md)
+- [延迟队列](https://github.com/suxiongwei/without-me/blob/main/doc/DELAY_QUEUE.md)
 - [平时的项目技术设计时主要考虑的点，如何保证技术方案的可行性和扩展性]()
 - [一个2G左右的文本文件，统计其中某个单词出现的次数，JVM只要512M，给出实现思路]()
 - [布隆过滤器BloomFilter](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/guava/BloomFilterDemo.java)
