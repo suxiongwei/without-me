@@ -19,7 +19,7 @@ public class NumSquares {
             for (int j = 1; j * j <= i; j++) {
                 minn = Math.min(minn, dp[i - j * j]);
             }
-            dp[i] = minn + 1;
+            dp[i] = minn + 1;// 加一代表一个固定的转移方式，在上面循环中挑选了一个最小的dp[i],再加上对应的那个j(这是一个步骤)，因此在此处加一
         }
         return dp[n];
     }

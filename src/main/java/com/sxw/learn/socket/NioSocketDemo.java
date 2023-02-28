@@ -12,17 +12,18 @@ import java.util.Iterator;
  * @Date 2021-01-28 8:18 下午
  */
 public class NioSocketDemo {
-    // 通道选择器（管理器）
+    // 通道选择器/轮询代理器/事件订阅器/channel容器管理机
     private Selector selector;
 
     public void initServer(int port) throws IOException {
+        // channel(通道)：有一个专属的文件状态描述符，与操作系统进行内容的传递
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         // 非阻塞
         serverSocketChannel.configureBlocking(false);
         serverSocketChannel.socket().bind(new InetSocketAddress(port));
 
         this.selector = Selector.open();
-        // 注册连接事件
+        // 注册连接事件，向Selector对象注册需要它关注的Channel 注意：服务器通道只能注册SelectionKey.OP_ACCEPT事件
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 
         System.out.println("服务已启动...");

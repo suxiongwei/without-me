@@ -10,6 +10,7 @@ import org.redisson.config.SingleServerConfig;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @Component
@@ -53,6 +54,11 @@ public class RedissonDelayQueue {
     public void offerTask(String task, long seconds) {
         log.info("添加延迟任务:{} 延迟时间:{}s", task, seconds);
         delayQueue.offer(task, seconds, TimeUnit.SECONDS);
+    }
+
+    public static void main(String[] args) {
+        String s = UUID.randomUUID().toString();
+        System.out.println(s);
     }
 
 }

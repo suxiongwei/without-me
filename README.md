@@ -66,6 +66,7 @@
 - [秒杀系统](https://github.com/suxiongwei/without-me/blob/main/doc/SECONDS_KILL_DESIGN.md)
 - [扫码登陆](https://github.com/suxiongwei/without-me/blob/main/doc/SCAN_LOGIN.md)
 - [延迟队列](https://github.com/suxiongwei/without-me/blob/main/doc/DELAY_QUEUE.md)
+- [分布式锁&Redis相关的一些题目](https://github.com/suxiongwei/without-me/blob/main/doc/DISTRIBUTED_LOCK.md)
 - [平时的项目技术设计时主要考虑的点，如何保证技术方案的可行性和扩展性]()
 - [一个2G左右的文本文件，统计其中某个单词出现的次数，JVM只要512M，给出实现思路]()
 - [布隆过滤器BloomFilter](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/guava/BloomFilterDemo.java)

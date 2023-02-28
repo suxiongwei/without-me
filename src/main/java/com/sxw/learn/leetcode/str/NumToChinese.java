@@ -36,9 +36,33 @@ public class NumToChinese {
         return res.toString();
     }
 
+    public String numToChinese1(int num) {
+        char[] chars = String.valueOf(num).toCharArray();
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        int len = chars.length;
+        while (i < len) {
+            boolean zeroFlag = chars[i] == '0' ? true : false;
+            if (zeroFlag) {
+                // 和当前元素的下一个元素相比
+                while (i < len - 1 && chars[i + 1] == '0') {
+                    i++;
+                }
+                if (i != len - 1) {// 当前没有到达末尾位置
+                    sb.append(numArr[chars[i] - '0']);
+                }
+            } else {
+                sb.append(numArr[chars[i] - '0']);
+                sb.append(unitArr[len - i - 1]);
+            }
+            i++;// 当前元素处理完了，继续往下走到下一个元素
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
         NumToChinese solution = new NumToChinese();
-        String toChinese = solution.numToChinese(12345);
+        String toChinese = solution.numToChinese1(10034);
         System.out.println(toChinese);
     }
 }

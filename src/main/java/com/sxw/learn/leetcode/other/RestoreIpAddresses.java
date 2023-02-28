@@ -50,13 +50,14 @@ public class RestoreIpAddresses {
         if (s.charAt(segStart) == '0') {
             segments[segId] = 0;
             dfs(s, segId + 1, segStart + 1);
+            return;// 提前结束回溯，不需要走下面的一般情况，这不加return就需要在下面的add判断中加上 addr > 0
         }
 
         // 一般情况，枚举每一种可能性并递归
         int addr = 0;
         for (int segEnd = segStart; segEnd < s.length(); ++segEnd) {
             addr = addr * 10 + (s.charAt(segEnd) - '0');
-            if (addr > 0 && addr <= 255) {
+            if (addr <= 255) {
                 segments[segId] = addr;
                 dfs(s, segId + 1, segEnd + 1);
             } else {

@@ -103,12 +103,6 @@
 			<version>0.16</version>
 <!--			<scope>provided</scope>-->
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.github.jsqlparser/jsqlparser -->
-		<dependency>
-			<groupId>com.github.jsqlparser</groupId>
-			<artifactId>jsqlparser</artifactId>
-			<version>4.2</version>
-		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
@@ -149,6 +143,11 @@
 			<groupId>org.redisson</groupId>
 			<artifactId>redisson</artifactId>
 			<version>3.13.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.jsqlparser</groupId>
+			<artifactId>jsqlparser</artifactId>
+			<version>4.2</version>
 		</dependency>
 	</dependencies>
 
