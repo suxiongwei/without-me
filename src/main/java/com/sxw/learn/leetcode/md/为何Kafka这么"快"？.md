@@ -21,7 +21,7 @@
 > - Segment(index file、data file)
 > - segment 文件命名规则
 > - index 采用稀疏索引
-> - 稀疏索引文件较小 -> mmap
+> - 稀疏索引文件较小 -> mmap(内存映射)
 > 具体查找流程：
 > 1. 按照二分法找到小于 offset 的 segment 的.log 和.index
 > 2. 用目标 offset 减去文件名中的 offset 得到消息在这个 segment 中的偏移量

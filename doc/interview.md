@@ -27,6 +27,42 @@
 4. 本地方法栈中JNI（即一般说的Native方法）中引用的对象
 </details>
 
+##### HashMap中为何链表长度大于8才转换成红黑树？
+<details>
+<summary>展开</summary>
+如果 hashCode 分布良好，也就是 hash 计算的结果离散好的话，那么红黑树这种形式是很少会被用到的，因为各个值都均匀分布，很少出现链表很长的情况。
+
+在理想情况下，链表长度符合泊松分布，各个长度的命中概率依次递减，当长度为 8 的时候，概率仅为 0.00000006。
+
+这是一个小于千万分之一的概率，通常我们的 Map 里面是不会存储这么多的数据的，所以通常情况下，并不会发生从链表向红黑树的转换。
+</details>
+
+##### 如何动态修改线程池参数
+<details>
+<summary>展开</summary>
+JDK提供了方法去修改
+- setCorePoolSize
+- setMaximumPoolSize
+- setKeepAliveTime
+- setRejectedExecutionHandler
+
+以上修改方式再加上Apollo配置中心，就可以额实现不重启进程对线程池参数的修改
+https://blog.csdn.net/woshixuye/article/details/115617910
+</details>
+
+##### execute和submit的区别
+<details>
+<summary>展开</summary>
+execute和submit都属于线程池的方法，execute只能提交Runnable类型的任务，无返回值。
+
+而submit既能提交Runable类型的任务，返回值为null，也能提交Callable类型的任务，返回值为Future。
+
+execute会直接抛出任务执行时异常，submit则不会抛出异常，但可以通过Future的get方法将任务执行时的异常重新抛出。
+</details>
+
+
+
+
 
 ### MySQL
 ##### B-树和B+树的区别
@@ -81,6 +117,20 @@ MVCC是在并发访问数据库时，通过对数据做多版本管理，避免�
 <details>
 <summary>展开</summary>
 快照读的情况下可以避免幻读问题，在当前读的情况下则需要使用间隙锁来解决幻读问题的
+</details>
+
+##### MySQL 行锁和表锁的含义及区别
+<details>
+<summary>展开</summary>
+**MyISAM只支持表锁**，MyISAM在执行查询语句（select）前，会自动给涉及的所有表加读锁，在执行增删改操作前，会自动给涉及的表加写锁。
+
+**InnoDB引擎支持行锁**
+
+行锁是通过索引加载的，也就是说，行锁是加在索引响应的行上的，要是对应的SQL语句没有走索引，则会全表扫描，行锁则无法实现，取而代之的是表锁，此时其它事务无法对当前表进行更新或插入操作。
+
+insert，delete，update在事务中都会自动默认加上排它锁。
+
+https://segmentfault.com/a/1190000023662810
 </details>
 
 ### 分布式
