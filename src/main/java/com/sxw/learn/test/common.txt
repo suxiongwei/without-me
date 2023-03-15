@@ -1,8 +1,0 @@
-db.ods_order_detail_20220909_30.drop();
-db.ods_order_detail_20221016_30.drop();
-db.ods_order_detail_20221017_30.drop();
-db.ods_order_detail_20221018_30.drop();
-db.ods_order_detail_20221019_30.drop();
-db.ods_order_detail_20221020_30.drop();
-
-

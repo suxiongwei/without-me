@@ -41,11 +41,11 @@ public class BuildTree {
 
     /**
      * @param preOrder 前序遍历序列
-     * @param preLeft 前序遍历左边界
+     * @param preLeft  前序遍历左边界
      * @param preRight 前序遍历右边界
-     * @param inLeft 中序遍历左边界
-     * @param inRight 中序遍历右边界
-     * @param map 中序遍历序列里，数值与下标的对应关系
+     * @param inLeft   中序遍历左边界
+     * @param inRight  中序遍历右边界
+     * @param map      中序遍历序列里，数值与下标的对应关系
      * @return
      */
     public TreeNode buildTree(int[] preOrder, Map<Integer, Integer> map, int preLeft, int preRight,

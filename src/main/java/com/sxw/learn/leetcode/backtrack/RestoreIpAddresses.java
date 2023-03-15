@@ -1,6 +1,7 @@
-package com.sxw.learn.leetcode.other;
+package com.sxw.learn.leetcode.backtrack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ import java.util.List;
 public class RestoreIpAddresses {
     static final int SEG_COUNT = 4;
     List<String> ans = new ArrayList<>();
-    int[] segments = new int[SEG_COUNT];
+    int[] segments = new int[SEG_COUNT];// 在回溯的时候，不需要手动对已设置位置的值清除，因为在后续的递归中会将之前设置的值覆盖掉
 
     public List<String> restoreIpAddresses(String s) {
         segments = new int[SEG_COUNT];
@@ -37,19 +38,26 @@ public class RestoreIpAddresses {
                     }
                 }
                 ans.add(ipAddr.toString());
+                System.out.println("已经找到了四段IP地址,segments:" + Arrays.toString(segments));
+                return;
+            }else {
+                System.out.println("已经找到了四段IP地址,但是不是正确答案,segStart:" + segStart + ",segments" + Arrays.toString(segments));
+                return;
             }
-            return;
         }
 
         // 如果还没有找到 4 段 IP 地址就已经遍历完了字符串，那么提前回溯
         if (segStart == s.length()) {
+            System.out.println("还没有找到4段IP地址就已经遍历完了字符串,那么提前回溯");
             return;
         }
 
         // 由于不能有前导零，如果当前数字为 0，那么这一段 IP 地址只能为 0
         if (s.charAt(segStart) == '0') {
             segments[segId] = 0;
+            System.out.println("当前数字为0,直接赋值,进入下一轮递归:segStart=" + segStart + ",segments" + Arrays.toString(segments));
             dfs(s, segId + 1, segStart + 1);
+            System.out.println("当前数字为0,退出递归:segStart=" + segStart + ",segments" + Arrays.toString(segments));
             return;// 提前结束回溯，不需要走下面的一般情况，这不加return就需要在下面的add判断中加上 addr > 0
         }
 
@@ -59,7 +67,9 @@ public class RestoreIpAddresses {
             addr = addr * 10 + (s.charAt(segEnd) - '0');
             if (addr <= 255) {
                 segments[segId] = addr;
+                System.out.println("一般情况,枚举每一种可能性并递归,进入下一轮递归:segStart=" + segEnd + ",segments" + Arrays.toString(segments));
                 dfs(s, segId + 1, segEnd + 1);
+                System.out.println("一般情况,枚举每一种可能性并递归,退出递归:segStart=" + segEnd + ",segments" + Arrays.toString(segments));
             } else {
                 break;
             }
@@ -69,7 +79,6 @@ public class RestoreIpAddresses {
 
     public static void main(String[] args) {
         RestoreIpAddresses solution = new RestoreIpAddresses();
-        int i = 1;
-        solution.dfs("", i++, i++);
+        solution.restoreIpAddresses("25525511135");
     }
 }

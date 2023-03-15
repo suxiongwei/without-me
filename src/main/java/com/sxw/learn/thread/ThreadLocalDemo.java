@@ -42,8 +42,6 @@ public class ThreadLocalDemo {
          *   如何防止在线程迟迟不结束时可能出现的内存泄漏？
          *   在调用get、set方法时会检查
          *   最好的使用方式是在使用结束之后，手动调用remove()
-         *
-         *
          */
     }
 

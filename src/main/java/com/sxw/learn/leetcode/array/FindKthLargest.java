@@ -6,13 +6,13 @@ package com.sxw.learn.leetcode.array;
  * 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
  * 请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
  * 你必须设计并实现时间复杂度为 O(n) 的算法解决此问题。
- *
+ * <p>
  * [解题思路]:
  * 快速排序的改进 -> 快速选择
  * 快速排序的平均时间复杂度：O(nlogn)
  * 相比快排，我们只关心这一点，至于partition左右的部分是否有序完全不关心，
  * 这样就可以把原来递归两个区间变成只递归一个区间，提高了时间效率。这就是「快速选择」算法。
- *
+ * <p>
  * 我们知道快速排序的性能和「划分」出的子数组的长度密切相关。
  * 直观地理解如果每次规模为 n 的问题我们都划分成 1 和 n - 1，每次递归的时候又向 n - 1 的集合中递归，这种情况是最坏的，时间代价是 O(n ^ 2)
  * 我们可以引入随机化来加速这个过程，它的时间代价的期望是 O(n)，证明过程可以参考「《算法导论》9.2：期望为线性的选择算法」。
@@ -28,9 +28,9 @@ public class FindKthLargest {
         swap(arr, q, R);
         int[] partition = partition(arr, L, R);
         if (partition[1] == index) return partition[1];
-        if (partition[1] > index){
+        if (partition[1] > index) {
             return quickSelect(arr, L, partition[1] - 1, index);
-        }else {
+        } else {
             return quickSelect(arr, partition[1] + 1, R, index);
         }
     }
@@ -65,7 +65,7 @@ public class FindKthLargest {
     }
 
     public static void main(String[] args) {
-        int[] nums = {3,2,3,1,2,4,5,5,6};
+        int[] nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
         int k = 4;
         FindKthLargest solution = new FindKthLargest();
         int kthLargest = solution.findKthLargest(nums, k);

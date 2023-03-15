@@ -1,4 +1,4 @@
-package com.sxw.learn.leetcode.other;
+package com.sxw.learn.leetcode.backtrack;
 
 /**
  * [题目]: 单词搜索(79)

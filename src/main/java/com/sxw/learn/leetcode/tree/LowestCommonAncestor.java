@@ -12,6 +12,7 @@ public class LowestCommonAncestor {
         return ans;
     }
 
+    // 定义 dfs函数 表示 root 节点的子树中是否包含 p 节点或 q 节点，如果包含为 true，否则为 false
     private static boolean dfs(TreeNode root, TreeNode p, TreeNode q){
         if (root == null) return false;
         boolean lSon = dfs(root.left, p, q);
@@ -19,7 +20,7 @@ public class LowestCommonAncestor {
         // 两种情况可以认为找到了最近公共祖先，只要有一种满足则证明找到了结果
         boolean b1 = lSon && rSon;// true: p和q分别在root的左右子树
         boolean b2 = (lSon || rSon) && (p.val == root.val || q.val == root.val);// p和q其中一个为当前节点，一个为子节点
-        if (b1 || b2) ans = root;
+        if (b1 || b2) ans = root;// 递归是自底向上从叶子节点开始更新的，所以在所有满足条件的公共祖先中一定是深度最大的祖先先被访问到
         return lSon || rSon || (p.val == root.val || q.val == root.val);
     }
 

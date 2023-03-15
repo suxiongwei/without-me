@@ -34,7 +34,7 @@ public class DetectCycle {
         if (head == null) return head;
         ListNode slow = head;
         ListNode fast = head;
-        while (true){
+        while (true){// 不能为while (fast != slow)，因为第一次循环的时候fast=slow=head
             if (fast == null || fast.next == null) return null;// 没有环直接就return了
             slow = slow.next;
             fast = fast.next.next;

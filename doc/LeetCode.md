@@ -40,8 +40,8 @@
 - [旋转链表(61) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/RotateRight.java)
 
 #### 前缀和
-- [连续数组(525)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/prefixsum/FindMaxLength.java)
-- [和为K的子数组(560)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/prefixsum/SubarraySum.java)
+- [连续数组(525) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/prefixsum/FindMaxLength.java)
+- [和为K的子数组(560) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/prefixsum/SubarraySum.java)
 
 #### 二分查找
 - [二分查找 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Search.java)
@@ -68,7 +68,7 @@
 - [环形链表II(142) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/DetectCycle.java)
 - [判断链表是否为回文结构 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/IsPalindrome.java)
 - [将单向链表按某值划分为左边小，中间相等，右边大的形式 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/SmallEqualBigger.java)
-- [给定两个可能有环也可能无环的单链表，头节点head1和head2。请实现一个函数，如果两个链表相交，请返回相交的第一个节点，如果不相交，返回null](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/FindFirstIntersectNode.java)
+- [~给定两个可能有环也可能无环的单链表，头节点head1和head2。请实现一个函数，如果两个链表相交，请返回相交的第一个节点，如果不相交，返回null~](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/FindFirstIntersectNode.java)
 - [链表的中间结点(876) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/MiddleNode.java)
 - [反转链表(206) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/ReverseList.java)
 - [反转链表II(92)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/ReverseBetween.java)
@@ -160,7 +160,7 @@
 ### 栈
 - [在不使用额外数据结构的情况下逆序栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/ReverseStack.java)
 - [用栈实现队列(232) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/MyQueue.java)
-- [最小栈(155) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/MinStack.java)
+- [最小栈(155) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/MinStack.java)
 - [双栈排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/StackSort.java)
 - [最长有效括号(32) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/LongestValidParentheses.java)
 - [基本计算器II(227)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/Calculate.java)
@@ -241,15 +241,18 @@
 - [无重复字符的最长子串(3)-tag:滑动窗口 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LengthOfLongestSubstring.java)
 
 ### 回溯&剪枝
-- [组合(77)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Combine.java)
-- [全排列(46)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Permute.java)
-- [全排列II(47)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/PermuteUnique.java)
-- [字母大小写全排列(784)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/LetterCasePermutation.java)
-- [括号生成(22)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/GenerateParenthesis.java)
-- [子集(78)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Subsets.java)
-- [组合总和(39)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CombinationSum.java)
-- [复原IP地址(93)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/RestoreIpAddresses.java)
-- [单词搜索(79)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/Exist.java)
+- [组合(77)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/Combine.java)
+- [全排列(46)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/Permute.java)
+- [全排列II(47)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/PermuteUnique.java)
+- [字母大小写全排列(784)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/LetterCasePermutation.java)
+- [括号生成(22)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/GenerateParenthesis.java)
+- [子集(78)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/Subsets.java)
+- [组合总和(39)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/CombinationSum.java)
+- [组合总和II(40)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/CombinationSum2.java)
+- [复原IP地址(93)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/RestoreIpAddresses.java)
+- [单词搜索(79)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/Exist.java)
+- [单词搜索(79)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/Exist.java)
+- [电话号码的字母组合(17)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/LetterCombinations.java)
 
 ### 拓扑排序
 - [课程表(207)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CanFinish.java)
