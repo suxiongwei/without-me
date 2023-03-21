@@ -13,47 +13,74 @@ import java.util.*;
  * 递归、回溯、剪枝
  */
 public class CombinationSum {
-    private List<List<Integer>> res = new ArrayList<>();
-    // 回溯
+//    private List<List<Integer>> res = new ArrayList<>();
+//    // 回溯
+//    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+//        if (candidates == null || candidates.length == 0) return res;
+//        dfs(candidates, 0, candidates.length, target, new ArrayDeque<>());
+//        return res;
+//    }
+//
+//    private void dfs(int[] candidates, int begin, int len, int target, Deque<Integer> path){
+//        if (target < 0) return;
+//        if (target == 0) {
+//            res.add(new ArrayList<>(path));
+//            return;
+//        }
+//        for (int i = begin; i < len; i++){
+//            path.addLast(candidates[i]);
+//            System.out.println("递归之前 => " + path + "，剩余 = " + (target - candidates[i]));
+//            dfs(candidates, i, len, target - candidates[i], path);
+//            path.removeLast();
+//            System.out.println("递归之后 => " + path);
+//        }
+//    }
+//
+//    // 将目标数组排序后，如果target已经为负，则接下来的路径也不可能成功，可以进行剪枝
+//    public List<List<Integer>> combinationSum1(int[] candidates, int target) {
+//        if (candidates == null || candidates.length == 0) return res;
+//        Arrays.sort(candidates);
+//        dfs1(candidates, 0, candidates.length, target, new ArrayDeque<>());
+//        return res;
+//    }
+//
+//    private void dfs1(int[] candidates, int begin, int len, int target, Deque<Integer> path){
+//        if (target == 0) {
+//            res.add(new ArrayList<>(path));
+//            return;
+//        }
+//        for (int i = begin; i < len; i++){
+//            if (target - candidates[i] < 0) break;// 进行剪枝
+//            path.addLast(candidates[i]);
+//            dfs(candidates, i, len, target - candidates[i], path);
+//            path.removeLast();
+//        }
+//    }
+
+    // 上面的解法也是正确的解法,本解法相对更好理解,整体思路与CombinationSum2一致
+    List<List<Integer>> res = new ArrayList<>();
+    List<Integer> path = new ArrayList<>();
+
+    int sum = 0;
+
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        if (candidates == null || candidates.length == 0) return res;
-        dfs(candidates, 0, candidates.length, target, new ArrayDeque<>());
-        return res;
-    }
-
-    private void dfs(int[] candidates, int begin, int len, int target, Deque<Integer> path){
-        if (target < 0) return;
-        if (target == 0) {
-            res.add(new ArrayList<>(path));
-            return;
-        }
-        for (int i = begin; i < len; i++){
-            path.addLast(candidates[i]);
-            System.out.println("递归之前 => " + path + "，剩余 = " + (target - candidates[i]));
-            dfs(candidates, i, len, target - candidates[i], path);
-            path.removeLast();
-            System.out.println("递归之后 => " + path);
-        }
-    }
-
-    // 将目标数组排序后，如果target已经为负，则接下来的路径也不可能成功，可以进行剪枝
-    public List<List<Integer>> combinationSum1(int[] candidates, int target) {
-        if (candidates == null || candidates.length == 0) return res;
         Arrays.sort(candidates);
-        dfs1(candidates, 0, candidates.length, target, new ArrayDeque<>());
+        dfs(candidates, 0, target);
         return res;
     }
 
-    private void dfs1(int[] candidates, int begin, int len, int target, Deque<Integer> path){
-        if (target == 0) {
+    void dfs(int[] candidates, int start, int target) {
+        if (target == sum) {
             res.add(new ArrayList<>(path));
             return;
         }
-        for (int i = begin; i < len; i++){
-            if (target - candidates[i] < 0) break;// 进行剪枝
-            path.addLast(candidates[i]);
-            dfs(candidates, i, len, target - candidates[i], path);
-            path.removeLast();
+        // 排序后的目的就是便于这里的剪枝
+        for (int curStart = start; curStart < candidates.length && sum + candidates[curStart] <= target; curStart++) {
+            sum += candidates[curStart];
+            path.add(candidates[curStart]);
+            dfs(candidates, curStart, target);
+            sum -= candidates[curStart];
+            path.remove(path.size() - 1);
         }
     }
 

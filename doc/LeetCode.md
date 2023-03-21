@@ -124,6 +124,7 @@
 - [二叉搜索树的第k大节点(54) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/KthLargest.java)
 - [二叉搜索树中第K小的元素(230) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/KthSmallest.java)
 - [二叉搜索树与双向链表(剑指Offer36)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/TreeToDoublyList.java)
+- [删除二叉搜索树中的节点(450)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/DeleteNode.java)
 
 #### DFS-深度优先搜索
 - [最大深度与DFS ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/MaxDepth.java)
@@ -169,6 +170,9 @@
 - [有效的括号(20) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/IsValid.java)
 - [有效的括号字符串(678)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/CheckValidString.java)
 
+#### 队列
+- [设计循环队列(622)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/MyCircularQueue.java)
+
 #### 单调栈
 - [单调栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E5%8D%95%E8%B0%83%E6%A0%88.md)
 - [在数组中想找到一个数，左边和右边比这个数大、且离这个数最近的位置](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/GetNearMore.java)
@@ -211,6 +215,7 @@
 - [解码方法(91)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/NumDecodings.java)
 - [整数拆分(343)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/IntegerBreak.java)
 - [零钱兑换(322)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/CoinChange.java)
+- [不同的二叉搜索树(96)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/NumTrees.java)
 
 #### 数型DP
 - [树型DP介绍及解题套路](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/%E6%A0%91%E5%9E%8BDP.md)
@@ -251,8 +256,8 @@
 - [组合总和II(40)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/CombinationSum2.java)
 - [复原IP地址(93)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/RestoreIpAddresses.java)
 - [单词搜索(79)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/Exist.java)
-- [单词搜索(79)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/Exist.java)
 - [电话号码的字母组合(17)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/LetterCombinations.java)
+- [目标和(494)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/FindTargetSumWays.java)
 
 ### 拓扑排序
 - [课程表(207)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CanFinish.java)

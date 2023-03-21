@@ -1,50 +1,28 @@
 package com.sxw.learn;
 
-import com.google.common.collect.Lists;
-import com.sxw.learn.leetcode.linkedlist.ListNode;
-import com.sxw.learn.leetcode.tree.TreeNode;
-
-import java.util.*;
-
 public class Solution {
+    int res = 0;
 
-    List<String> res = new ArrayList<>();
-    List<Character> characterList = new ArrayList<>();
-    public List<String> letterCombinations(String digits) {
-        // base case
-        if (digits == null || digits.equals("")) return res;
-
-        Map<Character, String> phoneMap = new HashMap<>();
-        phoneMap.put('2', "abc");
-        phoneMap.put('3', "def");
-        phoneMap.put('4', "ghi");
-        phoneMap.put('5', "jkl");
-        phoneMap.put('6', "mno");
-        phoneMap.put('7', "pqrs");
-        phoneMap.put('8', "tuv");
-        phoneMap.put('9', "wxyz");
-
-        dfs(digits, phoneMap, 0);
+    // 494. 目标和
+    public int findTargetSumWays(int[] nums, int target) {
+        dfs(nums, target, 0, 0);
         return res;
     }
 
-    // 当前处理到目标字符串digits的index位置
-    private void dfs(String digits, Map<Character, String> phoneMap, int index) {
-        if (index == digits.length()){
-            StringBuilder sb = new StringBuilder();
-            characterList.stream().forEach(i -> sb.append(i));
-            res.add(sb.toString());
+    // nums = [1,1,1,1,1], target = 3
+    public void dfs(int[] nums, int target, int curStart, int curSum) {
+        // 已经遍历完数组
+        if (curStart == nums.length) {
+            if (target == curSum) {
+                res++;
+            }
             return;
         }
-        Character curNum = digits.charAt(index);
-        String curNumChar = phoneMap.get(curNum);
-        for (int curNumIndex = 0; curNumIndex < curNumChar.length(); curNumIndex++) {
-            characterList.add(curNumChar.charAt(curNumIndex));
-            dfs(digits, phoneMap, index + 1);
-            characterList.remove(characterList.size() - 1);
-        }
+        // 处理加
+        dfs(nums, target, curStart + 1, curSum + nums[curStart]);
+        // 处理减
+        dfs(nums, target, curStart + 1, curSum - nums[curStart]);
     }
-
 
     public static void main(String[] args) {
         Solution solution = new Solution();
@@ -143,9 +121,12 @@ public class Solution {
 //        solution.sumNumbers(node1);
 //        double s = 235d / (25772 + 9136 - 245);
 //        System.out.println(s);
-        List<String> strings = solution.letterCombinations("23");
-        System.out.println(strings);
+//        List<String> strings = solution.letterCombinations("23");
+//        System.out.println(strings);
 
+        int[] nums = {1};
+        int targetSumWays = solution.findTargetSumWays(nums, 1);
+        System.out.println(targetSumWays);
 
     }
 }
