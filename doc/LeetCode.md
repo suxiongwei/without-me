@@ -177,6 +177,7 @@
 - [单调栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E5%8D%95%E8%B0%83%E6%A0%88.md)
 - [在数组中想找到一个数，左边和右边比这个数大、且离这个数最近的位置](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/GetNearMore.java)
 - [每日温度(739) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/DailyTemperatures.java)
+- [去除重复字母(316)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/stack/RemoveDuplicateLetters.java)
 
 ### 跳表
 - [跳表](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/SkipList.md)
@@ -216,6 +217,7 @@
 - [整数拆分(343)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/IntegerBreak.java)
 - [零钱兑换(322)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/CoinChange.java)
 - [不同的二叉搜索树(96)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/NumTrees.java)
+- [分割等和子集(416)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/CanPartition.java)
 
 #### 数型DP
 - [树型DP介绍及解题套路](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/%E6%A0%91%E5%9E%8BDP.md)

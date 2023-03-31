@@ -4,7 +4,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * [题目]: 给定String类型的数组strArr，再给定整数k，请严格按照排名顺序打印出现次数前k名的字符串。
+ * [题目]: 前K个高频单词(692)
+ *
+ * 给定String类型的数组strArr，再给定整数k，请严格按照排名顺序打印出现次数前k名的字符串。
  * [要求]：如果strArr长度为N，时间复杂度请达到O(Nlogk)
  *
  * [解题思路]: 先建立词频表，然后借助堆(大根堆和小根堆都可以)
@@ -56,6 +58,7 @@ public class TopKFrequent {
             }
         });
         strAndTimesMap.entrySet().forEach(i -> {
+            // 虽然是小根堆，但是堆内的元素却是value最大的元素，只是堆定是当前最小的元素，也就是门槛
             if (smallQueue.size() >= k){
                 if (i.getValue() >= smallQueue.peek().getValue()){
                     smallQueue.offer(i);
