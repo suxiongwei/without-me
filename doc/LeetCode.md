@@ -77,7 +77,7 @@
 - [K个一组翻转链表(25) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/ReverseKGroup.java)
 - [LRU缓存(146) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/LRUCache.java)
 - [两两交换链表中的节点(24) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/SwapPairs.java)
-- [排序链表(148)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/SortList.java)
+- [~~排序链表(148)~~](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/SortList.java)
 - [合并K个升序链表(23) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/MergeKLists.java)
 - [复制带随机指针的链表(138) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/CopyRandomList.java)
 - [排序奇升偶降链表 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/SortingAscendingDescendingList.java)
@@ -150,7 +150,7 @@
 - [二叉树最大宽度(662) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/bfs/WidthOfBinaryTree.java)
 
 #### 堆/大根堆/小根堆
-- [前K个高频单词(692)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/TopKFrequent.java)
+- [前K个高频单词(692) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/TopKFrequent.java)
 
 #### 字典树
 - [字典树/前缀树(208) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/trie/Trie.java)
@@ -183,7 +183,7 @@
 - [跳表](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/SkipList.md)
 
 ### Hash
-- [数组中重复的数据(442)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/hash/FindDuplicates.md)
+- [数组中重复的数据(442) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/hash/FindDuplicates.java)
 
 ### 图
 - [图的宽度优先遍历](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/graph/BFS.java)

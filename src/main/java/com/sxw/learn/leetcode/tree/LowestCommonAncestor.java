@@ -4,6 +4,7 @@ package com.sxw.learn.leetcode.tree;
  * [题目描述]：二叉树的最近公共祖先(236)
  * [说明]：前提条件是一定存在公共祖先
  * [解题思路]：
+ * 递归
  */
 public class LowestCommonAncestor {
     private static TreeNode ans;
@@ -18,10 +19,14 @@ public class LowestCommonAncestor {
         boolean lSon = dfs(root.left, p, q);
         boolean rSon = dfs(root.right, p, q);
         // 两种情况可以认为找到了最近公共祖先，只要有一种满足则证明找到了结果
-        boolean b1 = lSon && rSon;// true: p和q分别在root的左右子树
-        boolean b2 = (lSon || rSon) && (p.val == root.val || q.val == root.val);// p和q其中一个为当前节点，一个为子节点
-        if (b1 || b2) ans = root;// 递归是自底向上从叶子节点开始更新的，所以在所有满足条件的公共祖先中一定是深度最大的祖先先被访问到
-        return lSon || rSon || (p.val == root.val || q.val == root.val);
+        // true: p和q分别在root的左右子树
+        boolean b1 = lSon && rSon;
+        // p和q其中一个为当前节点，一个为子节点
+        boolean b2 = (lSon || rSon) && (p.val == root.val || q.val == root.val);
+        // 递归是自底向上从叶子节点开始更新的，所以在所有满足条件的公共祖先中一定是深度最大的祖先先被访问到
+        // 在找到最近公共祖先x以后，fx 按定义被设置为true，即假定了这个子树中只有一个p节点或q节点，因此其他公共祖先不会再被判断为符合条件。
+        if (b1 || b2) ans = root;
+        return lSon || rSon || p.val == root.val || q.val == root.val;
     }
 
     public static void main(String[] args) {
