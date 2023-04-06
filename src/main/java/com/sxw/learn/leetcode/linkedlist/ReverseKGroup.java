@@ -25,9 +25,10 @@ public class ReverseKGroup {
         while (end != null) {
             /**
              * dummy -> 1 -> 2 -> 3, k = 3
-             * 第一轮: i = 0 执行前: end = dummy 执行后: end = 1
+             * 第一轮: i = 0 执行前: end = dummy 执行后: end = 1,
              * 第二轮: i = 1 执行前: end = 1 执行后: end = 2
              * 第三轮: i = 2 执行前: end = 2 执行后: end = 3
+             * 结束....
              */
             for (int i = 0; i < k && end != null; i++) {// end == null 会直接终止循环 -> 只要end为null就会终止循环
                 end = end.next;
@@ -41,7 +42,7 @@ public class ReverseKGroup {
             pre.next = reverse(start);// 返回的是end节点，与翻转部分的末尾部分连接
             start.next = next;// 翻转后start就成了翻转部分的end节点，与待翻转部分的头节点连接
             pre = start;
-            end = pre;
+            end = pre;// 定义成pre是因为在找k个节点的时候也是从dummy开始的
         }
         return dummy.next;
     }
