@@ -1,5 +1,10 @@
 package com.sxw.learn;
 
+import com.sxw.learn.leetcode.tree.TreeNode;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class Solution {
     int res = 0;
 
@@ -23,6 +28,35 @@ public class Solution {
         // 处理减
         dfs(nums, target, curStart + 1, curSum - nums[curStart]);
     }
+
+    class Node{
+        public String str;
+        public int times;
+
+        public Node(String str, int times) {
+            this.str = str;
+            this.times = times;
+        }
+    }
+
+    TreeNode ans;
+    public TreeNode lowestCommonAncestor(TreeNode node, TreeNode p, TreeNode q){
+        dfs(node, p, q);
+        return ans;
+    }
+
+    public boolean dfs(TreeNode node, TreeNode p, TreeNode q){
+        if (node == null) return false;
+        boolean lSon = dfs(node.left, p, q);
+        boolean rSon = dfs(node.right, p, q);
+        boolean b1 = lSon && rSon;
+        boolean b2 = (lSon || rSon) && (node.val == p.val || node.val == q.val);
+        if (b1 || b2){
+            ans = node;
+        }
+        return lSon || rSon || node.val == p.val || node.val == q.val;
+    }
+
 
     public static void main(String[] args) {
         Solution solution = new Solution();
