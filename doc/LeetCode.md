@@ -129,6 +129,7 @@
 #### DFS-深度优先搜索
 - [最大深度与DFS ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/MaxDepth.java)
 - [海岛个数问题 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/CountIslands.java)
+- [统计封闭岛屿的数目(1254) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/ClosedIsland.java)
 - [岛屿的最大面积(695) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/MaxAreaOfIsland.java)
 - [被围绕的区域(130) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/Solve.java)
 - [求根节点到叶节点数字之和(129) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dfs/SumNumbers.java)

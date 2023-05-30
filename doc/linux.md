@@ -18,3 +18,46 @@ cat davinci.2023-01-16.log | grep '2023-01-16' | awk '{print substr($2,1,2)}' | 
 sort -rn（r 表示逆向排序， n 表示按数值排序） 对统计的结果排序
 
 head -n 3 分析 TOP3
+
+**切割CSV文件，大文件切割为小文件**
+```shell
+vim split_file_to_part_based_on_line.sh
+
+#!/bin/bash
+
+:<<!
+参数说明：
+$0      脚本文件名
+$1      待拆分文件名
+$2      拆分后的文件的行数
+$3      拆分后的文件的前缀
+!
+
+echo "---- start ----"
+echo "FILE_NAME: $1"
+
+total_lines=`cat $1 | wc -l`
+floor=`echo "scale=0;$total_lines/$2"|bc -l ` # 向下取整
+flag=`awk -v num1=$floor -v num2=$1 'BEGIN{print(num1<num2)?"1":"0"}'`
+num=`expr $floor + $flag`
+filename=$1
+extension="${filename##*.}"
+
+split $1 -l $2 --verbose -d -a ${#num} $3_&&ls|grep $3|xargs -n1 -i{} mv {} {}.${extension}
+
+last_file_line=`cat $3_$floor.${extension} | wc -l`
+
+echo "FILE_EXT: ${extension}"
+echo "FILE_LINES: $total_lines"
+echo "FILE_NUMBER: $num"
+echo "LAST_FILE_LINE: ${last_file_line}"
+
+
+使用示例：
+./split_file_to_part_based_on_line.sh xxx.csv 40000000 xxx
+```
+
+**替换文件内容**
+```shell
+sed -i 's/"//g' tkt_1.csv
+```

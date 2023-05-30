@@ -44,6 +44,8 @@ public class FindKthLargest {
         while (L < more) {
             if (arr[L] < arr[R]) {// arr[L]表示
                 less++;
+                // swap的目的是因为 中间有可能会存在等于区，这样的话less和L就不相等
+                // 含义:把等于区的最左元素(less++)换到当前位置(L)，这样就腾出了一个位置放小于区的元素
                 swap(arr, less, L);
                 L++;
             } else if (arr[L] > arr[R]) {
@@ -65,10 +67,17 @@ public class FindKthLargest {
     }
 
     public static void main(String[] args) {
-        int[] nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
-        int k = 4;
-        FindKthLargest solution = new FindKthLargest();
-        int kthLargest = solution.findKthLargest(nums, k);
-        System.out.println(kthLargest);
+//        int[] nums = {3, 2, 3, 1, 2, 4, 5, 5, 6};
+//        int k = 4;
+//        FindKthLargest solution = new FindKthLargest();
+//        int kthLargest = solution.findKthLargest(nums, k);
+//        System.out.println(kthLargest);
+
+        int nums = 10;
+        while (nums > 0){
+            int s = (int) (Math.random() * 11);
+            System.out.println(s);
+            nums--;
+        }
     }
 }

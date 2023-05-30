@@ -1,62 +1,71 @@
 package com.sxw.learn;
 
+import com.sxw.learn.leetcode.linkedlist.ListNode;
 import com.sxw.learn.leetcode.tree.TreeNode;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Solution {
-    int res = 0;
 
-    // 494. 目标和
-    public int findTargetSumWays(int[] nums, int target) {
-        dfs(nums, target, 0, 0);
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        int len = nums.length;
+        List<List<Integer>> res = new ArrayList<>();
+        for (int first = 0; first < len; first++) {
+            if (first > 0 && nums[first] == nums[first - 1]) {
+                continue;
+            }
+            for (int second = first + 1; second < len; second++) {
+                if (second > first + 1 && nums[second] == nums[second - 1]) {
+                    continue;
+                }
+                int third = len - 1;
+                while (second < third && nums[first] + nums[second] + nums[third] > 0) {
+                    third--;
+                }
+                if (second == third) break;
+                if (nums[first] + nums[second] + nums[third] == 0) {
+                    List<Integer> tmpRes = new ArrayList<>();
+                    tmpRes.add(nums[first]);
+                    tmpRes.add(nums[second]);
+                    tmpRes.add(nums[third]);
+                    res.add(tmpRes);
+                }
+            }
+
+        }
         return res;
     }
 
-    // nums = [1,1,1,1,1], target = 3
-    public void dfs(int[] nums, int target, int curStart, int curSum) {
-        // 已经遍历完数组
-        if (curStart == nums.length) {
-            if (target == curSum) {
-                res++;
+    public boolean hasCycle(ListNode head) {
+        if (head == null || head.next == null) return false;
+        ListNode fast = head;
+        ListNode slow = head.next;
+        while (true) {
+            if (fast == null || fast.next == null) {
+                return false;
             }
-            return;
-        }
-        // 处理加
-        dfs(nums, target, curStart + 1, curSum + nums[curStart]);
-        // 处理减
-        dfs(nums, target, curStart + 1, curSum - nums[curStart]);
-    }
-
-    class Node{
-        public String str;
-        public int times;
-
-        public Node(String str, int times) {
-            this.str = str;
-            this.times = times;
+            if (fast == slow) {
+                return true;
+            }
+            fast = fast.next.next;
+            slow = slow.next;
         }
     }
 
-    TreeNode ans;
-    public TreeNode lowestCommonAncestor(TreeNode node, TreeNode p, TreeNode q){
-        dfs(node, p, q);
-        return ans;
-    }
-
-    public boolean dfs(TreeNode node, TreeNode p, TreeNode q){
-        if (node == null) return false;
-        boolean lSon = dfs(node.left, p, q);
-        boolean rSon = dfs(node.right, p, q);
-        boolean b1 = lSon && rSon;
-        boolean b2 = (lSon || rSon) && (node.val == p.val || node.val == q.val);
-        if (b1 || b2){
-            ans = node;
+    // -2,1,-3,4,-1,2,1,-5,4
+    public int maxSubArray(int[] nums) {
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        int res = Integer.MIN_VALUE;
+        for (int i = 1; i < nums.length; i++){
+            dp[i] = Math.max(nums[i], nums[i] + dp[i - 1]);
+            res = Math.max(res, dp[0]);
         }
-        return lSon || rSon || node.val == p.val || node.val == q.val;
+        System.out.println(Arrays.toString(dp));
+        return res;
     }
-
 
     public static void main(String[] args) {
         Solution solution = new Solution();
@@ -158,9 +167,7 @@ public class Solution {
 //        List<String> strings = solution.letterCombinations("23");
 //        System.out.println(strings);
 
-        int[] nums = {1};
-        int targetSumWays = solution.findTargetSumWays(nums, 1);
-        System.out.println(targetSumWays);
-
+        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        solution.maxSubArray(nums);
     }
 }

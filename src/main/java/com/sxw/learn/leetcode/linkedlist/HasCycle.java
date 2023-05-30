@@ -19,4 +19,22 @@ public class HasCycle {
         }
         return true;
     }
+
+
+    // 2023.04.18 解法
+    public boolean hasCycle1(ListNode head) {
+        if (head == null || head.next == null) return false;
+        ListNode fast = head;
+        ListNode slow = head.next;
+        while (true) {
+            if (fast == null || fast.next == null) {
+                return false;
+            }
+            if (fast == slow) {
+                return true;
+            }
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+    }
 }

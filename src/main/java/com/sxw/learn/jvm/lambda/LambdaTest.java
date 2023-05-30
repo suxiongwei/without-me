@@ -118,6 +118,13 @@ public class LambdaTest {
 //                        Collectors.groupingBy(Employee::getDepartment, Collectors.counting())));
 //        System.out.println(resultMap);
 
+        // map() 方法修改内容
+//        List<Student> studentNames = students.stream().map(student -> {
+//            if ("汤霖".equals(student.getName())) {
+//                student.setChineseScore(90);
+//            }
+//            return student;
+//        }).collect(Collectors.toList());
 
     }
 

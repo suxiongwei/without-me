@@ -127,3 +127,107 @@ FROM
 ORDER BY 
   id ASC;
 ```
+
+你的平均薪水是多少？
+```sql
+薪水表的字段分别为：
+- 雇员编号
+- 部门编号
+- 薪水
+
+问题：查询出每个部门除去最高、最低薪水后的平均薪水，并保留整数
+
+select
+    `部门编号`
+    ,avg(`薪水`) as `平均薪水`
+from (
+    select
+        *
+        ,dense_rank() over (partition by `部门编号` order by `薪水` desc) as rank1 # rank1 = 1 是薪水最高的
+        ,dense_rank() over (partition by `部门编号` order by `薪水` asc) as rank2 # rank2 = 1 是薪水最低的
+    from
+    `薪水表`
+) as tmp_a
+where 
+rank1 > 1
+and rank2 > 1
+group by `部门编号`
+
+```
+
+如何查找第 N 高的数据？
+```sql
+【题目】
+现在有 “课程表”，记录了学生选修课程的名称以及成绩。
+现在需要找出语文课中成绩第二高的学生成绩。如果不存在第二高成绩的学生，那么查询应返回 null。
+
+解法1:
+select max(distinct 成绩) 
+from 成绩表
+where 课程='语文' and
+      成绩 < (select max(distinct 成绩) 
+              from 成绩表 
+              where 课程='语文');
+              
+解法2:
+select distinct 成绩  
+from 成绩表
+where 课程='语文'
+order by 课程,成绩 desc
+limit 1,1;
+
+考虑特殊情况：
+题目要求，如果没有第二高的成绩，返回空值，所以这里用判断空值的函数（ifnull）函数来处理特殊情况。
+ifnull(a,b) 函数解释：
+如果 value1 不是空，结果返回 a
+如果 value1 是空，结果返回 b
+
+因此：对于本题的 sql 就是：
+select ifnull(第2步的sql,null) as '语文课第二名成绩';
+
+```
+如何交换数据？
+```sql
+【题目】
+小明是一所学校的老师，她有一张 “学生表”，平时用来存放座位号和学生的信息。其中，座位号是连续递增的。总的座位数是偶数。
+现在，小明想改变相邻俩学生的座位。你能不能帮她写一个 sql 查来输出想要的结果呢？
+
+select
+      (case
+             when mod(座位号, 2) != 0  then 座位号 + 1
+             when mod(座位号, 2)  = 0  then 座位号 - 1
+      end)  as  '交换后座位号',
+      姓名
+from 学生表;
+```
+统计每个班同学各科成绩平均分大于 80 分的人数和人数占比?
+```sql
+“学生表” 里记录了学生的学号、入学时间等信息。“成绩表” 里是学生选课成绩的信息。两个表中的学号一一对应
+
+学生表(姓名、学号、班级、入学时间、年龄、专业)
+成绩表(学号、课程号、分数)
+
+select 
+    a.班级,
+    sum(
+        case when b.平均成绩>80 
+        then 1
+        else 0 
+        end
+    ) as 人数,
+    sum(
+        case when b.平均成绩>80 
+        then 1
+        else 0 
+        end
+    )/count(a.学号) as 人数占比
+from 学生表 as a left join(
+    select 
+        学号
+        ,avg(分数) as 平均成绩
+    from 成绩表
+    group by 学号
+) as b
+on a.学号=b.学号
+group by 班级
+```

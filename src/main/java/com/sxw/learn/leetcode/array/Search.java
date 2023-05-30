@@ -20,7 +20,7 @@ public class Search {
             // 二分查找
             int mid = (l + r) >> 1;
             if (target == nums[mid]) return mid;
-            if (nums[mid] >= nums[0]) {// mid 左边的有序
+            if (nums[mid] >= nums[0]) {// mid 左边的有序 和num[0]比较，而不是num[left]
                 if (target >= nums[l] && target < nums[mid]) {
                     r = mid - 1;
                 } else {
@@ -55,9 +55,7 @@ public class Search {
 
     public static void main(String[] args) {
         Search search = new Search();
-        int search1 = search.search(new int[]{4, 5, 6, 7, 0, 1, 2}, 0);
+        int search1 = search.search1(new int[]{3, 1}, 1);
         System.out.println(search1);
     }
-
-
 }
