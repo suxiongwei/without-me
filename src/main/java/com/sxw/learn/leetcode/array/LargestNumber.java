@@ -22,7 +22,11 @@ public class LargestNumber {
         for (int i = 0; i < nums.length; i++) {
             numsToWord[0] = String.valueOf(nums[0]);
         }
-        Arrays.sort(numsToWord, (a, b) -> (b + a).compareTo(a + b));// Comparator接收返回值为正数，就会交换a和b
+        /**
+         * Comparator接收返回值为正数，就会交换a和b
+         * a = 3 b = 30 (303 compareTo 330 = -1) 那就是a和b不需要交换顺序，也是我们需要的结果
+         */
+        Arrays.sort(numsToWord, (a, b) -> (b + a).compareTo(a + b));
         if (numsToWord[0].equals("0")) {
             return "0";
         }
@@ -31,5 +35,14 @@ public class LargestNumber {
             sb.append(numsToWord[i]);
         }
         return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        String s1 = "0";
+        String s2 = "01";
+
+        // 303 330
+
+        System.out.println(s1.compareTo(s2));
     }
 }

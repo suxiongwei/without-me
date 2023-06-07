@@ -42,10 +42,12 @@ public class RemoveDuplicates {
             if (nums[i] == nums[index]){
                 count++;
                 if (count <= 2){
-                    nums[++index] = nums[i];
+                    index++;
+                    nums[index] = nums[i];
                 }
             }else {
-                nums[++index] = nums[i];
+                index++;
+                nums[index] = nums[i];
                 count = 1;
             }
         }

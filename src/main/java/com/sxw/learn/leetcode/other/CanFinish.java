@@ -24,20 +24,20 @@ public class CanFinish {
         for (int i = 0; i < numCourses; i++) {
             inDegree.put(i, 0);
         }
-        // 2.依赖关系, 依赖当前课程的后序课程
+        // 2.依赖关系, 依赖当前课程的后序课程 key是前置课程，value是学完key才能学的课程
         Map<Integer, List<Integer>> adj = new HashMap<>();
         // 初始化入度和依赖关系
         for (int[] relate : prerequisites) {
-            // (3,0), 想学3号课程要先完成0号课程, 更新3号课程的入度和0号课程的依赖(邻接表)
-            int cur = relate[1];
-            int next = relate[0];
+            // (3,0), 想学3号课程要先完成0号课程, 更新3号课程的入度和0号课程的依赖(邻接表,就是谁依赖我了)
+            int cur = relate[0];
+            int preNeedLearnCourse = relate[1];
             // 1.更新入度
-            inDegree.put(next, inDegree.get(next) + 1);
+            inDegree.put(cur, inDegree.get(cur) + 1);
             // 2.当前节点的邻接表
-            if (!adj.containsKey(cur)) {
-                adj.put(cur, new ArrayList<>());
+            if (!adj.containsKey(preNeedLearnCourse)) {
+                adj.put(preNeedLearnCourse, new ArrayList<>());
             }
-            adj.get(cur).add(next);
+            adj.get(preNeedLearnCourse).add(cur);
         }
         // 3.BFS, 将入度为0的课程放入队列, 队列中的课程就是没有先修, 可以学的课程
         Queue<Integer> q = new LinkedList<>();
