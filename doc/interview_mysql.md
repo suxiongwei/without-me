@@ -1,4 +1,4 @@
-## 一些面试题-MySQL
+## MySQL
 
 - [事务的特性(ACID)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E6%95%B0%E6%8D%AE%E5%BA%93ACID%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7.md)
 - [红黑树和二叉平衡树的特点和区别](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91%26%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%26%E7%BA%A2%E9%BB%91%E6%A0%91%26B-%E6%A0%91%26B%2B%E6%A0%91%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94.md)

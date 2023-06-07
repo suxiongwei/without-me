@@ -1,4 +1,4 @@
-## 一些面试题-设计题
+## 设计题
 
 - [秒杀系统](https://github.com/suxiongwei/without-me/blob/main/doc/SECONDS_KILL_DESIGN.md)
 - [扫码登陆](https://github.com/suxiongwei/without-me/blob/main/doc/SCAN_LOGIN.md)

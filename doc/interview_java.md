@@ -1,4 +1,4 @@
-## 一些面试题-Java
+## Java
 
 - [死锁发生的原因](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/juc/lock/DeadLockSample.java)
 - [Java的JUC框架](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/juc)
