@@ -67,6 +67,27 @@ public class Solution {
         return res;
     }
 
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()){
+            return false;
+        }
+        int len = s.length();
+        int[] arr = new int[26];
+        char[] char1 = s.toCharArray();
+        char[] char2 = t.toCharArray();
+        for (int i = 0; i < len; i++){
+            arr[char1[i] - 'a']++;
+            arr[char2[i] - 'a']--;
+        }
+
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] != 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
 //        ListNode node1 = new ListNode(1);

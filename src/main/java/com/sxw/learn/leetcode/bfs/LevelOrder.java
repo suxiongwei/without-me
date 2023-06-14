@@ -2,10 +2,10 @@ package com.sxw.learn.leetcode.bfs;
 
 import com.sxw.learn.leetcode.tree.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Deque;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * 二叉树的层次遍历(102)
@@ -15,16 +15,17 @@ public class LevelOrder {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) return res;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()){
+        Deque<TreeNode> deque = new ArrayDeque<>();
+        deque.offerLast(root);
+        while (!deque.isEmpty()) {
             List<Integer> level = new ArrayList<>();// 每遍历一次，代表往下走了一层
-            Integer currentLevelSize = queue.size();// 定义一个变量，因为在执行过程中size的值是变化的
+            Integer currentLevelSize = deque.size();// 定义一个变量，因为在执行过程中size的值是变化的
             for (Integer i = 0; i < currentLevelSize; i++) {
-                TreeNode curNode = queue.poll();
+                TreeNode curNode = deque.pollFirst();
                 level.add(curNode.val);
-                if (curNode.left != null) queue.offer(curNode.left);// 从队尾插入，当此轮循环结束，上一层的节点都已经弹出，队列按照从左到右存储的已经是下一层的节点
-                if (curNode.right != null) queue.offer(curNode.right);
+                if (curNode.left != null)
+                    deque.offerLast(curNode.left);// 从队尾插入，当此轮循环结束，上一层的节点都已经弹出，队列按照从左到右存储的已经是下一层的节点
+                if (curNode.right != null) deque.offerLast(curNode.right);
             }
             res.add(level);
         }

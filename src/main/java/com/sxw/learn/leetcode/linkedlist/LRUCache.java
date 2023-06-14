@@ -72,10 +72,20 @@ public class LRUCache {
 
     private void addToHead(DLinkedNode node) {
         // 在连接的时候要考虑当前节点、前面节点、后面节点的连接关系(双向连接)
-        node.prev = head;// 先设置node，不改变head的指针情况
-        node.next = head.next;
-        head.next.prev = node;
+//        node.prev = head;// 先设置node，不改变head的指针情况
+//        node.next = head.next;
+//        head.next.prev = node;
+//        head.next = node;
+
+        // 存储头节点的下一个节点，因为后续会调整head的next指针，因此先存储下来，防止替换
+        DLinkedNode tmpNode = head.next;
+        // 连接head 与 node节点
         head.next = node;
+        node.prev = head;
+
+        // 连接node节点与旧的队列头部实际节点
+        node.next = tmpNode;
+        tmpNode.prev = node;
     }
 
     class DLinkedNode {
