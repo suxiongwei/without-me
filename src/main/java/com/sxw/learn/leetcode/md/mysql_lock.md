@@ -58,3 +58,5 @@ where id = 1 and quantity - 1 > 0
 
 以上update语句，在执行过程中，会在一次原子操作中自己查询一遍quantity的值，并将其扣减掉1。
 
+
+MySQL默认是乐观锁

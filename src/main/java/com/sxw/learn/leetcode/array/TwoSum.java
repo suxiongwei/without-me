@@ -2,6 +2,7 @@ package com.sxw.learn.leetcode.array;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -39,6 +40,13 @@ public class TwoSum {
                 down++;
             }
         }
+        return null;
+    }
+
+
+    // 无序数组，输出等于target的两个元素的下标
+    public List<List<Integer>> twoSum1(int[] nums, int target) {
+        // 利用map
         return null;
     }
 

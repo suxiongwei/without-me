@@ -38,8 +38,8 @@ public class LargestNumber {
     }
 
     public static void main(String[] args) {
-        String s1 = "0";
-        String s2 = "01";
+        String s1 = "1";
+        String s2 = "2";
 
         // 303 330
 
