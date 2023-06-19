@@ -18,7 +18,14 @@
 ```java
   Arrays.sort(intervals, Comparator.comparingInt(i -> i[0]));
 ```
-- [最大数(179)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/LargestNumber.java)
+- [最大数(179) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/LargestNumber.java)
+```java
+  /**
+   * Comparator接收返回值为正数，就会交换a和b
+   * a = 3 b = 30 (303 compareTo 330 = -1) 那就是a和b不需要交换顺序，也是我们需要的结果
+   */
+  Arrays.sort(numsToWord, (a, b) -> (b + a).compareTo(a + b));
+```
 - [缺失的第一个正数(41) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FirstMissingPositive.java)
 - [分割数组(915)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/PartitionDisjoint.java)
 - [字母排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/CharacterSort.java)
