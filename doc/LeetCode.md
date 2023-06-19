@@ -15,6 +15,7 @@
 
 ### 数组
 - [合并区间(56) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Merge.java)
+
   ```java
     Arrays.sort(intervals, Comparator.comparingInt(i -> i[0]));
   ```
