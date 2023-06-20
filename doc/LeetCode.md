@@ -27,12 +27,36 @@
   Arrays.sort(numsToWord, (a, b) -> (b + a).compareTo(a + b));
 ```
 - [缺失的第一个正数(41) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FirstMissingPositive.java)
-- [分割数组(915)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/PartitionDisjoint.java)
-- [字母排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/CharacterSort.java)
+- [分割数组(915) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/PartitionDisjoint.java)
+```java
+// 通过记录遍历过程中到当前位置的最大元素curMax，更新分界线的位置
+int leftMax = nums[0];// left分界线左边的最大元素
+int leftPos = 0;// left分界线
+int curMax = nums[0];// 当前最大元素，会随着遍历不断更新，而leftMax在到了划分边界后，就固定下来了
+```
+- [字母排序 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/CharacterSort.java)
+```java
+int[] charArr = new int[52];// 偶数位置存放小写字母，奇数位置存储大写字母 aAbBcC...
+// 小写字母的编码int值要比大写字母大，可以通过这个判断每个字母在数组中的存放位置
+```
 
 #### 双指针
 - [有序数组的平方(977) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SortedSquares.java)
+```java
+// 通过记录负数区与非负数区的边界，再通过双指针合并
+int neg = -1;// 区分负数与非负数,[0,neg]都为负数,[neg+1,n-1]为正数
+```
 - [轮转数组(189) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Rotate.java)
+```java
+/**
+ * nums = {1，2，3，4，5，6，7} k = 2
+ * 最终结果为：6，7，1，2，3，4，5
+ */
+k = k % length; // 数组length = 5 k = 7 实际上含义是k = 2
+reverseArray(nums, 0, length - 1);
+reverseArray(nums, 0, k - 1);
+reverseArray(nums, k, length - 1);
+```
 - [移动零(283) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MoveZeroes.java)
 - [两数之和II-输入有序数组(167) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/TwoSum.java)
 - [三数之和(15) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/ThreeSum.java)
