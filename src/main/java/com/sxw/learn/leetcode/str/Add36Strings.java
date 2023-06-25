@@ -16,6 +16,10 @@ package com.sxw.learn.leetcode.str;
  * [解题思路]:
  * 代码与 LC 415 字符串相加 基本一致
  * 将每一位转换为十进制计算后，再把结果转换为36进制
+ *
+ * int 与 char的对应
+ * 48 ～ 57 对应 0 ～ 9
+ * 97 ～ 122 对应 a ～ z
  */
 public class Add36Strings {
     public String add36Strings(String num1, String num2) {
@@ -53,9 +57,12 @@ public class Add36Strings {
     }
 
     public static void main(String[] args) {
-        Add36Strings solution = new Add36Strings();
-        String a = "1b", b = "2x";
-        String c = solution.add36Strings(a, b);
-        System.out.println(c);
+//        Add36Strings solution = new Add36Strings();
+//        String a = "1b", b = "2x";
+//        String c = solution.add36Strings(a, b);
+//        System.out.println(c);
+        for (int i  = 0; i < 150; i++){
+            System.out.println(i + "=" + (char) i);
+        }
     }
 }

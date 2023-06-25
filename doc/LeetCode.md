@@ -60,7 +60,22 @@ reverseArray(nums, k, length - 1);
 - [移动零(283) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MoveZeroes.java)
 - [两数之和II-输入有序数组(167) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/TwoSum.java)
 - [三数之和(15) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/ThreeSum.java)
+```java
+// 先排序，然后两层循环，利用排序后数据的性质加速查找
+```
 - [最接近的三数之和(16) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/ThreeSumClosest.java)
+```java
+/**
+ * 解题关键点：使用绝对值变量
+ */
+private int best = 1000 * 1000;// 存储的是三数之和
+public int threeSumClosest(int[] nums, int target) {
+    // 利用绝对值的差值来更新答案 sum：三数之和
+    if(Math.abs(sum - target) < Math.abs(best - target)){
+        best = sum;    
+    }    
+}
+```
 - [四数之和(18) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FourSum.java)
 - [删除有序数组中的重复项 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/RemoveDuplicates.java)
 - [比较版本号(165) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/CompareVersion.java)
@@ -68,6 +83,13 @@ reverseArray(nums, k, length - 1);
 - [荷兰国旗问题/颜色分类(75) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/DutchFlag.java)
 - [两个数组的交集II(350) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Intersect.java)
 - [下一个排列(31) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/NextPermutation.java)
+```java
+/**
+ * 核心思路：
+ * 1、我们需要将一个左边的「较小数」与一个右边的「较大数」交换，以能够让当前排列变大，从而得到下一个排列。
+ * 2、同时我们要让这个「较小数」尽量靠右，而「较大数」尽可能小。当交换完成后，「较大数」右边的数需要按照升序重新排列。这样可以在保证新排列大于原来排列的情况下，使变大的幅度尽可能小。
+ */
+```
 - [下一个更大元素III(556) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/NextGreaterElement.java)
 - [最长回文子串(5) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/LongestPalindrome.java)
 - [验证回文字符串Ⅱ(680) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/ValidPalindrome.java)
@@ -109,7 +131,49 @@ reverseArray(nums, k, length - 1);
 - [删除排序链表中的重复元素II(82) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/DeleteDuplicates.java)
 - [重排链表(143) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/ReorderList.java)
 - [K个一组翻转链表(25) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/ReverseKGroup.java)
+```java
+/**
+ * 解题思路：
+ * 将整个链表划分为：已翻转部分+待翻转部分+未翻转部分
+ * 定义变量：
+ * pre：待翻转链表的前驱
+ * end：待翻转链表的末尾
+ * 间接得出：
+ * start: pre.next 翻转部分的头指针
+ * next：end.next 待翻转部分的头指针
+ */
+while(end != null){
+    // code    
+}
+```
 - [LRU缓存(146) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/LRUCache.java)
+```java
+/**
+ * 解题核心：
+ * Map + 自定义的双向链表
+ * private HashMap<Integer, DLinkedNode> cache;
+ * 
+ * 定义两个虚拟节点
+ * private DLinkedNode head;// 定义虚拟头节点
+ * private DLinkedNode tail;// 定义虚拟尾节点
+ * 
+ * 定义两个函数
+ * private void removeNode(DLinkedNode node) {}
+ * private void addToHead(DLinkedNode node) {}
+ */
+private void addToHead(DLinkedNode node) {
+    // 在连接的时候要考虑当前节点、前面节点、后面节点的连接关系(双向连接)
+    // 存储头节点的下一个节点，因为后续会调整head的next指针，因此先存储下来，防止替换
+    DLinkedNode tmpNode = head.next;
+    // 连接head 与 node节点
+    head.next = node;
+    node.prev = head;
+
+    // 连接node节点与旧的队列头部实际节点
+    node.next = tmpNode;
+    tmpNode.prev = node;
+}
+```
 - [两两交换链表中的节点(24) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/SwapPairs.java)
 - [~~排序链表(148)~~](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/SortList.java)
 - [合并K个升序链表(23) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/linkedlist/MergeKLists.java)
@@ -128,6 +192,35 @@ reverseArray(nums, k, length - 1);
 - [字符串转换整数(atoi)(8) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/MyAtoi.java)
 - [字符串相加(415) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/AddStrings.java)
 - [36进制加法 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/Add36Strings.java)
+```java
+/**
+ * 核心思路：
+ * 将36进制转化为10进制参与运算，运算结果再转换为16进制
+ * 
+ * 又因为int 与 char的对应关系如下：
+ * 48 ～ 57 对应 0 ～ 9
+ * 97 ～ 122 对应 a ～ z
+ * 
+ * 因此需要定义函数进行转换
+ */
+// 将十进制整数转化为 36进制字符
+public char getChar(int n) {
+    if (n <= 9) {
+        return (char) (n + '0');
+    } else {
+        return (char) (n - 10 + 'a');
+    }
+}
+
+// 将36进制字符转化为10进制整数
+public int getInt(char c) {
+    if (c <= '9') {
+        return c - '0';
+    } else {
+        return c - 'a' + 10;
+    }
+}
+```
 - [阿拉伯数字转化为中文读法 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/NumToChinese.java)
 - [字符串相乘(43) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/Multiply.java)
 - [~~最长公共前缀(14) ✓~~](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/LongestCommonPrefix.java)

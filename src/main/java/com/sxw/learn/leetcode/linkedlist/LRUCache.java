@@ -64,7 +64,7 @@ public class LRUCache {
         }
     }
 
-    public void removeNode(DLinkedNode node) {
+    private void removeNode(DLinkedNode node) {
         node.prev.next = node.next;// 修改next指针
         node.next.prev = node.prev;// 修改prev指针
     }
