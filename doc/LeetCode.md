@@ -8,6 +8,18 @@
   - [最小和](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SmallSum.java)
   - [求最大值](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/GetMax.java)
 - [快速排序 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/QuickSort.java)
+```java
+// 在L到R范围内进行排序
+public static void quickSort(int[] arr, int L, int R){
+    // 随机出partition的值
+    swap(arr, L + (int) Math.random() * (R - L + 1), R);
+    int[] partition = partition(arr, L, R);
+    quickSort(arr, L, partition[0] - 1);
+    quickSort(arr, partition[1] + 1, R);
+}
+// 在L到R范围内进行partition，partition的划分值为R位置的元素
+public static int[] partition(int[] arr, int L, int R){}
+```
   - [数组中的第K个最大元素(215) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindKthLargest.java)
 - [堆排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/HeapSort.java)
 - [堆排序扩展题目:已知一个基本有序的数组，基本有序是指如果把数组排好序，每个元素移动的距离不超过K，并且K相对于数组长度来说比较小，请选择合适的算法针对这个数据进行排序]()
@@ -190,6 +202,15 @@ private void addToHead(DLinkedNode node) {
 - [~~实现Sunday匹配(151)~~](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/StrStr.java)
 - [~~KMP算法~~](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/KMP.java)
 - [字符串转换整数(atoi)(8) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/MyAtoi.java)
+```java
+char[] charArray = str.toCharArray();
+// 定义index 记录当前处理到了字符数组的哪一个位置
+int index = 0;
+// 1、去除前导空格
+// 2、如果已经遍历完成（针对极端用例 "      "） 直接return
+// 3、如果出现符号字符，仅第 1 个有效，并记录正负
+// 4、将后续出现的数字字符进行转换
+```
 - [字符串相加(415) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/AddStrings.java)
 - [36进制加法 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/Add36Strings.java)
 ```java
@@ -220,6 +241,7 @@ public int getInt(char c) {
         return c - 'a' + 10;
     }
 }
+
 ```
 - [阿拉伯数字转化为中文读法 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/NumToChinese.java)
 - [字符串相乘(43) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/Multiply.java)
@@ -231,6 +253,11 @@ public int getInt(char c) {
 - [用递归和非递归两种方式实现二叉树的前序遍历、中序遍历、后序遍历](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/Traversal.java)
 - [判断一颗二叉树是否为完全二叉树 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/IsCompleteBinaryTree.java)
 - [二叉树的最近公共祖先(236) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/LowestCommonAncestor.java)
+```java
+private static TreeNode ans;
+// 定义 dfs函数 表示 root 节点的子树中是否包含 p 节点或 q 节点，如果包含为 true，否则为 false
+private static boolean dfs(TreeNode root, TreeNode p, TreeNode q){}
+```
 - [~~在二叉树中找到一个节点的后继节点~~](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/GetSuccessorNode.java)
 - [二叉树的序列化与反序列化](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/SerializationAndDeserializationTree.java)
 - [~~折纸问题~~](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/tree/PaperFolding.java)
@@ -385,6 +412,22 @@ public int getInt(char c) {
 - [组合总和(39)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/CombinationSum.java)
 - [组合总和II(40)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/CombinationSum2.java)
 - [复原IP地址(93)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/RestoreIpAddresses.java)
+```java
+static final int SEG_COUNT = 4;
+List<String> ans = new ArrayList<>();
+// 在回溯的时候，不需要手动对已设置位置的值清除，因为在后续的递归中会将之前设置的值覆盖掉
+int[] segments = new int[SEG_COUNT];
+// 表示从segStart位置开始找第segId段
+public void dfs(String s, int segId, int segStart) {
+    // base case 添加答案
+    if (segId == SEG_COUNT){
+        if(segStart==s.length()){}
+    }    
+    // base case 如果还没有找到 4 段 IP 地址就已经遍历完了字符串，那么提前回溯
+    // 例外情况 segStart位置的元素为0直接添加到segId段
+    // 一般情况，枚举每一种可能性并递归
+}
+```
 - [单词搜索(79)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/Exist.java)
 - [电话号码的字母组合(17)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/LetterCombinations.java)
 - [目标和(494)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/FindTargetSumWays.java)
