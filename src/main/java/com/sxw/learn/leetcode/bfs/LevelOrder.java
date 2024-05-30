@@ -23,8 +23,7 @@ public class LevelOrder {
             for (Integer i = 0; i < currentLevelSize; i++) {
                 TreeNode curNode = deque.pollFirst();
                 level.add(curNode.val);
-                if (curNode.left != null)
-                    deque.offerLast(curNode.left);// 从队尾插入，当此轮循环结束，上一层的节点都已经弹出，队列按照从左到右存储的已经是下一层的节点
+                if (curNode.left != null) deque.offerLast(curNode.left);// 从队尾插入，当此轮循环结束，上一层的节点都已经弹出，队列按照从左到右存储的已经是下一层的节点
                 if (curNode.right != null) deque.offerLast(curNode.right);
             }
             res.add(level);

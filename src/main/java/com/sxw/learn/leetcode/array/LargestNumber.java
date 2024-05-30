@@ -24,7 +24,10 @@ public class LargestNumber {
         }
         /**
          * Comparator接收返回值为正数，就会交换a和b
-         * a = 3 b = 30 (303 compareTo 330 = -1) 那就是a和b不需要交换顺序，也是我们需要的结果
+         * a = 3 b = 30 (303 compareTo 330 <= -1) 那就是a和b不需要交换顺序，也是我们需要的结果
+         *
+         * 3,30,34,5,9
+         * a = 5 b = 9 (95 compareTo 59 >= 1) 那就是a和b需要交换顺序，也是我们需要的结果9在5前面
          */
         Arrays.sort(numsToWord, (a, b) -> (b + a).compareTo(a + b));
         if (numsToWord[0].equals("0")) {

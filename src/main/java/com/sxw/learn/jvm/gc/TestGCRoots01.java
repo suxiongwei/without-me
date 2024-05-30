@@ -19,5 +19,7 @@ public class TestGCRoots01 {
         TestGCRoots01 t = new TestGCRoots01();
         System.gc();
         System.out.println("第一次GC完成");
+
+        System.out.println(29006944 - 23733894);
     }
 }

@@ -20,7 +20,7 @@ public static void quickSort(int[] arr, int L, int R){
 // 在L到R范围内进行partition，partition的划分值为R位置的元素
 public static int[] partition(int[] arr, int L, int R){}
 ```
-  - [数组中的第K个最大元素(215) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindKthLargest.java)
+- [数组中的第K个最大元素(215) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FindKthLargest.java)
 - [堆排序](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/HeapSort.java)
 - [堆排序扩展题目:已知一个基本有序的数组，基本有序是指如果把数组排好序，每个元素移动的距离不超过K，并且K相对于数组长度来说比较小，请选择合适的算法针对这个数据进行排序]()
 - [排序算法的总结](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/sort/sort.md)
@@ -51,6 +51,7 @@ int curMax = nums[0];// 当前最大元素，会随着遍历不断更新，而le
 int[] charArr = new int[52];// 偶数位置存放小写字母，奇数位置存储大写字母 aAbBcC...
 // 小写字母的编码int值要比大写字母大，可以通过这个判断每个字母在数组中的存放位置
 ```
+- [三个数的最大乘积(628)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/MaximumProduct.java)
 
 #### 双指针
 - [有序数组的平方(977) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/SortedSquares.java)
@@ -89,9 +90,9 @@ public int threeSumClosest(int[] nums, int target) {
 }
 ```
 - [四数之和(18) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/FourSum.java)
-- [删除有序数组中的重复项 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/RemoveDuplicates.java)
+- [删除有序数组中的重复项(26) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/RemoveDuplicates.java)
 - [比较版本号(165) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/CompareVersion.java)
-- [盛最多水的容器(11)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/MaxArea.java)
+- [盛最多水的容器(11) 需要复习](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/str/MaxArea.java)
 - [荷兰国旗问题/颜色分类(75) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/DutchFlag.java)
 - [两个数组的交集II(350) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Intersect.java)
 - [下一个排列(31) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/NextPermutation.java)
@@ -110,6 +111,7 @@ public int threeSumClosest(int[] nums, int target) {
 #### 前缀和
 - [连续数组(525) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/prefixsum/FindMaxLength.java)
 - [和为K的子数组(560) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/prefixsum/SubarraySum.java)
+- [寻找数组的中心下标(724)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/prefixsum/PivotIndex.java)
 
 #### 二分查找
 - [二分查找 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/array/Search.java)
@@ -328,6 +330,10 @@ private static boolean dfs(TreeNode root, TreeNode p, TreeNode q){}
 #### 队列
 - [设计循环队列(622)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/MyCircularQueue.java)
 
+#### 优先队列
+- [围栏修复](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/POJ3253.java)
+- [表演评分](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/queue/POJ2833.java)
+
 #### 单调栈
 - [单调栈](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E5%8D%95%E8%B0%83%E6%A0%88.md)
 - [在数组中想找到一个数，左边和右边比这个数大、且离这个数最近的位置](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/GetNearMore.java)
@@ -355,12 +361,12 @@ private static boolean dfs(TreeNode root, TreeNode p, TreeNode q){}
 ### 动态规划
 - [买卖股票的最佳时机 ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxProfit.java)
 - [爬楼梯(70) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/ClimbStairs.java)
-- [最大子数组和(53) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxSubArray.java)
+- [最大子数组和(53)-tag:线性DP ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MaxSubArray.java)
 - [最长上升子序列(300) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/LengthOfLIS.java)
 - [数字转字符串的方式](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/NumToStringWays.java)
 - [打家劫舍(198)&打家劫舍II(213) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/Rob.java)
 - [三角形最小路径和(120) ✓](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/MinimumTotal.java)
-- [最长公共子序列(1143)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/LongestCommonSubsequence.java)
+- [最长公共子序列(1143)-tag:线性DP](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/LongestCommonSubsequence.java)
 - [接雨水(42)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/Trap.java)
 - [最长重复子数组(718)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/FindLength.java)
 - [单词拆分(139)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/WordBreak.java)
@@ -373,6 +379,7 @@ private static boolean dfs(TreeNode root, TreeNode p, TreeNode q){}
 - [零钱兑换(322)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/CoinChange.java)
 - [不同的二叉搜索树(96)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/NumTrees.java)
 - [分割等和子集(416)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/CanPartition.java)
+- [预测赢家(486)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/PredictTheWinner.java)
 
 #### 数型DP
 - [树型DP介绍及解题套路](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/dp/%E6%A0%91%E5%9E%8BDP.md)
@@ -391,8 +398,8 @@ private static boolean dfs(TreeNode root, TreeNode p, TreeNode q){}
 
 ### 并查集算法
 - [并查集算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/unionfind/UnionFind.java)
-- [最长连续序列(128)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/unionfind/LongestConsecutive.java)
-- [省份数量(547)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/unionfind/FindCircleNum.java)
+- [最长连续序列(128)-tag:并查集](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/unionfind/LongestConsecutive.java)
+- [省份数量(547)-tag:并查集](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/unionfind/FindCircleNum.java)
 
 ### 滑动窗口
 - [滑动窗口](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.md)
@@ -431,6 +438,9 @@ public void dfs(String s, int segId, int segStart) {
 - [单词搜索(79)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/Exist.java)
 - [电话号码的字母组合(17)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/LetterCombinations.java)
 - [目标和(494)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/backtrack/FindTargetSumWays.java)
+
+### 蓄水池算法
+- [蓄水池算法及其类似题目](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/ReservoirSampling.java)
 
 ### 拓扑排序
 - [课程表(207)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/other/CanFinish.java)

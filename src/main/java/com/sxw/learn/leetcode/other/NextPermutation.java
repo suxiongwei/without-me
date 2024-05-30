@@ -51,7 +51,7 @@ public class NextPermutation {
 
     private void reverse(int[] nums, int start) {
         int right = nums.length - 1;
-        while (start < right){
+        while (start < right){// 双指针 向中间逼近
             swap(nums, start++, right--);
         }
     }

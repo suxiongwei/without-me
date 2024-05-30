@@ -39,7 +39,7 @@ public class CompareVersion {
         return 0;
     }
 
-    // 2023.02.10 code
+    // 2023.02.10 code 2024.05.21再次编码，也是这种思路
     public int compareVersion1(String version1, String version2) {
         char[] chars1 = version1.toCharArray();
         char[] chars2 = version2.toCharArray();
@@ -47,7 +47,9 @@ public class CompareVersion {
         int len2 = chars2.length;
         int i = 0;
         int j = 0;
+        // 控制遍历完两个字符串的全部字符
         while (i < len1 || j < len2) {
+            // 结果默认为0，隐藏的含义将缺失的修订号视为 0
             int version1Num = 0;
             int version2Num = 0;
             while (i < len1 && chars1[i] != '.') {

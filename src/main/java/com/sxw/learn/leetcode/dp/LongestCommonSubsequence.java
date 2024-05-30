@@ -32,11 +32,12 @@ public class LongestCommonSubsequence {
     public static void main(String[] args) {
         /**
          * "GATA", "TAGAAGGT" 对应的动态规划表如下
-         * [0, 0, 0, 0, 0, 0, 0, 0, 0]
-         * [0, 0, 0, 1, 1, 1, 1, 1, 1]
-         * [0, 0, 1, 1, 2, 2, 2, 2, 2]
-         * [0, 1, 1, 1, 2, 2, 2, 2, 3]
-         * [0, 1, 2, 2, 2, 3, 3, 3, 3]
+         *          T  A  G  A  A  G  G  T
+         *      [0, 0, 0, 0, 0, 0, 0, 0, 0]
+         *  G   [0, 0, 0, 1, 1, 1, 1, 1, 1]
+         *  A   [0, 0, 1, 1, 2, 2, 2, 2, 2]
+         *  T   [0, 1, 1, 1, 2, 2, 2, 2, 3]
+         *  A   [0, 1, 2, 2, 2, 3, 3, 3, 3]
          */
         LongestCommonSubsequence solution = new LongestCommonSubsequence();
         int i = solution.longestCommonSubsequence("GATA", "TAGAAGGT");

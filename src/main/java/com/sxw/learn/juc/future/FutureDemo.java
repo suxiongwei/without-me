@@ -11,6 +11,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  *      第二种方式: FutureTask + ExecutorService
  *      第三种方式: FutureTask + Thread
  *
+ *  Future 是一个接口，FutureTask是Future接口一个实现，个人猜测ExecutorService.submit方法返回的也是一个FutureTask
+ *
+ *
  */
 public class FutureDemo {
     private static AtomicInteger atomicInteger = new AtomicInteger();

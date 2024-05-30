@@ -3,9 +3,7 @@ package com.sxw.learn.juc.future;
 import lombok.SneakyThrows;
 import lombok.val;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * 主要包括 CompletableFuture 对以下方面API的练习
@@ -52,7 +50,9 @@ public class CompletableFutureApiDemo {
          * thenApply 当前步骤存在异常，就停止运行
          * handle 有异常也可以继续往下走，根据带的异常参数进一步处理
          */
-        val executorService = Executors.newFixedThreadPool(3);
+//        val executorService = Executors.newFixedThreadPool(3);
+        val executorService = new ThreadPoolExecutor(5, 5, 0L, TimeUnit.MILLISECONDS, new SynchronousQueue<>(), new ThreadPoolExecutor.CallerRunsPolicy());
+
         val future = CompletableFuture.supplyAsync(() -> {
                     try {
                         TimeUnit.SECONDS.sleep(1);

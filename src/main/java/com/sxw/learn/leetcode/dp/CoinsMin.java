@@ -126,7 +126,7 @@ public class CoinsMin {
     }
 
     public static void main(String[] args) {
-        int[] arr = {2,3,100};
-        System.out.println(coinsMin3(arr, 5));
+        int[] arr = {2,3,5,7,2};
+        System.out.println(coinsMin3(arr, 10));
     }
 }

@@ -66,17 +66,6 @@ public class MinimumTotal {
         return dp[0];
     }
 
-    public static int solutionPlusMax(List<List<Integer>> triangle){
-        // triangle.size() + 1防止数组越界，int初始值都是1,在填充最下层dp时，都会给原始值设置为triangle的值
-        int[] dp = new int[triangle.size() + 1];
-        for (int i = triangle.size() - 1; i >= 0; i--) {
-            for (int j = 0; j < triangle.get(i).size(); j++) {
-                dp[j] = triangle.get(i).get(j) + Math.min(dp[j], dp[j + 1]);
-            }
-        }
-        return dp[0];
-    }
-
     public static void main(String[] args) {
         // int[][] triangle = {{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}};
         // int solution = solution(triangle);

@@ -16,6 +16,7 @@ import java.util.Deque;
  * 单调栈
  */
 public class DailyTemperatures {
+    // 构建单调递增栈，栈顶到栈底单调递增
     public int[] dailyTemperatures(int[] temperatures) {
         int n = temperatures.length;
         int[] res = new int[n];// 默认都是0

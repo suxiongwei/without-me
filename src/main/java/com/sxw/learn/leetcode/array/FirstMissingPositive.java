@@ -21,9 +21,11 @@ public class FirstMissingPositive {
             }
         }
         for (int i = 0; i < n; ++i) {
+            // 不能简单的将nums[num - 1]的值置为-1，因为这样会丢失对应位置的值，比如num[i] = 5, num[i - 1] = num[4]置为1的话，就丢失了4这个位置元素的值
             int num = Math.abs(nums[i]);
             if (num <= n) {
-                nums[num - 1] = -Math.abs(nums[num - 1]);// 将符合答案区间的数对应的数组下标打上标记,加上绝对值的目的是为了将已打上负1标记的数修改为正1，比如 1、1的case
+                // 将符合答案区间的数对应的数组下标打上标记,加上绝对值的目的是为了将已打上负1标记的数修改为正1，比如 1、1的case
+                nums[num - 1] = -Math.abs(nums[num - 1]);
             }
         }
         for (int i = 0; i < n; ++i) {

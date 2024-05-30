@@ -26,7 +26,7 @@ public class MaxArea {
             if (height[left] < height[right]){
                 res = Math.max(res, (right - left) * height[left]);
                 left++;
-            }else {
+            }else {// 如果是两个板相同，移动哪一个读可以，因为移动后产生的结果都不会比当前大，因为移动后最高的板也就是目前高度，而移动后宽度还变小了
                 res = Math.max(res, (right - left) * height[right]);
                 right--;
             }

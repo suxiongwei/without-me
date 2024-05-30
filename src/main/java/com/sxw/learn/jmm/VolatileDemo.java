@@ -24,6 +24,8 @@ import java.util.concurrent.TimeUnit;
  * volatile 写之前的操作，都禁止重排序到volatile后
  * volatile 读之后的操作，都禁止重排序到volatile前
  * volatile 写之后 volatile读，禁止重排序
+ *
+ * happens-before 规则中有一条是 volatile 变量规则：对一个 volatile 域的写，happens-before 于任意后续对这个 volatile 域的读。
  */
 public class VolatileDemo {
     private volatile static boolean flag = true;
