@@ -25,8 +25,8 @@ public class LengthOfLongestSubstring {
 
     public static void main(String[] args) {
         LengthOfLongestSubstring solution = new LengthOfLongestSubstring();
-//        int s = solution.lengthOfLongestSubstring("abccbcbb");// 遇到第一个重复的c 直接从重复的c开始，因为前面的字符不可能有结果
-        int s = solution.lengthOfLongestSubstring("abba");
+        int s = solution.lengthOfLongestSubstring("abccbcbb");// 遇到第一个重复的c 直接从重复的c开始，因为前面的字符不可能有结果
+//        int s = solution.lengthOfLongestSubstring("abba");
 
         System.out.println(s);
     }

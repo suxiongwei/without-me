@@ -22,7 +22,7 @@ public class CheckValidString {
     public boolean checkValidString(String s) {
         // 用来存储左括号, 注意存储的是下标，能存储更多的元素
         Deque<Integer> deque1 = new ArrayDeque();
-        // 用了存储*号
+        // 用来存储*号
         Deque<Integer> deque2 = new ArrayDeque();
         char[] chars = s.toCharArray();
         for (int i = 0; i < chars.length; i++) {
@@ -44,7 +44,9 @@ public class CheckValidString {
             }
         }
         while (!deque1.isEmpty() && !deque2.isEmpty()) {
+            // 存储左括号
             Integer index1 = deque1.pollFirst();
+            // 存储了 *
             Integer index2 = deque2.pollFirst();
             // 栈顶元素是数组的末尾方向的元素，因此当 '(' 的右边没有 '*' 时匹配出错
             if (index1 > index2) {

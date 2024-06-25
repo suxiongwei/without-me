@@ -17,13 +17,12 @@ public class Multiply {
             return "0";
         }
         String ans = "0";
-        // num1:1234 num2:567
         int len1 = num1.length();
         int len2 = num2.length();
         for (int i = len2 - 1; i >= 0; i--) {// 以num2作为乘数，从低位开始运算
             StringBuffer curr = new StringBuffer();
 
-            int addZeroCount = len2 - (i + 1);// 模拟乘法加和的方式，除了最低位以外需要补零
+            int addZeroCount = (len2 - 1) - i;// 模拟乘法加和的方式，除了最低位以外需要补零
             while (addZeroCount > 0) {
                 curr.append("0");
                 addZeroCount--;
@@ -31,12 +30,13 @@ public class Multiply {
 
             int y = num2.charAt(i) - '0';// num2需要乘的数
             int carry = 0;
-            int num1Index = len1 - 1;// 乘数每次都是从最低位开始
-            while (num1Index >= 0 || carry > 0) {// 循环num1，作为被乘数，进行运算
+            for (int num1Index = len1 - 1; num1Index >= 0; num1Index--){// // 乘数每次都是从最低位开始
                 int x = num1Index >= 0 ? num1.charAt(num1Index) - '0' : 0;
                 curr.append((x * y + carry) % 10);
                 carry = (x * y + carry) / 10;
-                num1Index--;
+            }
+            if (carry > 0){// 还剩余进位，继续拼接
+                curr.append(carry);
             }
             ans = addStrings(ans, curr.reverse().toString());
         }
@@ -55,7 +55,7 @@ public class Multiply {
             i--;
             j--;
         }
-        ans.reverse();
+        ans.reverse();// 上面从个位开始处理，因此需要翻转
         return ans.toString();
     }
 

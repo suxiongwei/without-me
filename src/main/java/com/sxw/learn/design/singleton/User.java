@@ -24,6 +24,7 @@ public class User {
         private User user;
 
         // 私有化枚举的构造函数，枚举构造函数默认情况下是隐式声明为“private”
+        // 玄机在于 这个枚举类里只有一个枚举，如果有多个就会实例化出多个user对象
         EnumSingleton() {
             user = new User();
         }
@@ -38,6 +39,7 @@ public class User {
     public static User getInstance() {
         return EnumSingleton.INSTANCE.getInstance();
     }
+
 
 //    public static User getInstance1(){
 //        return EnumSingleton.INSTANCE1.getInstance();

@@ -13,6 +13,7 @@ public class MyStack {
 
     /** Push element x onto stack. */
     public void push(int x) {
+        // queue2始终是空的,这样新进来的元素一定是第一个
         queue2.offer(x);
         while (!queue1.isEmpty()){
             queue2.offer(queue1.poll());

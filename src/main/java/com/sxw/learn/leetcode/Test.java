@@ -126,9 +126,60 @@ public class Test {
         return null;
     }
 
+    // 模拟乘法
+    public static String multiply(String num1, String num2) {
+        if (num1 == null || num2 == null || num1.equals("0") || num2.equals("0")){
+            return "0";
+        }
+        int len1 = num1.length();
+        int len2 = num2.length();
+        String res = "0";
+        // 以第一个数作为乘数
+        for (int i = len1 - 1; i >= 0; i--){
+            StringBuilder curSb = new StringBuilder();
+            int addZeroCount = (len1 - 1) - i;
+            while (addZeroCount > 0){
+                curSb.append("0");
+                addZeroCount--;
+            }
+            int curNum1 = num1.charAt(i) - '0';
+            int carry = 0;
+            for (int j = len2 - 1; j >= 0; j--){
+                int curNum2 = num2.charAt(j) - '0';
+                int curMultiply = curNum1 * curNum2 + carry;
+                curSb.append(curMultiply % 10);
+                carry = curMultiply / 10;
+            }
+            if (carry > 0){
+                curSb.append(carry);
+            }
+            res = addString(res, curSb.reverse().toString());
+        }
+        return res;
+    }
+
+    public static String addString(String str1, String str2){
+        int len1 = str1.length() - 1;
+        int len2 = str2.length() - 1;
+        int carry = 0;
+        StringBuilder sb = new StringBuilder();
+        while (len1 >= 0 || len2 >= 0 || carry > 0){
+            int num1 = len1 >= 0 ? str1.charAt(len1) - '0' : 0;
+            int num2 = len2 >= 0 ? str2.charAt(len2) - '0' : 0;
+            int sum = (num1 + num2 + carry) % 10;
+            carry = (num1 + num2 + carry) / 10;
+            sb.append(sum);
+            len1--;
+            len2--;
+        }
+        return sb.reverse().toString();
+    }
+
     public static void main(String[] args) {
-        int[] nums = {2,0,2,1,1,0};
-        sortColors(nums);
-        System.out.println(Arrays.toString(nums));
+//        int[] nums = {2,0,2,1,1,0};
+//        sortColors(nums);
+//        System.out.println(Arrays.toString(nums));
+        String s = multiply("123", "456");
+        System.out.println(s);
     }
 }
