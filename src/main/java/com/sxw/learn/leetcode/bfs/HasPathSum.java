@@ -67,7 +67,7 @@ public class HasPathSum {
      * true
      */
     public static boolean solution1(TreeNode root, int targetSum) {
-        if (root != null) System.out.println("cur:" + root.val + ",targetSum:" + targetSum);
+//        if (root != null) System.out.println("cur:" + root.val + ",targetSum:" + targetSum);
         if (root == null) return false;
         if (root.left == null && root.right == null) return targetSum == root.val;
         return solution1(root.left, targetSum - root.val) || solution1(root.right, targetSum - root.val);// 左节点返回false才会去右节点继续

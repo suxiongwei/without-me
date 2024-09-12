@@ -1,6 +1,8 @@
 package com.sxw.learn.leetcode.sort;
 
 
+import java.util.Arrays;
+
 /**
  * 快速排序
  */
@@ -29,18 +31,22 @@ public class QuickSort {
         int less = L - 1;
         // 大于区左边界，之所以不是R - 1,是因为最后一个数是需要比较的数字
         int more = R;
+        int partitionNum = arr[R];
         while (L < more){
-            if (arr[L] < arr[R]){// arr[L]表示
-                swap(arr, ++less, L++);
-            }else if (arr[L] > arr[R]){
-                swap(arr, --more, L);
+            if (arr[L] < partitionNum){
+                less++;
+                swap(arr, less, L);// 将等于区的数移到合适的位置
+                L++;
+            }else if (arr[L] > partitionNum){
+                more--;
+                swap(arr, more, L);
             }else {
                 L++;
             }
         }
         // 将需要比较的数字放在合适的位置
         swap(arr, more, R);
-        return new int[]{less + 1, more};
+        return new int[]{less + 1, more};// more 不减一是因为swap(arr, more, R)
     }
 
     /**
@@ -59,12 +65,12 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] a = new int[]{4,3,5,6,1,3};
 //        partition(a, 0, a.length - 1);
-//        quickSort(a);
-//        System.out.println(Arrays.toString(a));
+        quickSort(a);
+        System.out.println(Arrays.toString(a));
 
-        double v = Math.random() * 2;
-        int s = (int)v;
-        System.out.println(v);
-        System.out.println(s);
+//        double v = Math.random() * 2;
+//        int s = (int)v;
+//        System.out.println(v);
+//        System.out.println(s);
     }
 }

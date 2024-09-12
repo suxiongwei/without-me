@@ -22,7 +22,7 @@ public class JoinTest {
             System.out.println("t3 is running");
         });
 
-        // //这里三个线程的启动顺序可以任意
+        // 这里三个线程的启动顺序可以任意
         t1.start();
         t3.start();
         t2.start();

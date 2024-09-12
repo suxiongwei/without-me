@@ -34,7 +34,7 @@ public class WaitNotifyCase {
                     e.printStackTrace();
                 }
                 // notify并不释放锁，只是告诉调用过wait()的线程可以去参与获得锁的竞争了，但不是马上得到锁，因为锁还在别人手里，别人还没释放，
-                // 调用 wait() 的一个或多个线程就会解除 wait 状态，重新参与竞争对象锁，程序如果可以再次得到锁，就可以继续向下运行。
+                // 调用 wait() 的一个(notify)或多个(notifyAll)线程就会解除 wait 状态，重新参与竞争对象锁，程序如果可以再次得到锁，就可以继续向下运行。
                 lock.notify();
                 System.out.println("线程 B 执行 notify()");
             }

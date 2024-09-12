@@ -1,5 +1,6 @@
 package com.sxw.learn.juc.lock;
 
+import lombok.SneakyThrows;
 import lombok.val;
 
 import java.util.concurrent.TimeUnit;
@@ -32,7 +33,7 @@ public class LockSupportDemo {
     public static void main(String[] args) {
         // 用于测试三种让线程实现阻塞唤醒的方式
 //        syncWaitNotify();
-//        conditionAwaitAndSignal();
+        conditionAwaitAndSignal();
 //        parkAndUnpark();
 
         /**
@@ -40,9 +41,9 @@ public class LockSupportDemo {
          * t1内部有休眠1s的操作，所以unpark肯定先于park的调用，但是t1最终仍然可以完结。这是因为park和unpark会对每个线程维持一个许可（boolean值）
          * 不会出现死锁的情况，如果是前两者，先执行解锁，再执行加锁，这样就会出现死锁
          */
-        t1.start();
-        LockSupport.unpark(t1);
-        System.out.println("unpark invoked");
+//        t1.start();
+//        LockSupport.unpark(t1);
+//        System.out.println("unpark invoked");
     }
 
     /**
@@ -81,6 +82,7 @@ public class LockSupportDemo {
     /**
      * Condition接口中的await和signal实现线程的阻塞唤醒
      */
+    @SneakyThrows
     public static void conditionAwaitAndSignal(){
         Lock lock = new ReentrantLock();
         val condition = lock.newCondition();
@@ -99,21 +101,34 @@ public class LockSupportDemo {
             }
         }, "t1").start();
 
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        TimeUnit.SECONDS.sleep(2);
+
+        new Thread(() -> {
+            // 注释此行代码，观察没有锁块的效果
+            lock.lock();
+            try {
+                System.out.println(Thread.currentThread().getName() + "\t" + "come in");
+                condition.await();
+                System.out.println(Thread.currentThread().getName() + "\t" + "被唤醒");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                lock.unlock();
+            }
+        }, "t2").start();
+
+        TimeUnit.SECONDS.sleep(2);
+
 
         new Thread(() -> {
             lock.lock();
             try {
-                condition.signal();
+                condition.signalAll();
                 System.out.println(Thread.currentThread().getName() + "\t" + "发出通知");
             }finally {
                 lock.unlock();
             }
-        },"t2").start();
+        },"t3").start();
     }
 
     /**

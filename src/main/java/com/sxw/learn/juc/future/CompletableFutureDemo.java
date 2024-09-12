@@ -37,8 +37,8 @@ public class CompletableFutureDemo {
                 System.out.println(Thread.currentThread().getName() + "-> come in");
                 int nextInt = ThreadLocalRandom.current().nextInt(10);
                 try {
-                    TimeUnit.SECONDS.sleep(1);
-                    System.out.println("1秒后出结果");
+                    TimeUnit.SECONDS.sleep(5);
+                    System.out.println("5秒后出结果");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -58,5 +58,6 @@ public class CompletableFutureDemo {
             executor.shutdown();
         }
 
+        System.out.println("main 线程执行输出");
     }
 }

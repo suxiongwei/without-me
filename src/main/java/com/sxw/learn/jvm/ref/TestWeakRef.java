@@ -26,13 +26,13 @@ public class TestWeakRef {
     }
 
     public static void main(String[] args) {
-        User u = new User(1, "苏雄伟");
+        User u = new User(1, "张三");
         WeakReference<User> weakReference = new WeakReference<>(u);
+        System.gc();
+        System.out.println("第一次GC后value:" + weakReference.get());
         u = null;
-        System.out.println(weakReference.get());
         // 显式gc的时候，weakReference会被回收
         System.gc();
-        System.out.println("After GC");
-        System.out.println(weakReference.get());
+        System.out.println("第二次GC后value:" + weakReference.get());
     }
 }
