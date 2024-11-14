@@ -25,7 +25,7 @@ public class LongestCommonPrefix {
         return prefix;
     }
 
-    // 2023.02.23 手写的版本
+    // 2023.02.23 手写的版本，这种解法更推荐
     public String longestCommonPrefix1(String[] strs) {
         // 获取数组中最小的元素，因为最长的前缀也不会超过最小的元素
         int minLen = Integer.MAX_VALUE;

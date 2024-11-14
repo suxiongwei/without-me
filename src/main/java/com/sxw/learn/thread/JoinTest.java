@@ -2,6 +2,7 @@ package com.sxw.learn.thread;
 
 
 public class JoinTest {
+    // 如何保证线程顺序执行？
     // 使用join 使得t1、t2、t3按顺序执行
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> System.out.println("t1 is running"));
