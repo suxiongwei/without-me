@@ -12,6 +12,7 @@
 | MySQL | 窗口 SQL 使用 MySQL 8.x；InnoDB 原理参考 8.4 手册 | 隔离级别、索引、字符集、SQL mode 与执行计划 |
 | Redis | 工程 Jedis 3.3.0、Redisson 3.13.1 | 服务端版本、锁租约、续期和故障切换 |
 | Kafka | 旧命令示例含 3.5.0；设计资料固定到 4.1 | 客户端与 Broker 版本、分区器、消费组协议、事务配置 |
+| RocketMQ | 可靠消息专题参考官方 5.0 文档；4.x / 5.x 客户端语义分开说明，工程未接入客户端 | 消费类型、确认、重试、顺序单元、事务消息及持久化配置 |
 | Flink | 图解固定参考 1.20 文档 | 连接器、状态兼容性、窗口和 Checkpoint 配置 |
 | ClickHouse | 原理按官方 MergeTree 系列资料学习，未锁定部署版本 | 引擎、排序键、去重和物化视图具体语义 |
 
@@ -84,6 +85,34 @@
 <a id="s16"></a>
 
 [S16 Redis Distributed Locks](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)
+
+<a id="s17"></a>
+
+[S17 RocketMQ Sending Retry](https://rocketmq.apache.org/docs/featureBehavior/05sendretrypolicy/)
+
+<a id="s18"></a>
+
+[S18 RocketMQ Consumption Retry](https://rocketmq.apache.org/docs/featureBehavior/10consumerretrypolicy/)
+
+<a id="s19"></a>
+
+[S19 RocketMQ Basic Best Practices](https://rocketmq.apache.org/docs/bestPractice/01bestpractice/)
+
+<a id="s20"></a>
+
+[S20 RocketMQ Transaction Message](https://rocketmq.apache.org/docs/featureBehavior/04transactionmessage/)
+
+<a id="s21"></a>
+
+[S21 Transactional Outbox Pattern](https://microservices.io/patterns/data/transactional-outbox.html)
+
+<a id="s22"></a>
+
+[S22 Idempotent Consumer Pattern](https://microservices.io/patterns/communication-style/idempotent-consumer.html)
+
+<a id="s23"></a>
+
+[S23 MySQL 8.4 Locking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)
 
 ## 配图与 Markdown
 

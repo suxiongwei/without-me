@@ -20,6 +20,7 @@
 
 ## 配套专题与练习
 
+- [Transactional Outbox、RocketMQ 与 Inbox 幂等消费](topics/outbox-rocketmq-inbox.md)
 - [一致性 Hash](../src/main/java/com/sxw/learn/leetcode/hash/一致性hash算法.md)
 - [分布式事务方案](../src/main/java/com/sxw/learn/leetcode/md/分布式事务.md)
 - [分布式锁实现边界](DISTRIBUTED_LOCK.md)

@@ -6,7 +6,6 @@
 
 | 图解 | 阅读位置 | 理解重点 |
 | --- | --- | --- |
-| 知识地图 | [首页](../README.md#知识地图) | 主题之间的学习衔接 |
 | ConcurrentHashMap 竞争时序 | [Q02](topics/java-concurrency.md#q02-concurrenthashmap-线程安全-为什么先判断再写仍有问题) | 多次调用之间可交错 |
 | 线程池任务流转 | [Q04](topics/java-concurrency.md#q04-线程池怎么执行任务-参数怎么确定) | 创建线程、入队和拒绝策略 |
 | Spring 事务调用 | [Q07](topics/spring-data-access.md#q07-spring-事务为什么会看起来不生效) | 代理入口与事务边界 |
@@ -17,6 +16,10 @@
 | Checkpoint 与恢复 | [Q32](topics/flink.md#q32-flink-state-与-checkpoint-分别是什么) | 状态、输入进度和重放 |
 | Flink 运行组件 | [架构与作业提交](Flink.md#从程序到运行组件) | Dispatcher、JobMaster、资源与执行 |
 | Outbox 与未知结果 | [Q48](topics/distributed-systems.md#q48-本地事务与远程调用-如何保证最终一致) | 本地原子提交与远程幂等 |
+| Outbox、MQ 与 Inbox 全链路 | [两个本地事务](topics/outbox-rocketmq-inbox.md#整体链路与两个本地事务) | 生产事务、投递和消费事务的边界 |
+| Relay 投递状态机 | [领取与恢复](topics/outbox-rocketmq-inbox.md#relay-如何领取投递与恢复) | 租约、领取身份、重复发送和挂起恢复 |
+| 提交成功但 ACK 丢失 | [Inbox 去重时序](topics/outbox-rocketmq-inbox.md#唯一约束如何处理两个消费者并发) | 重投核对已提交结果，不重复产生效果 |
+| 履约业务状态机 | [合法迁移与乱序](topics/outbox-rocketmq-inbox.md#状态机如何处理重复与乱序) | 期待序号、取消与发货的业务约束 |
 | 区间合并 | [E05](practice.md#e05-合并有交集的闭区间) | 排序与扫描不变量 |
 
 ## 历史配图复用

@@ -9,6 +9,9 @@
 | ConcurrentHashMap | 所提供操作的并发安全 | 多步检查与更新是否原子 跨进程业务去重 |
 | volatile | 可见性与规定的有序性 | 复合读改写操作的原子性 |
 | 本地数据库事务 | 指定事务资源内的提交与回滚 | HTTP 调用 消息发送与外部副作用 |
+| [Transactional Outbox](topics/outbox-rocketmq-inbox.md) | 业务与待发送事件记录在本地同事务提交 | 恢复投递、重复发送、Broker 持久化与保留期 |
+| [Inbox 与唯一约束](topics/outbox-rocketmq-inbox.md#消费端如何提交-inbox-与业务) | 同一逻辑处理器按事件身份识别已提交结果 | 同事务业务修改、载荷冲突、业务效果键与记录保留 |
+| [业务状态机](topics/outbox-rocketmq-inbox.md#状态机如何处理重复与乱序) | 根据合法旧状态和版本条件推进 | 缺少前序、增量副作用、跨服务业务补偿 |
 | Redis 租约锁 | 在相应假设下协调持有期内的竞争 | 租约过期 旧持有者继续执行 故障切换 |
 | Kafka 生产者幂等 | 特定发送会话与配置下的重试去重 | 消费重放与外部数据库业务幂等 |
 | Flink Checkpoint | 支持恢复处理进度与托管状态 | Source 可重放性 Sink 提交与外部可见结果 |

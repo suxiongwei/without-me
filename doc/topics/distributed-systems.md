@@ -59,6 +59,8 @@ sequenceDiagram
 
 进一步思考：问“事务提交后发消息就安全吗”，回答提交与发送之间进程故障可能导致遗漏；单纯 afterCommit 回调不等于持久可靠投递。
 
+完整链路见 [Transactional Outbox、RocketMQ 与 Inbox 幂等消费](outbox-rocketmq-inbox.md)，包含表结构、Relay 租约、消费确认、状态机、乱序、超时宕机与重放恢复。
+
 ## Q49 设计一个 BI 数据查询 API 平台
 
 类型：设计题。优先级：最高。

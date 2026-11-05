@@ -30,6 +30,7 @@
 
 ## 常用速查
 
+- [Outbox + RocketMQ + Inbox：可靠消息、幂等与故障恢复](doc/topics/outbox-rocketmq-inbox.md)
 - [全部文档索引](doc/INDEX.md)
 - [技术边界：机制能保证什么、还缺少什么](doc/quick-reference.md)
 - [图解目录：并发、事务、MVCC、消息与流式处理](doc/DIAGRAMS.md)

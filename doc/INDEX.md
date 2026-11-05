@@ -58,6 +58,7 @@
 
 | 文档 | 位置 |
 | --- | --- |
+| [Transactional Outbox、RocketMQ 与 Inbox 幂等消费](topics/outbox-rocketmq-inbox.md) | `topics/outbox-rocketmq-inbox.md` |
 | [Autowired 与 Resource 的依赖注入规则](@Autowired和@Resource注解的区别.md) | `@Autowired和@Resource注解的区别.md` |
 | [Autowired 自动装配实现](@Autowired的实现原理.md) | `@Autowired的实现原理.md` |
 | [列式存储与压缩](column-based.md) | `column-based.md` |
