@@ -1,134 +1,55 @@
-### 是什么？
-分布式的并行流处理系统
+# Flink 运行架构与作业提交
 
-主要是来处理无界数据流
+[首页](../README.md) · [版本与资料](references.md)
 
-所有的 Flink 程序都可以归纳为由三部分构成：Source、Transformation 和 Sink。
-- Source 表示“源算子”，负责读取数据源。
-- Transformation 表示“转换算子”，利用各种算子进行处理加工。
-- Sink 表示“下沉算子”，负责数据的输出。
+[数据平台分类](interview_bigdata.md) · [时间、状态与恢复专题](topics/flink.md) · [版本与资料](references.md)
 
+Flink 把数据源、变换和输出组织成分布式执行任务。本页解释这些任务由谁调度、在哪里运行；时间语义和恢复机制集中在相关问答中。
 
-### Spark 还是 Flink？
-具体到项目应用中，不仅要看是流处理还是批处理，还需要在延迟、吞吐量、可靠性，以及开发容易度等多个方面进行权衡。
+**适用版本：** 参考 Flink 1.20。部署模式与资源提供方式不同，组件进程位置和申请资源的行为会变化。
 
-如果在工作中需要从 Spark 和 Flink 这两个主流框架中选择一个来进行实时流处理，我们更加推荐使用 Flink，主要的原因有：
-- Flink 的延迟是毫秒级别，而 Spark Streaming 的延迟是秒级延迟。
-- Flink 提供了严格的精确一次性语义保证。
-- Flink 的窗口API 更加灵活、语义更丰富。
-- Flink 提供事件时间语义，可以正确处理延迟数据。
-- Flink 提供了更加灵活的对状态编程的 API。
+## 从程序到运行组件
 
-### 系统架构
-集群中资源的分配和管理、进程协调调度、持久化和高可用的数据存储，以及故障恢复。</br>
-对于这些分布式系统的经典问题，业内已有比较成熟的解决方案和服务。</br>
-所以 Flink 并不会自己去处理所有的问题，而是利用了现有的集群架构和服务，这样它就可以把精力集中在核心工作——分布式数据流处理上了。
+```mermaid
+flowchart TD
+    C[客户端：构建并提交作业] --> D[Dispatcher：接受提交]
+    D --> J[JobMaster：管理一个作业]
+    J --> R[ResourceManager：协调计算资源]
+    R --> T[TaskManager：提供 Slots]
+    J --> T
+    T --> X[执行 Source、变换和 Sink 子任务]
+```
 
-Flink 的运行时架构中，最重要的就是两大组件：
-#### 作业管理器（JobManger）
-JobManager 是一个 Flink 集群中任务管理和调度的核心，是控制应用执行的主进程。
+JobManager 是协调组件的总体称呼；JobMaster 管理单个作业。ResourceManager 协调 TaskManager 和资源提供平台，不能与 YARN 自身的 ResourceManager 混为一谈。Standalone 下通常使用已有 TaskManager；是否动态申请资源取决于实际部署。
 
-##### JobMaster
-核心组件
+## 一次作业提交
 
-在作业提交时：
-- 把JobGraph转换成执行图
-- 向ResourceManager发起请求，申请必须的资源
+1. 客户端产生作业描述并提交；不同部署模式下用户程序执行位置不同。
+2. JobMaster 构建执行计划，按算子并行度和 slot sharing 规则申请 Slots。
+3. TaskManager 注册资源并接受部署，执行各个子任务。
+4. 子任务按数据分区交换记录，协调器跟踪执行、失败和恢复。
 
-运行过程中：
-- 负责需要中央协调的操作，比如checkpoints的协调
+## 并行度与 Slots
 
-##### ResourceManager
-负责资源的分配和管理
+并行度描述一个算子的子任务数；Slot 是资源调度单位，两者不能简单逐项相加。算子链、共享组和资源配置都会影响需要多少 Slots。常规 Slot 不提供独占 CPU 核的保证，也不会自动把热点数据分均匀。
 
-**Flink 内置的 ResourceManager 和其他资源管理平台（比如 YARN）的ResourceManager 区分开。**
-Flink 的ResourceManager，针对不同的环境和资源管理平台（比如 Standalone 部署，或者YARN），有不同的具体实现。
-- 在 Standalone 部署时，因为 TaskManager 是单独启动的（没有 Per-Job 模式），所以 ResourceManager 只能分发可用TaskManager 的任务槽，不能单独启动新 TaskManager。
-- 而在有资源管理平台时，就不受此限制。当新的作业申请资源时，ResourceManager 会将有空闲槽位的 TaskManager 分配给 JobMaster。
-如果 ResourceManager 没有足够的任务槽，它还可以向资源提供平台发起会话， 请求提供启动 TaskManager 进程的容器。
-另外， ResourceManager 还负责停掉空闲的TaskManager，释放计算资源。
+`keyBy` 定义按键分区：同一 key 的记录路由到相应的下游子任务，不会因为 keyBy 本身就新建一个执行算子。并行度变化、key-group 分配和状态重分布需结合实际执行图理解。
 
-##### Dispatcher
-启动并提交任务到JobMaster
+## 窗口类型与后续阅读
 
-#### 任务管理器（TaskManager）
+| 类型 | 主要特征 | 需要确认 |
+| --- | --- | --- |
+| 滚动窗口 | 固定长度，相邻窗口不重叠 | 时间对齐、时区与边界 |
+| 滑动窗口 | 按长度与步长产生窗口，可以重叠 | 一条数据可能进入多个窗口 |
+| 会话窗口 | 按间隔划分活动区间，可能合并 | 事件时间或处理时间、会话合并 |
+| 全局窗口 | 数据进入同一个全局范围 | 必须明确触发与状态清理 |
+| 计数窗口 | 按记录数触发相应计算 | 计数范围、键与清理机制 |
 
-Worker, 是一个 JVM 进程
+- [Q31 时间、Watermark 与迟到数据](topics/flink.md#q31-event-time-watermark-与迟到数据如何解释)
+- [Q32 状态与 Checkpoint](topics/flink.md#q32-flink-state-与-checkpoint-分别是什么)
+- [Q34 Sink 的不重不丢边界](topics/flink.md#q34-开启-checkpoint-就能保证写入-clickhouse-不重不丢吗)
+- [Q35 反压与数据倾斜](topics/flink.md#q35-反压和数据倾斜怎么区分)
 
-每一个 TaskManager 都包含了一定数量的任务槽（task slots）。Slot是资源调度的最小单位，slot 的数量限制了TaskManager 能够并行处理的任务数量
+比较 Spark 与 Flink 时，先写清 API、运行模式、端到端延迟、状态规模和外部系统语义，避免只用“秒级/毫秒级”或“精确一次”替代完整的方案判断。
 
-### 作业提交到流程
-- 一般情况下，由客户端（App）通过分发器提供的 REST 接口，将作业提交给 JobManager。
-- 分发器启动 JobMaster，并将作业（包含 JobGraph）提交给 JobMaster。
-- JobMaster 将 JobGraph 解析为可执行的ExecutionGraph，得到所需的资源数量，然后向资源管理器请求资源（slots）。
-- 资源管理器判断当前是否由足够的可用资源；如果没有，启动新的 TaskManager。
-- TaskManager 启动之后，向ResourceManager 注册自己的可用任务槽（slots）。
-- 资源管理器通知 TaskManager 为新的作业提供 slots。
-- TaskManager 连接到对应的 JobMaster，提供 slots。
-- JobMaster 将需要执行的任务分发给TaskManager。
-- TaskManager 执行任务，互相之间可以交换数据。
-
-### Flink中的时间语义
-- 事件时间：数据产生的时间
-  数据一旦产生，这个时间自然就确定了，所以它可以作为一个属性嵌入到数据中。这其实就是这条数据记录的“时间戳”（Timestamp）。
-
-- 处理时间：数据真正被处理的时刻
-
-#### Watermark
-在实际应用中，一般会采用事件时间语义。而水位线，就是基于事件时间提出的概念。
-
-在事件时间语义下，我们不依赖系统时间，而是基于数据自带的时间戳去定义了一个时钟， 用来表示当前时间的进展。于是每个并行子任务都会有一个自己的逻辑时钟，它的前进是靠数据的时间戳来驱动的。
-
-在 Flink 中，这种用来衡量事件时间（Event Time）进展的标记，就被称作“水位线”（Watermark）。
-
-乱序流的处理：可以在数据的时间戳基础上加一些延迟来保证不丢数据
-
-本质：当前时间之前的数据，都已经到齐了
-
-水位线在上下游任务之间的传递：木桶原理
-
-默认计算公式：
-```水位线 = 观察到的最大事件时间 –  最大延迟时间 – 1 毫秒```
-
-#### 窗口
-窗口并不是静态准备好的，而是动态创建——当有落在这个窗口区间范围的数据达到时，才创建对应的窗口。
-
-##### 窗口的分类
-按照驱动类型分类
-
-- 时间窗口（Time Window）
-- 计数窗口（Count Window）
-
-按照窗口分配数据的规则分类
-
-- 滚动窗口（Tumbling  Window）
-  首尾相接，滚动窗口也可以看作是一种特殊的滑动窗口
-- 滑动窗口（Sliding Window）
-  不是首尾相接
-- 会话窗口（Session Window）
-  数据来了之后就开启一个会话窗口，如果接下来还有数据陆续到来， 那么就一直保持会话；如果一段时间一直没收到数据，那就认为会话超时失效，窗口自动关闭。
-- 全局窗口（Global Window）
-
-### 算子
-
-keyBy不是转换算子，因此不能设置并行度
-
-keyBy是对数据分组 保证相同key的数据在 同一个分区（一个子任务可以理解为一个分区）
-
-实现的效果 就是相同组的数据在一起
-
-### 一些核心概念
-#### 并行度
-一个特定算子的子任务（subtask）的个数被称之为其并行度（parallelism）。
-
-#### 任务槽
-slot 目前仅仅用来隔离内存，不会涉及 CPU 的隔离。
-
-默认情况下，允许子任务共享 slot
-
-当我们将资源密集型和非密集型的任务同时放到一个 slot 中，它们就可以自行分配对资源占用的比例，从而保证最重的活平均分配给所有的TaskManager。
-
-
-并行度如果小于等于集群中可用 slot 的总数，程序是可以正常执行的，因为 slot 不一定要全部占用，有十分力气可以只用八分；
-而如果并行度大于可用 slot 总数，导致超出了并行能力上限，那么心有余力不足，程序就只好等待资源管理器分配更多的资源了
-
+参考：[Flink 1.20 Architecture](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/concepts/flink-architecture/)。

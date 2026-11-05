@@ -1,62 +1,43 @@
-## 悲观锁
-引言：之所以叫做悲观锁，是因为这是一种对数据的修改抱有悲观态度的并发控制方式。我们一般认为数据被并发修改的概率比较大，所以需要在修改之前先加锁。
+# 乐观更新、悲观锁与库存约束
 
-_使用悲观锁，需要关闭mysql的自动提交功能，将 set autocommit = 0;_<br/>
+[数据库分类](interview_mysql.md) · [MVCC 与锁](topics/database-sql.md) · [版本与资料](references.md)
 
-【例子】
-```roomsql
-//0.开始事务
-begin;
-//1.查询出商品库存信息
-select quantity from items where id=1 for update;
-//2.修改商品库存为2
-update items set quantity=2 where id = 1;
-//3.提交事务,事务提交时会释放事务过程中的锁,所以可能会死锁
-commit;
-```
-以上，在对id = 1的记录修改前，先通过for update的方式进行加锁，然后再进行修改。这就是比较典型的悲观锁策略。
+**适用版本与前提：** MySQL 8.x / InnoDB，`items.id` 是唯一键，`quantity` 和 `version` 非空。下面的 SQL 是独立示例，没有在数据库执行。
 
-如果以上修改库存的代码发生并发，同一时间只有一个线程可以开启事务并获得id=1的锁，其它的事务必须等本次事务提交之后才能执行。这样我们可以保证当前的数据不会被其它事务修改。
+## 悲观锁：先锁定，再修改
 
-## 乐观锁
-引言：相对于悲观锁，在对数据库进行处理的时候，乐观锁并不会使用数据库提供的锁机制。一般的实现乐观锁的方式就是记录数据版本。
-
-乐观锁是基于程序实现的，所以不存在死锁的情况
-
-【例子】
-```roomsql
-//查询出商品库存信息，quantity = 3
-select quantity from items where id=1
-//修改商品库存为2
-update items set quantity=2 where id=1 and quantity = 3;
+```sql
+START TRANSACTION;
+SELECT quantity FROM items WHERE id = 1 FOR UPDATE;
+-- 在同一事务连接中，确认数量和业务规则后执行修改。
+UPDATE items SET quantity = 2 WHERE id = 1;
+COMMIT;
 ```
 
-以上，我们在更新之前，先查询一下库存表中当前库存数（quantity），然后在做update的时候，以库存数作为一个修改条件。当我们提交更新的时候，判断数据库表对应记录的当前库存数与第一次取出来的库存数进行比对，如果数据库表当前库存数与第一次取出来的库存数相等，则予以更新，否则认为是过期数据。
+显式事务让锁定与修改处于同一事务范围；也可以采用其他明确的事务管理方式，不必把全局关闭 autocommit 当成唯一前提。另一个事务通常仍能开始，但访问相同冲突记录时可能等待。多行锁顺序不一致仍可能导致死锁，失败后应回滚并按业务规则处理。
 
-但是以上更新语句存在一个比较重要的问题，即ABA问题。
+## 乐观更新：用版本条件检测覆盖
 
-有一个比较好的办法可以解决ABA问题，那就是通过一个单独的可以顺序递增的version字段。
+假设刚读取到 `version = 1`，尝试：
 
-【优化1】
-```roomsql
-//查询出商品信息，version = 1
-select version from items where id=1
-//修改商品库存为2
-update items set quantity=2,version = 3 where id=1 and version = 2;
+```sql
+UPDATE items
+SET quantity = 2, version = version + 1
+WHERE id = 1 AND version = 1;
 ```
 
-以上SQL其实还是有一定的问题的，就是一旦高并发的时候，就只有一个线程可以修改成功，那么就会存在大量的失败。
+影响 1 行表示该条件下修改成功；影响 0 行要区分记录不存在、版本变化或额外条件不满足。版本字段必须由所有相关写入路径正确维护。仅比较数量可能遗漏数量改变后又改回的过程，即 ABA 问题。
 
-【优化2】
-```roomsql
-//修改商品库存
-update item
-set quantity=quantity - 1
-where id = 1 and quantity - 1 > 0
+乐观更新依然由数据库执行 UPDATE，仍涉及数据库锁和事务；不能概括为“不加锁、不会死锁”。
+
+## 单条语句维护库存下限
+
+```sql
+UPDATE items
+SET quantity = quantity - 1
+WHERE id = 1 AND quantity >= 1;
 ```
-以上SQL语句中，如果用户下单数为1，则通过quantity - 1 > 0的方式进行乐观锁控制。
 
-以上update语句，在执行过程中，会在一次原子操作中自己查询一遍quantity的值，并将其扣减掉1。
+这条语句允许从 1 扣到 0，前提是业务允许售罄；影响行数必须检查。它只能保护该行的相应约束，订单落库、金额和其他资源还需要放进合适的事务或一致性方案中。MySQL 没有一个能概括所有访问的“默认乐观锁”模式。
 
-
-MySQL默认是乐观锁
+参考：[MySQL 8.4 InnoDB Locking](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking.html)。

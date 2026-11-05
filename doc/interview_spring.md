@@ -1,49 +1,40 @@
-## Spring
+# Spring 与数据访问
 
-- [@Autowired和@Resource注解的区别](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E5%92%8C%40Resource%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%8C%BA%E5%88%AB.md)
-- [@Autowired的实现原理](https://github.com/suxiongwei/without-me/blob/main/doc/%40Autowired%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86.md)
-- [拦截器与过滤器](https://github.com/suxiongwei/without-me/blob/main/doc/FILTERANDINTERCEPTOR.md)
-- [@Configuration和@Component 的区别](https://github.com/suxiongwei/without-me/blob/main/doc/ConfigurationAndComponent.md)
-- [SpringBoot启动时自动执行代码的几种方式](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/spring/startrun/package-info.java)
+[首页](../README.md) · [阅读路线](LEARNING_PATHS.md) · [全部问答](技术学习笔记.md)
 
-#### Spring中的bean为什么默认设置为单例的
-<details>
-<summary>展开</summary>
-首先 单例的性能好，开销低
+前置知识：Java 方法调用和异常。先理解容器与代理，再学习事务、数据访问和 Web 调用链。
 
-其次 一般业务系统的组件以无状态的组件居多，这些组件比初始化是有一定开销的，基于这些bean的使用场景单例的系统开销最小，占据了bean的绝大多数配置场景，其他scope级别的使用场景是极其有限的。
+**版本与前提：** 工程 Spring Boot 2.2.6.RELEASE，事务和容器参考 Spring Framework 5.2；相关差异见版本资料。
 
-基于以上的客观事实，默认配置为单例很大程度上还是为了减少人工确认配置的工作量，防止人工配置遗漏而带来的不必要的系统开销和风险，方便使用。
-</details>
+## 推荐阅读
 
+- [Q07 Spring 事务为什么会看起来不生效](topics/spring-data-access.md#q07-spring-事务为什么会看起来不生效)
+- [Q08 REQUIRED 与 REQUIRES_NEW 有什么区别](topics/spring-data-access.md#q08-required-与-requires_new-有什么区别)
+- [Q09 Spring AOP 代理有什么边界](topics/spring-data-access.md#q09-spring-aop-代理有什么边界)
+- [Q10 MyBatis 中参数绑定 缓存与查询数量怎么检查](topics/spring-data-access.md#q10-mybatis-中参数绑定-缓存与查询数量怎么检查)
 
-#### SpringBoot是什么&特点
-<details>
-<summary>展开</summary>
-是什么：
-为了简化Spring繁琐的XML配置，本质上还是Spring，理念是约定大于配置
+## 配套专题与练习
 
-特点：
-- 供了固定的配置来简化配置，即约定大于配置
-- 尽可能地自动配置 Spring 和第三方库，即能自动装配
-</details>
+- [注入注解比较](@Autowired和@Resource注解的区别.md)
+- [自动装配原理](@Autowired的实现原理.md)
+- [配置类与组件](ConfigurationAndComponent.md)
+- [Filter 与 Interceptor](FILTERANDINTERCEPTOR.md)
+- [多数据源与事务](spring_dynamic_datasource.md)
 
+## 补充笔记与代码
 
-#### SpringBoot自动配置的原理
-<details>
-<summary>展开</summary>
-@SpringBootApplication里的核心注解，包含以下两部分：
+- [SpringBoot启动时自动执行代码的几种方式](../src/main/java/com/sxw/learn/spring/startrun/package-info.java)
 
-- @SpringBootConfiguration（里面就是@Configuration，标注当前类为配置类，其实只是做了一层封装改了个名字而已）
-- @EnableAutoConfiguration（开启自动配置）
+### 单例作用域与共享状态
 
-@EnableAutoConfiguration 是SpringBoot中的重点部分，包含以下两部分：
+Spring 容器中的 singleton 表示每个容器、每个相应 Bean 定义的共享实例，不等同于整个 JVM 的全局唯一对象。共享实例有利于复用，但不会自动提供线程安全；请求相关的可变字段需要避免共享或单独协调。
 
-- @AutoConfigurationPackage（将主配置类（@SpringBootApplication 标注的类）所在的包下面所有的组件都扫描注冊到 spring 容器中）
-- @Import({AutoConfigurationImportSelector.class})（自动配置类的导入选择器，有选择的导入类）
+### Spring Boot 与自动配置
 
-SpringFactoriesLoader工厂加载机制是Spring内部提供的一个约定俗成的加载方式，只需要在模块的META-INF下创建spring.factories文件，
-这个Properties格式的文件中的key是接口、注解、或抽象类的全名，value是以逗号 “ , “ 分隔的实现类，使用SpringFactoriesLoader来实现相应的实现类注入Spirng容器中。
+工程基线为 Spring Boot 2.2.6.RELEASE。自动配置根据类路径、已有 Bean、配置项等条件尝试提供默认组件，应用可以显式配置覆盖或排除。
 
-链接：https://juejin.cn/post/7046554366068654094
-</details>
+`@SpringBootApplication` 组合配置、自动配置与组件扫描等能力。组件扫描与 AutoConfigurationPackages 的包登记不是同一件事，不能把 `@AutoConfigurationPackage` 描述为“扫描并注册所有组件”。
+
+Boot 2.2 的候选加载涉及 `spring.factories` 和自动配置导入选择；新版本的导入元数据与机制需重新核对，不能只背一个文件名概括所有版本。
+
+参考：[Spring Boot 2.2.6 自动配置](https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/using-spring-boot.html#using-boot-auto-configuration)。

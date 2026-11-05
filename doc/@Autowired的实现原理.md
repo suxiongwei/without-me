@@ -1,19 +1,19 @@
-> @Autowired注解的实现是通过后置处理器AutowiredAnnotationBeanPostProcessor类的postProcessPropertyValues()方法实现的。
-## 源码分析
-### 实现原理:AutowiredAnnotationBeanPostProcessor
-### AutowiredAnnotationBeanPostProcessor何时被加入
-容器启动会注册7个Spring内置的Bean，其中就包括AutowiredAnnotationBeanPostProcessor
+# Autowired 自动装配实现
 
-### AutowiredAnnotationBeanPostProcessor何时被调用
-- Spring在创建bean的过程中，最终会调用到doCreateBean()方法，
-- 在doCreateBean()方法中会调用populateBean()方法，来为bean进行属性填充，完成自动装配等工作。
-- populateBean()方法的会调用后置处理器相关代码。
+[首页](../README.md) · [版本与资料](references.md)
 
+[Spring 分类](interview_spring.md) · [依赖注入规则](@Autowired和@Resource注解的区别.md)
 
-## 总结
-1. @Autowired注解的实现是通过后置处理器AutowiredAnnotationBeanPostProcessor类的postProcessPropertyValues()方法实现的。
-2. 当自动装配时，从容器中如果发现有多个同类型的属性时，@Autowired注解会先根据类型判断，然后根据@Primary、@Priority注解判断，最后根据属性名与beanName是否相等来判断，如果还是不能决定注入哪一个bean时，就会抛出NoUniqueBeanDefinitionException异常。
-3. @Autowired自动装配中byName、byType与自动装配的模型中的byName、byTYpe没有任何关系，两者含义完全不一样，前者是实现技术的手段，后者是用来定义BeanDefiniton中autowireMode属性的值的类型。
+**适用版本：** Spring Framework 5.2。下面是调用阶段的简化模型，具体内部方法按源码版本核对。
 
+## 从实例创建到依赖注入
 
-参考资料:https://juejin.cn/post/6844903957135884295
+`AutowiredAnnotationBeanPostProcessor` 参与候选构造器识别和字段、方法注入。对象实例创建后，属性填充阶段调用相关后置处理逻辑，解析注入点，再委托容器解析依赖。
+
+较新版本常见入口为 `postProcessProperties`；旧笔记中的 `postProcessPropertyValues` 不能当成跨版本唯一入口。内置处理器的注册数量也不应作为容器工作的固定契约。
+
+## 解析与失败
+
+先根据类型找到候选，再考虑限定信息、主候选等选择规则；精确顺序受注解、注入位置与版本影响。无候选、多候选或循环依赖都可能使创建失败。依赖解析完成不代表整个 Bean 生命周期结束，还需继续检查初始化与代理阶段。
+
+参考：[Spring 5.2 自动装配](https://docs.spring.io/spring-framework/docs/5.2.5.RELEASE/spring-framework-reference/core.html#beans-autowired-annotation)。

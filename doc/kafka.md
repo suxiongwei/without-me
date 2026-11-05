@@ -1,4 +1,13 @@
-### kafka维护消费状态跟踪的方法
+# Kafka 消费状态与运维命令
+
+[首页](../README.md) · [版本与资料](references.md)
+
+[数据平台分类](interview_bigdata.md) · [消费与可靠性专题](topics/kafka.md)
+
+**适用版本：** 下方命令输出来自旧笔记中的 Kafka 3.5.0 示例，Topic 与消费组名称仅作示意。涉及修改分区或消费位点的命令应先核对环境与影响范围。
+
+## kafka维护消费状态跟踪的方法
+
 大部分消息系统在broker端的维护消息被消费的记录：
 
 一个消息被分发到consumer后broker就马上进行标记或者等待customer的通知后进行标记。这样也可以在消息在消费后立马就删除以减少空间占用。
@@ -11,7 +20,7 @@
 第二个问题时，broker必须维护每条消息的状态，并且每次都要先锁住消息然后更改状态然后释放锁。
 这样麻烦又来了，且不说要维护大量的状态数据，比如如果消息发送出去但没有收到消费成功的通知，这条消息将一直处于被锁定的状态。
 
-**Kafka采用了不同的策略。Topic被分成了若干分区，每个分区在同一时间只被一个consumer消费。
+**Kafka采用了不同的策略。Topic被分成了若干分区，在常规消费组的稳定分配中，每个分区在同一消费组内通常分配给一个 consumer；不同消费组可以独立消费同一分区。
 
 这意味着每个分区被消费的消息在日志中的位置仅仅是一个简单的整数：offset**。
 
@@ -20,7 +29,8 @@
 这带来了另外一个好处：consumer可以把offset调成一个较老的值，去重新消费老的消息。
 这对传统的消息系统来说看起来有些不可思议，但确实是非常有用的，谁规定了一条消息只能被消费一次呢？
 
-### kafka分布式（不是单机）的情况下，如何保证消息的顺序消费？
+## kafka分布式（不是单机）的情况下，如何保证消息的顺序消费？
+
 - 所有消息都发送到同一个partition
 - 利用key分流到不同的partition
 
@@ -29,16 +39,18 @@ Kafka分布式的单位是partition，同一个partition用一个write ahead log
 
 Kafka中发送1条消息的时候，可以指定(topic, partition, key) 3个参数。partition和key是可选的。如果你指定了partition，那就是所有消息发往同1个partition，就是有序的。
 
-并且在消费端，Kafka保证，1个partition只能被1个consumer消费。
+并且在消费端，常规 Consumer Group 的稳定分配中，1 个 partition 在同一组内通常分配给 1 个 consumer 实例；组间可以独立消费。
 
-或者你指定key（比如order id），具有同1个key的所有消息，会发往同1个partition。
+或者你指定key（比如order id），在相同分区器与分区数等前提下，具有同一 key 的消息通常发往同一 partition。
 
-### 一些实践经验
+## 一些实践经验
+
 - 不同Consumer Group的消费者的offset不同，有可能直接从最初位置开始消费了
 - consumer 扩容：新起一个进程，同一个group，partition的数量大于等于consumer的数量
 - 同一Consumer Group中的多个Consumer实例，不同时消费同一个partition，等效于队列模式。
 
-### 一些命令
+## 一些命令
+
 ```shell
 --  查看所有的topic
 bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
@@ -51,8 +63,6 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --grou
 
 -- 修改partition数量
 bin/kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic mrp-web-analyze --partitions 2
-
-
 
 ➜ kafka_2.13-3.5.0 bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
 __consumer_offsets

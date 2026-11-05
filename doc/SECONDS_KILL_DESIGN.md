@@ -1,3 +1,7 @@
+# 秒杀系统设计
+
+[首页](../README.md) · [版本与资料](references.md)
+
 [秒杀系统](https://github.com/rbmonster/learning-note/blob/master/src/main/java/com/toc/SECONDS_KILL_DESIGN.md#0)
 1. 前端<br/>
    1.1. CDN加速、资源静态化<br/>

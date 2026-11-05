@@ -1,17 +1,19 @@
-## Spring多数据源&Spring事务
+# Spring 多数据源与事务边界
 
-### 添加了事务后数据源切换失效
-Spring事务是基于AOP动态代理实现的，被增强后connection是从缓存中获取的，因此动态数据源自然也就失效了
-> DataSourceTransactionManager负责管理整体的事务，执行中拦截Service中的方法后，每次执行Service方法前后会开启一个事务，
-> 并且同时会缓存DataSource、SqlSessionFactory、Connection，，因为DataSource、Conneciton都是从缓存中(ThradLocal)拿的，因此我们怎么切换数据源也没用
+[首页](../README.md) · [版本与资料](references.md)
 
-参考文章：
-- https://www.cnblogs.com/wtzbk/p/17157708.html
+[Spring 分类](interview_spring.md) · [事务与代理专题](topics/spring-data-access.md)
 
-### dynamic-datasource-spring-boot-starter的实现方式
-内部使用Map保存多个数据源，获取connection时，根据ThreadLocal中的dsKey获取对应的数据源
+**适用范围：** 常规线程绑定的本地 JDBC 事务；具体动态数据源组件实现和版本需单独核对。
 
-对于事务的实现来说，会返回一个ConnectionProxy（不会执行commit、rollback、close操作事务相关的方法）
+## 为什么事务内切换数据源可能不生效
 
-参考文章：
-- https://blog.csdn.net/Wu_Shang001/article/details/121182437
+路由数据源通常依据线程上下文中的 key 选择目标数据源。事务管理器开始本地事务后，会将相应连接资源绑定到当前线程；后续访问可能复用已绑定连接。
+
+因此“修改路由 key”与“切换当前事务正在使用的物理连接”不是同一件事。检查切面顺序、连接获取时机、事务传播和实际事务管理器，不能只看 ThreadLocal 中的 key 是否改变。
+
+## 本地事务与跨库方案
+
+代理连接可能改变 commit、rollback、close 的处理方式，但它本身不能证明多个数据库可以原子提交。采用动态数据源组件时，先明确是单库事务、分库独立提交、补偿方案还是协调式事务协议，再核对失败与恢复路径。
+
+历史阅读资料：[路由与事务分析](https://www.cnblogs.com/wtzbk/p/17157708.html)、[组件实现笔记](https://blog.csdn.net/Wu_Shang001/article/details/121182437)。原理参考 [Spring 5.2 事务资源同步](https://docs.spring.io/spring-framework/docs/5.2.5.RELEASE/spring-framework-reference/data-access.html#transaction-resources)。

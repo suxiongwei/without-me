@@ -1,25 +1,49 @@
-## 设计题
+# 缓存与分布式设计
 
-- [秒杀系统](https://github.com/suxiongwei/without-me/blob/main/doc/SECONDS_KILL_DESIGN.md)
-- [扫码登陆](https://github.com/suxiongwei/without-me/blob/main/doc/SCAN_LOGIN.md)
-- [延迟队列](https://github.com/suxiongwei/without-me/blob/main/doc/DELAY_QUEUE.md)
-- [分布式锁&Redis相关的一些题目](https://github.com/suxiongwei/without-me/blob/main/doc/DISTRIBUTED_LOCK.md)
-- [平时的项目技术设计时主要考虑的点，如何保证技术方案的可行性和扩展性]()
-- [一个2G左右的文本文件，统计其中某个单词出现的次数，JVM只要512M，给出实现思路]()
-- [布隆过滤器BloomFilter](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/guava/BloomFilterDemo.java)
-- [限流算法](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/guava/RateLimiterTest.java)
-- [常见软件的QPS](https://github.com/suxiongwei/without-me/blob/main/doc/%E5%B8%B8%E8%A7%81%E8%BD%AF%E4%BB%B6%E7%9A%84QPS.md)
+[首页](../README.md) · [阅读路线](LEARNING_PATHS.md) · [全部问答](技术学习笔记.md)
+
+先识别状态归属与原子范围，再选缓存、锁、幂等与补偿机制，最后组合为平台能力。
+
+**版本与前提：** 方案的事务、租约、重试与幂等分别依赖数据库、协调服务及远程协议，按每篇专题的前提理解。
+
+## 推荐阅读
+
+- [Q21 缓存与数据库如何保持一致](topics/redis-cache.md#q21-缓存与数据库如何保持一致)
+- [Q22 缓存穿透 击穿和雪崩怎么处理](topics/redis-cache.md#q22-缓存穿透-击穿和雪崩怎么处理)
+- [Q23 Redis 分布式锁能保证什么](topics/redis-cache.md#q23-redis-分布式锁能保证什么)
+- [Q46 审批回调如何做到幂等](topics/distributed-systems.md#q46-审批回调如何做到幂等)
+- [Q47 回调乱序 或远程成功但本地超时 怎么办](topics/distributed-systems.md#q47-回调乱序-或远程成功但本地超时-怎么办)
+- [Q48 本地事务与远程调用 如何保证最终一致](topics/distributed-systems.md#q48-本地事务与远程调用-如何保证最终一致)
+- [Q49 设计一个 BI 数据查询 API 平台](topics/distributed-systems.md#q49-设计一个-bi-数据查询-api-平台)
+- [Q50 设计一个调度与补数管理能力](topics/distributed-systems.md#q50-设计一个调度与补数管理能力)
+- [E04 手画一个数据库幂等回调处理流程](practice.md#e04-手画一个数据库幂等回调处理流程)
+
+## 配套专题与练习
+
+- [一致性 Hash](../src/main/java/com/sxw/learn/leetcode/hash/一致性hash算法.md)
+- [分布式事务方案](../src/main/java/com/sxw/learn/leetcode/md/分布式事务.md)
+- [分布式锁实现边界](DISTRIBUTED_LOCK.md)
+- [延迟队列](DELAY_QUEUE.md)
+- [限流算法](限流算法.md)
+- [设计模式图解](design-patterns.md)
+- [扫码登录](SCAN_LOGIN.md)
+- [秒杀系统](SECONDS_KILL_DESIGN.md)
+
+## 补充笔记与代码
+
+- [平时的项目技术设计时主要考虑的点，如何保证技术方案的可行性和扩展性](design-checklist.md)
+- [一个2G左右的文本文件，统计其中某个单词出现的次数，JVM只要512M，给出实现思路](resource-limits.md)
+- [布隆过滤器BloomFilter](../src/main/java/com/sxw/learn/guava/BloomFilterDemo.java)
+- [限流算法](../src/main/java/com/sxw/learn/guava/RateLimiterTest.java)
+- [常见软件的QPS](常见软件的QPS.md)
 - [领域驱动设计在互联网业务开发中的实践](https://tech.meituan.com/2017/12/22/ddd-in-practice.html)
 - [一般实现分布式锁都有哪些方式？使用 Redis 如何设计分布式锁？使用 zk 来设计分布式锁可以吗？这两种分布式锁的实现方式哪种效率比较高？](https://github.com/doocs/advanced-java/blob/main/docs/distributed-system/distributed-lock-redis-vs-zookeeper.md)
-- [接口鉴权](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/auth/AuthUtils.java)
-- [工厂模式](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/design/factory)
-- [单例模式](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/design/singleton)
-- [装饰器模式](https://github.com/suxiongwei/without-me/tree/main/src/main/java/com/sxw/learn/design/decorator)
+- [接口鉴权](../src/main/java/com/sxw/learn/auth/AuthUtils.java)
+- [工厂模式](../src/main/java/com/sxw/learn/design/factory)
+- [单例模式](../src/main/java/com/sxw/learn/design/singleton)
+- [装饰器模式](../src/main/java/com/sxw/learn/design/decorator)
 
-
-#### 淘宝的订单系统怎么设计?
-<details>
-<summary>展开</summary>
+### 淘宝的订单系统怎么设计?
 
 1. 业务主体分析，相同主体且有er关系的表使用相同的分片规则，这样就能避免分布式事务问题。
 2. 分片键设计，比如订单及订单商品等表按照会员id后x位分片。同时订单id需要带上会员id后x位。（淘宝后6位是用户id，不变）
@@ -31,7 +55,7 @@
 8. 统计查询-olap：一般同步到mmp数据库。
 9. 扩容方案：一般是两倍扩容
 10. 数据迁移方案：一般是全量迁移+实时同步。
-</details>
 
-#### [为何Kafka这么"快"?](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E4%B8%BA%E4%BD%95Kafka%E8%BF%99%E4%B9%88%E2%80%9C%E5%BF%AB%E2%80%9D%EF%BC%9F.md)
-#### [雪花算法(SnowFlake)](https://github.com/suxiongwei/without-me/blob/main/src/main/java/com/sxw/learn/leetcode/md/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95(SnowFlake).md)
+### [为何Kafka这么"快"?](../src/main/java/com/sxw/learn/leetcode/md/为何Kafka这么“快”？.md)
+
+### [雪花算法(SnowFlake)](../src/main/java/com/sxw/learn/leetcode/md/雪花算法(SnowFlake).md)

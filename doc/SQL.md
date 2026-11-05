@@ -1,4 +1,39 @@
-## 窗口函数
+# SQL 与分析查询
+
+[首页](../README.md) · [阅读路线](LEARNING_PATHS.md) · [全部问答](技术学习笔记.md)
+
+前置知识：SELECT、JOIN、GROUP BY。先确定数据粒度，再学习窗口排序、对账与汇总口径。
+
+**版本与前提：** 窗口函数要求相应数据库支持，MySQL 示例以 8.x 为基线；题设数据与状态码仅作示意。
+
+## 本页目录
+
+<details>
+<summary>展开专题与代码目录</summary>
+
+- [推荐阅读](#推荐阅读)
+- [配套专题与练习](#配套专题与练习)
+- [补充笔记与代码](#补充笔记与代码)
+  - [一些题目](#一些题目)
+- [JOIN 的集合示意与边界](#join-的集合示意与边界)
+
+</details>
+
+## 推荐阅读
+
+- [E01 每个订单取最新一条状态记录](practice.md#e01-每个订单取最新一条状态记录)
+- [E02 查询每个部门支付金额排名前三的客户](practice.md#e02-查询每个部门支付金额排名前三的客户)
+- [E03 对账发现一边缺记录 或金额不同](practice.md#e03-对账发现一边缺记录-或金额不同)
+- [E06 报表金额变成业务库的两倍 如何定位](practice.md#e06-报表金额变成业务库的两倍-如何定位)
+
+## 配套专题与练习
+
+- [窗口函数专题](window-function.md)
+- [数据库原理](topics/database-sql.md)
+- [ClickHouse 聚合维度](rollup-cube.md)
+
+## 补充笔记与代码
+
 mysql8.0内置函数支持各种排名问题：
 
 > 以力扣177. 第N高的薪水为例子<br/>
@@ -14,7 +49,7 @@ mysql8.0内置函数支持各种排名问题：
 - dense_rank(): 同薪同名，无跳级，例如300、200、200、100排名后为1、2、2、3
 - ntile(): 分桶排名，即首先按桶的个数分出第一二三桶，然后各桶内从1排名，实际不是很常用
 
-显然，本题是要用第三个函数。 
+显然，本题是要用第三个函数。
 
 另外这三个函数必须要要与其搭档over()配套使用，over()中的参数常见的有两个，分别是 partition by，按某字段切分
 order by，与常规order by用法一致，也区分ASC(默认)和DESC，因为排名总得有个依据
@@ -37,6 +72,7 @@ mysql> select
 ```
 
 ### 一些题目
+
 [180. 连续出现的数字](https://leetcode.cn/problems/consecutive-numbers/)
 ```sql
 表：Logs
@@ -53,9 +89,9 @@ id 是这个表的主键。
 返回的结果表中的数据可以按 任意顺序 排列。
 
 SQL:
-select 
+select
 distinct log1.num as ConsecutiveNums
-from 
+from
 logs as log1
 inner join logs log2 on log1.id = (log2.id - 1) and log1.num = log2.num
 inner join logs log3 on log2.id = (log3.id - 1) and log2.num = log3.num
@@ -66,16 +102,16 @@ inner join logs log3 on log2.id = (log3.id - 1) and log2.num = log3.num
 ```sql
 # Write your MySQL query statement below
 -- 解法1：使用子查询
-# SELECT 
+# SELECT
 # d1.name as Department
 # ,e1.name as Employee
 # ,e1.salary as Salary
-# FROM 
-# Employee e1 
+# FROM
+# Employee e1
 # INNER JOIN Department d1 on e1.departmentId = d1.id
 # -- 代表超过当前员工工资的人数少于3个
 # WHERE 3 > (
-#     SELECT count(distinct salary) 
+#     SELECT count(distinct salary)
 #     FROM Employee e2
 #     WHERE e2.salary > e1.salary AND e1.departmentId = e2.departmentId
 # )
@@ -85,10 +121,10 @@ d.name as Department
 ,e.name as Employee
 ,e.salary as Salary
 FROM(
-    SELECT 
+    SELECT
     *
     ,dense_rank() over(PARTITION BY departmentId ORDER BY salary DESC) as rnk
-    FROM 
+    FROM
     Employee
 ) e
 INNER JOIN Department d on e.departmentId = d.id
@@ -98,7 +134,7 @@ WHERE rnk <= 3
 # topN问题 sql模板
 select *
 from (
-   select *, 
+   select *,
           row_number() over (partition by 要分组的列名
                        order by 要排序的列名 desc) as 排名
    from 表名) as a
@@ -107,24 +143,24 @@ where 排名 <= N;
 ```
 [626. 换座位](https://leetcode.cn/problems/exchange-seats/description/)
 ```sql
-SELECT 
+SELECT
   (
-    CASE 
-    WHEN MOD(id, 2) != 0 AND counts != id THEN id + 1 
-    WHEN MOD(id, 2) != 0 AND counts = id THEN id 
-    ELSE id - 1 
+    CASE
+    WHEN MOD(id, 2) != 0 AND counts != id THEN id + 1
+    WHEN MOD(id, 2) != 0 AND counts = id THEN id
+    ELSE id - 1
     END
-  ) AS id, 
-  student 
-FROM 
-  seat, 
+  ) AS id,
+  student
+FROM
+  seat,
   (
-    SELECT 
-      COUNT(*) AS counts 
-    FROM 
+    SELECT
+      COUNT(*) AS counts
+    FROM
       seat
-  ) AS seat_counts 
-ORDER BY 
+  ) AS seat_counts
+ORDER BY
   id ASC;
 ```
 
@@ -148,7 +184,7 @@ from (
     from
     `薪水表`
 ) as tmp_a
-where 
+where
 rank1 > 1
 and rank2 > 1
 group by `部门编号`
@@ -162,15 +198,15 @@ group by `部门编号`
 现在需要找出语文课中成绩第二高的学生成绩。如果不存在第二高成绩的学生，那么查询应返回 null。
 
 解法1:
-select max(distinct 成绩) 
+select max(distinct 成绩)
 from 成绩表
 where 课程='语文' and
-      成绩 < (select max(distinct 成绩) 
-              from 成绩表 
+      成绩 < (select max(distinct 成绩)
+              from 成绩表
               where 课程='语文');
-              
+
 解法2:
-select distinct 成绩  
+select distinct 成绩
 from 成绩表
 where 课程='语文'
 order by 课程,成绩 desc
@@ -207,22 +243,22 @@ from 学生表;
 学生表(姓名、学号、班级、入学时间、年龄、专业)
 成绩表(学号、课程号、分数)
 
-select 
+select
     a.班级,
     sum(
-        case when b.平均成绩>80 
+        case when b.平均成绩>80
         then 1
-        else 0 
+        else 0
         end
     ) as 人数,
     sum(
-        case when b.平均成绩>80 
+        case when b.平均成绩>80
         then 1
-        else 0 
+        else 0
         end
     )/count(a.学号) as 人数占比
 from 学生表 as a left join(
-    select 
+    select
         学号
         ,avg(分数) as 平均成绩
     from 成绩表
@@ -231,3 +267,9 @@ from 学生表 as a left join(
 on a.学号=b.学号
 group by 班级
 ```
+
+## JOIN 的集合示意与边界
+
+![SQL JOIN 集合示意](../_v_images/20191207081711185_20242.png)
+
+该图仅辅助理解匹配范围，不能完整表示 SQL 的多重集、NULL 和重复行行为。JOIN 前先核对键是否唯一与输出粒度；金额放大问题阅读 [Q20](topics/database-sql.md#q20-报表金额为什么可能被关联查询放大)。

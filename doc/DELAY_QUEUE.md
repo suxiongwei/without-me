@@ -1,4 +1,6 @@
-## 用redis实现延迟队列
+# Redis 延迟队列
+
+[首页](../README.md) · [版本与资料](references.md)
 
 实现方式： sorted set + list
 
@@ -10,7 +12,6 @@ list: 目标队列, 存放的任务都是已经到了延迟时间的，可以被
 
 采用一定的机制(其中用到了channel)，将延迟时间的任务放到目标队列，最终客户端从目标队列中获取任务
 
-
-https://juejin.cn/post/7200219190598238263
+参考资料：[juejin.cn](https://juejin.cn/post/7200219190598238263)
 
 测试类：RedissonDelayQueue

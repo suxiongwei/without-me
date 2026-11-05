@@ -1,8 +1,14 @@
-## 分布式锁&Redis相关的一些题目
+# Redis 分布式锁实现与边界
+
+[首页](../README.md) · [版本与资料](references.md)
+
+[分布式设计](interview_design.md) · [缓存与租约锁原理](topics/redis-cache.md)
+
+**版本说明：** 旧示例含 Redisson 3.10.6，而当前工程依赖是 3.13.1；本页保留示例用于理解，续期、可重入和故障语义需核对实际版本。
 
 **分布式锁的特点**
 
-- 互斥性：同一时刻只能有一个线程持有锁
+- 互斥性：在租约有效、协调服务及相关假设成立的范围内，协调同一资源的竞争；不能保证过期持有者已经停止
 - 可重入性：同一节点上的同一个线程如果获取了锁之后能够再次获取锁
 - 锁超时：和J.U.C中的锁一样支持锁超时，防止死锁
 - 高性能和高可用：加锁和解锁需要高效，同时也需要保证高可用，防止分布式锁失效
@@ -13,15 +19,32 @@
 - 基于Redis
 - 基于Zookeeper
 
-### Redis实现分布式锁
-#### 1. 利用setnx+expire命令 (错误的做法)
+## 本页目录
+
+<details>
+<summary>展开专题与代码目录</summary>
+
+- [Redis实现分布式锁](#redis实现分布式锁)
+  - [1. 利用setnx+expire命令 (错误的做法)](#1-利用setnxexpire命令-错误的做法)
+  - [2. 使用Lua脚本（包含setnx和expire两条指令）](#2-使用lua脚本包含setnx和expire两条指令)
+  - [3. 使用 SET NX 与过期时间原子获取租约](#3-使用-set-nx-与过期时间原子获取租约)
+  - [4. Redlock算法 与 Redisson 实现](#4-redlock算法-与-redisson-实现)
+- [补充问题](#补充问题)
+
+</details>
+
+## Redis实现分布式锁
+
+### 1. 利用setnx+expire命令 (错误的做法)
+
 setnx和expire是分开的两步操作，不具有原子性，如果执行完第一条指令应用异常或者重启了，锁将无法过期。
 
 一种改善方案就是使用Lua脚本来保证原子性（包含setnx和expire两条指令）
 
-#### 2. 使用Lua脚本（包含setnx和expire两条指令）
+### 2. 使用Lua脚本（包含setnx和expire两条指令）
 
-#### 3. 使用 set key value [EX seconds][PX milliseconds][NX|XX] 命令 (正确做法)
+### 3. 使用 SET NX 与过期时间原子获取租约
+
 Redis在 2.6.12 版本开始，为 SET 命令增加一系列选项：
 `SET key value[EX seconds][PX milliseconds][NX|XX]`
 - EX seconds: 设定过期时间，单位为秒
@@ -48,7 +71,7 @@ OK
 4. 客户端2获取到了对应同一个资源的锁
 5. 客户端1从阻塞中恢复过来，因为value值一样，所以执行释放锁操作时就会释放掉客户端2持有的锁，这样就会造成问题
 
-所以通常来说，在释放锁时，我们需要对value进行验证
+释放时必须原子地比较 token 并删除；先 GET 再 DEL 仍有竞争窗口。token 防误删，不能阻止租约过期的旧持有者继续写外部资源。
 
 **释放锁的实现**
 
@@ -57,9 +80,10 @@ OK
 > 以上都是针对单节点的实现，如果是集群环境还会出现别的问题
 > 比如：比如说A客户端在Redis的master节点上拿到了锁，但是这个加锁的key还没有同步到slave节点，master故障，发生故障转移，一个slave节点升级为master节点，B客户端也可以获取同个key的锁，但客户端A也已经拿到锁了，这就导致多个客户端都拿到锁。
 
-#### 4. Redlock算法 与 Redisson 实现
+### 4. Redlock算法 与 Redisson 实现
 
-##### Redlock算法
+#### Redlock算法
+
 假设有5个独立的Redis节点（注意这里的节点可以是5个Redis单master实例，也可以是5个Redis Cluster集群，但并不是有5个主节点的cluster集群）：
 
 - 获取当前Unix时间，以毫秒为单位
@@ -68,8 +92,9 @@ OK
 - 如果取到了锁，key的真正有效时间等于有效时间减去获取锁所使用的时间（步骤3计算的结果）
 - 如果某些原因，获取锁失败（没有在至少N/2+1个Redis实例取到锁或者取锁时间已经超过了有效时间），客户端应该在所有的Redis实例上进行解锁（即便某些Redis实例根本就没有加锁成功，防止某些节点获取到锁但是客户端没有得到响应而导致接下来的一段时间不能被重新获取锁）
 
-##### Redisson 实现
-Redisson实现简单分布式锁
+#### Redisson 实现
+
+下面演示普通 Redisson RLock，不等同于 Redlock 算法。
 
 对于Java用户而言，我们经常使用Jedis，Jedis是Redis的Java客户端，除了Jedis之外，Redisson也是Java的客户端，Jedis是阻塞式I/O，而Redisson底层使用Netty可以实现非阻塞I/O，该客户端封装了锁的，继承了J.U.C的Lock接口，所以我们可以像使用ReentrantLock一样使用Redisson，具体使用过程如下。
 
@@ -79,7 +104,7 @@ Redisson可以配置哪些模式？
 - 哨兵模式
 
 首先加入POM依赖
-```pom
+```xml
 <dependency>
     <groupId>org.redisson</groupId>
     <artifactId>redisson</artifactId>
@@ -110,7 +135,8 @@ try {
 }
 ```
 
-### 一些面试题
+## 补充问题
+
 **Redis分布式锁过期了但业务还没有执行完，怎么办?**
 
 设置锁成功后，启动一个watchdog，每隔一段时间(比如10s)为当前分布式锁续约，也就是每隔10s重新设置当前key的超时时间。
@@ -135,5 +161,6 @@ Redisson 提供了这个机制：
 
 解决办法
 
-> 使用scan指令，scan指令可以无阻塞的提取出指定模式的key列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用keys指令长.
+> 使用scan指令，SCAN 可以分批迭代键，降低一次全量遍历的阻塞风险；每次扫描仍消耗资源，它不是零阻塞保证。它可提取指定模式的 key 列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用keys指令长.
 
+参考：[Redis 官方分布式锁与假设](https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/)。
