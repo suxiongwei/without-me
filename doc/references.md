@@ -13,6 +13,7 @@
 | Redis | 工程 Jedis 3.3.0、Redisson 3.13.1 | 服务端版本、锁租约、续期和故障切换 |
 | Kafka | 旧命令示例含 3.5.0；设计资料固定到 4.1 | 客户端与 Broker 版本、分区器、消费组协议、事务配置 |
 | RocketMQ | 可靠消息专题参考官方 5.0 文档；4.x / 5.x 客户端语义分开说明，工程未接入客户端 | 消费类型、确认、重试、顺序单元、事务消息及持久化配置 |
+| Debezium | 全量与 CDC 专题固定参考 MySQL 连接器 2.7 文档；工程未接入连接器 | 源库版本、快照模式、权限、日志保留、Schema History 与位点恢复 |
 | Flink | 图解固定参考 1.20 文档 | 连接器、状态兼容性、窗口和 Checkpoint 配置 |
 | ClickHouse | 原理按官方 MergeTree 系列资料学习，未锁定部署版本 | 引擎、排序键、去重和物化视图具体语义 |
 
@@ -113,6 +114,40 @@
 <a id="s23"></a>
 
 [S23 MySQL 8.4 Locking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)
+
+本批系统设计专题资料补充核对日期：2026-11-06。以下链接支持组件语义与模式定义；文中的组合协议、教学表结构和故障推演仍需按具体实现验证。
+
+<a id="s24"></a>
+
+[S24 AWS Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
+
+<a id="s25"></a>
+
+[S25 Saga Pattern](https://microservices.io/patterns/data/saga.html)
+
+<a id="s26"></a>
+
+[S26 Seata TCC Mode](https://seata.apache.org/docs/user/mode/tcc/)
+
+<a id="s27"></a>
+
+[S27 etcd 3.5 API Guarantees](https://etcd.io/docs/v3.5/learning/api_guarantees/)
+
+<a id="s28"></a>
+
+[S28 MySQL 8.4 Consistent Nonlocking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html)
+
+<a id="s29"></a>
+
+[S29 Debezium 2.7 MySQL Connector](https://debezium.io/documentation/reference/2.7/connectors/mysql.html)
+
+<a id="s30"></a>
+
+[S30 Amazon S3 Conditional Writes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-writes.html)
+
+<a id="s31"></a>
+
+[S31 Kubernetes Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
 
 ## 配图与 Markdown
 

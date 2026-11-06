@@ -12,6 +12,7 @@
 | --- | --- | --- |
 | 后端基础 | Java → 并发/JVM → Spring → MySQL → Redis/Kafka → 分布式设计 | [后端基础路线](doc/LEARNING_PATHS.md#后端基础路线) |
 | 数据平台 | SQL → Kafka → Flink → ClickHouse → 数据质量与调度 | [数据平台路线](doc/LEARNING_PATHS.md#数据平台路线) |
+| 系统设计扩展 | 支付与补偿 → 旧执行者隔离 → 导出与 CDC → 实时结果、切库与补数 | [8 篇系统设计专题](doc/LEARNING_PATHS.md#系统设计扩展路线) |
 | 问题排查 | CPU/内存 → 接口延迟 → 慢 SQL → 消息积压 → 反压与对账 | [问题排查路线](doc/LEARNING_PATHS.md#问题排查路线) |
 
 ## 分类导航
@@ -22,20 +23,20 @@
 | --- | --- | --- |
 | Java 与 JVM | 集合、并发、线程池、异步结果与 JVM | [3 篇文档](#java-与-jvm) |
 | Spring 与数据访问 | 容器、依赖注入、配置、代理、事务与 Web 调用链 | [7 篇文档](#spring-与数据访问) |
-| 数据库与 SQL | 索引、事务、锁、窗口函数、聚合与对账 | [8 篇文档](#数据库与-sql) |
-| Redis 与分布式锁 | 缓存一致性、缓存故障、租约锁与延迟队列 | [3 篇文档](#redis-与分布式锁) |
+| 数据库与 SQL | 索引、事务、锁、窗口函数、聚合与对账 | [9 篇文档](#数据库与-sql) |
+| Redis 与分布式锁 | 缓存一致性、缓存故障、租约锁与延迟队列 | [4 篇文档](#redis-与分布式锁) |
 | 消息队列与可靠消息 | Kafka、RocketMQ、Outbox、Inbox 与消息故障恢复 | [4 篇文档](#消息队列与可靠消息) |
-| 数据平台与分析存储 | 采集、Flink、ClickHouse、数仓与数据质量 | [7 篇文档](#数据平台与分析存储) |
-| 分布式设计与架构 | 幂等、状态机、事务、一致性、平台与设计模式 | [10 篇文档](#分布式设计与架构) |
+| 数据平台与分析存储 | CDC、Flink、ClickHouse、数仓与调度补数 | [10 篇文档](#数据平台与分析存储) |
+| 分布式设计与架构 | 幂等、状态机、事务、一致性、平台与设计模式 | [12 篇文档](#分布式设计与架构) |
 | 计算机基础与网络 | TCP、网络协议、进程与虚拟内存 | [3 篇文档](#计算机基础与网络) |
 | 算法与数据结构 | 排序、链表、树、图、动态规划、贪心与资源约束 | [14 篇文档](#算法与数据结构) |
-| 工具与运行诊断 | JVM、接口性能、命令与容量评估 | [3 篇文档](#工具与运行诊断) |
+| 工具与运行诊断 | 异步导出、JVM、接口性能与容量评估 | [4 篇文档](#工具与运行诊断) |
 | 学习导航与参考资料 | 问答总览、练习、图解、版本与文档维护 | [9 篇文档](#学习导航与参考资料) |
 | 个人资料与成长 | 个人资料与成长记录 | [2 篇文档](#个人资料与成长) |
 
 ## 笔记明细
 
-以下按主题列出全部 **73 篇文档**（含分类页、练习和参考资料），并展开 50 道技术问答、6 道练习的直达入口。
+以下按主题列出全部 **81 篇文档**（含分类页、练习和参考资料），并展开 50 道技术问答、6 道练习的直达入口。
 
 ### Java 与 JVM
 
@@ -65,6 +66,12 @@
 
 ### 数据库与 SQL
 
+- [不停机数据库迁移、切换与回退](doc/topics/online-database-migration.md)
+  - [准备、全量与增量](doc/topics/online-database-migration.md#准备全量与增量)
+  - [读切换与写切换](doc/topics/online-database-migration.md#读切换与写切换)
+  - [新库写入后的回退](doc/topics/online-database-migration.md#新库写入后的回退)
+  - [故障恢复与深入追问](doc/topics/online-database-migration.md#故障窗口与恢复)
+
 - [MySQL 与数据库原理学习目录](doc/interview_mysql.md)
 - [数据库原理与 SQL 优化（Q13–Q20）](doc/topics/database-sql.md)
   - [Q13 一条慢 SQL 你会怎么优化](doc/topics/database-sql.md#q13-一条慢-sql-你会怎么优化)
@@ -87,6 +94,12 @@
 - [稀疏索引](src/main/java/com/sxw/learn/leetcode/md/稀疏索引.md)
 
 ### Redis 与分布式锁
+
+- [租约失效、Fencing 与旧执行者隔离](doc/topics/lease-fencing.md)
+  - [为什么安全解锁仍不够](doc/topics/lease-fencing.md#为什么安全解锁仍不够)
+  - [同库领取与写入协议](doc/topics/lease-fencing.md#同库领取与写入协议)
+  - [协调器与资源不在同一处时](doc/topics/lease-fencing.md#协调器与资源不在同一处时)
+  - [故障恢复与深入追问](doc/topics/lease-fencing.md#故障窗口与恢复)
 
 - [Redis 缓存与租约锁（Q21–Q23）](doc/topics/redis-cache.md)
   - [Q21 缓存与数据库如何保持一致](doc/topics/redis-cache.md#q21-缓存与数据库如何保持一致)
@@ -118,6 +131,24 @@
 
 ### 数据平台与分析存储
 
+- [全量快照、CDC 衔接与可恢复数据同步](doc/topics/snapshot-cdc.md)
+  - [快照与日志位点必须成对建立](doc/topics/snapshot-cdc.md#快照与日志位点必须成对建立)
+  - [目标应用与连续完成前沿](doc/topics/snapshot-cdc.md#目标应用与连续完成前沿)
+  - [删除、DDL 与源切换](doc/topics/snapshot-cdc.md#删除ddl-与源切换)
+  - [故障恢复与深入追问](doc/topics/snapshot-cdc.md#故障窗口与恢复)
+
+- [Flink 与 ClickHouse 的重放、去重和汇总一致性](doc/topics/flink-clickhouse-consistency.md)
+  - [检查点覆盖哪些资源](doc/topics/flink-clickhouse-consistency.md#检查点覆盖哪些资源)
+  - [为什么明细去重不等于汇总正确](doc/topics/flink-clickhouse-consistency.md#为什么明细去重不等于汇总正确)
+  - [示例一按最新事实计算](doc/topics/flink-clickhouse-consistency.md#示例一按最新事实计算)
+  - [故障恢复与深入追问](doc/topics/flink-clickhouse-consistency.md#故障窗口与恢复)
+
+- [分布式调度、补数与结果发布](doc/topics/distributed-scheduling-backfill.md)
+  - [任务定义、运行实例与尝试](doc/topics/distributed-scheduling-backfill.md#任务定义运行实例与尝试)
+  - [旧 Worker 恢复后为什么不能发布](doc/topics/distributed-scheduling-backfill.md#旧-worker-恢复后为什么不能发布)
+  - [实时与补数的输出隔离](doc/topics/distributed-scheduling-backfill.md#实时与补数的输出隔离)
+  - [故障恢复与深入追问](doc/topics/distributed-scheduling-backfill.md#故障窗口与恢复)
+
 - [数据平台与流式计算学习目录](doc/interview_bigdata.md)
 - [数据平台与 Flink（Q29–Q38）](doc/topics/flink.md)
   - [Q29 离线与实时数仓有什么区别 如何选择](doc/topics/flink.md#q29-离线与实时数仓有什么区别-如何选择)
@@ -144,6 +175,18 @@
 - [大数据题目与思路](src/main/java/com/sxw/learn/leetcode/bigdata/大数据题目.md)
 
 ### 分布式设计与架构
+
+- [支付超时、重复请求与结果确认](doc/topics/payment-idempotency.md)
+  - [身份与最小数据模型](doc/topics/payment-idempotency.md#身份与最小数据模型)
+  - [状态机与成功协议](doc/topics/payment-idempotency.md#状态机与成功协议)
+  - [超时不能直接判为支付失败](doc/topics/payment-idempotency.md#超时不能直接判为支付失败)
+  - [故障恢复与深入追问](doc/topics/payment-idempotency.md#故障窗口与恢复)
+
+- [Saga 编排、资源预留与跨服务补偿](doc/topics/saga-tcc-workflow.md)
+  - [Saga 如何推进与恢复](doc/topics/saga-tcc-workflow.md#saga-如何推进与恢复)
+  - [库存预留的 TCC 语义](doc/topics/saga-tcc-workflow.md#库存预留的-tcc-语义)
+  - [幂等、空回滚与防悬挂](doc/topics/saga-tcc-workflow.md#幂等空回滚与防悬挂)
+  - [故障恢复与深入追问](doc/topics/saga-tcc-workflow.md#故障窗口与恢复)
 
 - [缓存与分布式设计学习目录](doc/interview_design.md)
 - [分布式一致性与平台设计（Q46–Q50）](doc/topics/distributed-systems.md)
@@ -187,6 +230,12 @@
 - [内存受限时统计大文件词频](doc/resource-limits.md)
 
 ### 工具与运行诊断
+
+- [大规模异步导出、一致性与断点恢复](doc/topics/resumable-export.md)
+  - [先决定读取一致性](doc/topics/resumable-export.md#先决定读取一致性)
+  - [生成分片与持久进度](doc/topics/resumable-export.md#生成分片与持久进度)
+  - [上传、发布与取消的竞争](doc/topics/resumable-export.md#上传发布与取消的竞争)
+  - [故障恢复与深入追问](doc/topics/resumable-export.md#故障窗口与恢复)
 
 - [工具、命令与运行诊断学习目录](doc/linux.md)
 - [Java 运行诊断（Q11–Q12）](doc/topics/runtime-diagnostics.md)

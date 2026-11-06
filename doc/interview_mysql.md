@@ -19,6 +19,7 @@
 
 ## 配套专题与练习
 
+- [不停机数据库迁移、切换与回退](topics/online-database-migration.md)
 - [稀疏索引](../src/main/java/com/sxw/learn/leetcode/md/稀疏索引.md)
 - [SQL 与窗口函数](SQL.md)
 - [锁与并发更新](mysql_lock.md)

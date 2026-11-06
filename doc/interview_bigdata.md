@@ -33,6 +33,9 @@
 
 ## 配套专题与练习
 
+- [全量快照、CDC 衔接与可恢复数据同步](topics/snapshot-cdc.md)
+- [Flink 与 ClickHouse 的重放、去重和汇总一致性](topics/flink-clickhouse-consistency.md)
+- [分布式调度、补数与结果发布](topics/distributed-scheduling-backfill.md)
 - [Kafka 运维命令](kafka.md)
 - [Flink 运行架构](Flink.md)
 - [列式存储](column-based.md)

@@ -13,6 +13,7 @@
 
 ## 配套专题与练习
 
+- [大规模异步导出、一致性与断点恢复](topics/resumable-export.md)
 - [容量与性能评估](常见软件的QPS.md)
 - [Kafka 排查命令](kafka.md)
 - [技术边界速查](quick-reference.md)

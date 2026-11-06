@@ -4,6 +4,8 @@
 
 [分布式设计](interview_design.md) · [缓存与租约锁原理](topics/redis-cache.md)
 
+进阶专题：[租约失效、Fencing 与旧执行者隔离](topics/lease-fencing.md)，继续分析续期失败后资源端如何拒绝旧写入。
+
 **版本说明：** 旧示例含 Redisson 3.10.6，而当前工程依赖是 3.13.1；本页保留示例用于理解，续期、可重入和故障语义需核对实际版本。
 
 **分布式锁的特点**

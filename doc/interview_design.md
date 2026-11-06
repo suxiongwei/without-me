@@ -20,6 +20,8 @@
 
 ## 配套专题与练习
 
+- [支付超时、重复请求与结果确认](topics/payment-idempotency.md)
+- [Saga 编排、资源预留与跨服务补偿](topics/saga-tcc-workflow.md)
 - [Transactional Outbox、RocketMQ 与 Inbox 幂等消费](topics/outbox-rocketmq-inbox.md)
 - [一致性 Hash](../src/main/java/com/sxw/learn/leetcode/hash/一致性hash算法.md)
 - [分布式事务方案](../src/main/java/com/sxw/learn/leetcode/md/分布式事务.md)

@@ -58,6 +58,14 @@
 
 | 文档 | 位置 |
 | --- | --- |
+| [支付超时、重复请求与结果确认](topics/payment-idempotency.md) | `topics/payment-idempotency.md` |
+| [Saga 编排、资源预留与跨服务补偿](topics/saga-tcc-workflow.md) | `topics/saga-tcc-workflow.md` |
+| [租约失效、Fencing 与旧执行者隔离](topics/lease-fencing.md) | `topics/lease-fencing.md` |
+| [大规模异步导出、一致性与断点恢复](topics/resumable-export.md) | `topics/resumable-export.md` |
+| [全量快照、CDC 衔接与可恢复数据同步](topics/snapshot-cdc.md) | `topics/snapshot-cdc.md` |
+| [Flink 与 ClickHouse 的重放、去重和汇总一致性](topics/flink-clickhouse-consistency.md) | `topics/flink-clickhouse-consistency.md` |
+| [不停机数据库迁移、切换与回退](topics/online-database-migration.md) | `topics/online-database-migration.md` |
+| [分布式调度、补数与结果发布](topics/distributed-scheduling-backfill.md) | `topics/distributed-scheduling-backfill.md` |
 | [Transactional Outbox、RocketMQ 与 Inbox 幂等消费](topics/outbox-rocketmq-inbox.md) | `topics/outbox-rocketmq-inbox.md` |
 | [Autowired 与 Resource 的依赖注入规则](@Autowired和@Resource注解的区别.md) | `@Autowired和@Resource注解的区别.md` |
 | [Autowired 自动装配实现](@Autowired的实现原理.md) | `@Autowired的实现原理.md` |
